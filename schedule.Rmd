@@ -143,13 +143,13 @@ Please read the specified sections *before* class that day.
   
   <div class="col-md-3">
 #### Wed, Sep 29
-+ Office hours: 10:50-12:05p
++ Office hours **on Zoom only**: 10:50-12:05p
   </div>
   
   <div class="col-md-3">
 #### Thurs, Sep 30
-+ Chapter 5 catch up
-+ Office hours: 1:20-2:35p
++ **Class cancelled**
++ Office hours **on Zoom only**: 1:20-2:35p
   </div>
   
   <div class="col-md-3">
@@ -164,7 +164,9 @@ Please read the specified sections *before* class that day.
 <div class="row">
   <div class="col-md-3">
 #### Tue, Oct 5
-+ Review for Exam 1
++ Blocking
++ Homework due today:
+    + Read **Stat2** Ch 6.1-6.2
   </div>
   
   <div class="col-md-3">
@@ -174,14 +176,15 @@ Please read the specified sections *before* class that day.
   
   <div class="col-md-3">
 #### Thurs, Oct 7
-+ **Exam 1 work time**
++ Fitting the model for a block design
++ Homework due today:
+    + Read Ch **Stat2** 6.3
 + Office hours: 1:20-2:35p
   </div>
   
   <div class="col-md-3">
 #### Fri, Oct 8
-+ Homework due today:
-    + **Exam due tonight at 11:55p**
++ No homework due
   </div>
 </div>
 
@@ -190,9 +193,9 @@ Please read the specified sections *before* class that day.
 <div class="row">
   <div class="col-md-3">
 #### Tue, Oct 12
-+ Blocking
++ Assessing the block design
 + Homework due today:
-    + Read **Stat2** Ch 6.1-6.2
+    + Read Ch **Stat2** 6.4
   </div>
   
   <div class="col-md-3">
@@ -202,15 +205,17 @@ Please read the specified sections *before* class that day.
   
   <div class="col-md-3">
 #### Thurs, Oct 14
-+ Fitting the model for a block design
++ Using the block design
 + Homework due today:
-    + Read Ch **Stat2** 6.3
+    + Read Ch **Stat2** 6.5
 + Office hours: 1:20-2:35p
   </div>
   
   <div class="col-md-3">
 #### Fri, Oct 15
-+ No homework due
++ Homework due today:
+    + **HW #5 due tonight at 11:55p**
+    + **Mini Project 1 due Tuesday morning** (upload to Moodle by Midnight)
   </div>
 </div>
 
@@ -219,9 +224,7 @@ Please read the specified sections *before* class that day.
 <div class="row">
   <div class="col-md-3">
 #### Tue, Oct 19
-+ Assessing the block design
-+ Homework due today:
-    + Read Ch **Stat2** 6.4
++ Review for Exam 1
   </div>
   
   <div class="col-md-3">
@@ -231,17 +234,14 @@ Please read the specified sections *before* class that day.
   
   <div class="col-md-3">
 #### Thurs, Oct 21
-+ Using the block design
-+ Homework due today:
-    + Read Ch **Stat2** 6.5
++ *Time to work on Exam 1**
 + Office hours: 1:20-2:35p
   </div>
   
   <div class="col-md-3">
 #### Fri, Oct 22
 + Homework due today:
-    + **HW #5 due tonight at 11:55p**
-    + **Mini Project 1 due Tuesday morning** (upload to Moodle by Midnight)
+    + **Exam 1 due tonight at 11:55p**
   </div>
 </div>
 
@@ -272,8 +272,7 @@ Please read the specified sections *before* class that day.
   
   <div class="col-md-3">
 #### Fri, Oct 29
-+ Homework due today:
-    + [**HW #6 due today at 11:55p**](homework.html) 
++ No homework due
   </div>
 </div>
 
@@ -305,8 +304,8 @@ Please read the specified sections *before* class that day.
   
   <div class="col-md-3">
 #### Fri, Nov 5
-
-
++ Homework due today:
+    + [**HW #6 due today at 11:55p**](homework.html) 
   </div>
 </div>
 
