@@ -1,7 +1,7 @@
 ---
-title: "SDS/MTH 290"
+title: "SDS 290"
 ---
 
-Welcome to Interterm 2021 SDS/MTH 290: Research Design and Analysis. You will find most of the course content here, but also please keep an eye on [Moodle](http://moodle.smith.edu) for grades and assignments. Use the server version of `RStudio` on the [web here](http://rstudio.smith.edu). 
+Welcome to Fall 2021 SDS 290: Research Design and Analysis. You will find most of the course content here, but also please keep an eye on [Moodle](http://moodle.smith.edu) for grades and assignments. Use the server version of `RStudio` on the [web here](http://rstudio.smith.edu). 
 
 ![](https://imgs.xkcd.com/comics/placebo_blocker.png)  
