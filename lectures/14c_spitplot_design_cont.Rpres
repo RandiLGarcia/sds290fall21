@@ -1,0 +1,183 @@
+Scatterplots for Within-Blocks Factors II
+========================================================
+author: Prof Randi Garcia
+date: February 3, 2021
+autosize: true
+transition: linear
+transition-speed: default
+font-family: 'Helvetica'
+
+  
+Announcements
+========================================================
+
+- HW6 grades posted
+- HW7 due tomorrow at 11:55p
+  - RE CH 7: A1-A3, A6, B5-B6, C1-C3, C6-C9
+  - C2 example on p. 240
+  - Watch video from Wednesday
+- MP2 pre-approval due Friday morning
+
+Agenda
+======================================================== 
+
+- Split plot designs
+  - Crossing versus nesting
+- Scatterplots for within-blocks factors  
+
+Split Plot Design
+=======================================================
+
+If you suspect a design in a split-plot design, you should be able to answer the following questions:
+
+1. What are the whole plots, that is, what is the blocking factor?
+2. What is the between-blocks factor? Is it observational or experimental?
+3. What is the within-blocks factor? Is it observational or experimental? 
+
+Crossing versus Nesting
+=======================================================
+
+1. **Crossing**: Two sets of treatments are crossed if all possible combinations of treatments occur in the design. The design is called a two-way factorial and has factorial treatment structure. 
+2. **Nesting**: One factor is nested within another if each level of the first ("inside") factor occurs with exactly one level of the second ("outside") factor.
+
+Example: Diabetic Dogs
+=======================================================
+
+The disease diabetes affects the rate of turnover of lactic acid in a system of biochemical reactions called the Cori cycle. This experiment compares two methods of using radioactive carbon-14 to measure rate of turnover. Method 1 is injection all at once, and method 2 is infused continuously. 10 dogs were sorted into two groups, 5 were controls and 5 had their pancreas removed (to make it diabetic). The rate of turnover was then measured twice for each dog, once for each method. The order of the two methods was randomly assigned. 
+
+Draw the factor diagram for the data on page 263. 
+
+Split Plot/Repeated Measures Design
+=======================================================
+
+![](02_four_designs-figure/SP_RM_data.png)
+![](02_four_designs-figure/SP_RM_small.png)
+
+- Can use **split plot** language if blocking is created by sub-dividing blocks 
+  (whole plot and subplot factors)
+- We can use the **repeated measures** language if blocking is created by reusing 
+  subjects/material (within and between subjects factors)
+- We can always use the terms **blocks** and **within-blocks** terminology
+
+Formal ANOVA for the Split Plot Design
+=======================================================
+
+$${y}_{ijk}={\mu}+{\alpha}_{i}+{\beta}_{j(i)}+{\gamma}_{k}+({\alpha\gamma})_{ik}+{e}_{ijk}$$
+
+- ${\mu}$ is the benchmark
+- ${\alpha}_{i}$ effect of level i of the between-blocks factor, $i$ from $1$ to $a$
+- ${\beta}_{j(i)}$ effect of block $j$ (for level $i$ of the between block factor), $j$ from $1$ to $n$
+- ${\gamma}_{k}$ effect of level $k$ of the within-block factor, $k$ from $1$ to $t$
+- $({\alpha\gamma})_{ik}$ interaction effect for level $i$ of the between-blocks factor with level $k$ of the within-blocks factor
+
+Formal ANOVA for the Split Plot Design
+=======================================================
+
+| Source | SS | df | MS | F |
+|------:|:-----:|:-----:|:------:|:------:|
+| Between | $t\frac{N}{a}\sum_{i=1}^{a}(\bar{y}_{i..}-\bar{y}_{...})^{2}$ | $a-1$ | $\frac{{SS}_{A}}{{df}_{A}}$ | $\frac{{MS}_{A}}{{MS}_{B}}$ |
+| Blocks | $t\sum_{i=1}^{a}\sum_{j=1}^{n}(\bar{y}_{ij.}-\bar{y}_{i..})^{2}$ | $N-a$ | $\frac{{SS}_{B}}{{df}_{B}}$ | $\frac{{MS}_{B}}{{MS}_{E}}$ |
+| Within | $Na\sum_{k=1}^{K}(\bar{y}_{..k}-\bar{y}_{...})^{2}$ | $t-1$ | $\frac{{SS}_{T}}{{df}_{T}}$ | $\frac{{MS}_{T}}{{MS}_{E}}$ |
+| Interaction | $\sum_{i=1}^{a}\sum_{k=1}^{t}\frac{N}{a}(\bar{y}_{i.k}-\bar{y}_{i..}-\bar{y}_{..k}+\bar{y}_{...})^{2}$ | $(a-1)(t-1)$ | $\frac{{SS}_{AT}}{{df}_{AT}}$ | $\frac{{MS}_{AT}}{{MS}_{E}}$ |
+| Error | $\sum_{i=1}^{a}\sum_{j=1}^{N}\sum_{k=1}^{t}({y}_{ijk}-\bar{y}_{i.k}-\bar{y}_{.j.}+\bar{y}_{i..})^{2}$ | $(N-a)(t-1)$ | $\frac{{SS}_{E}}{{df}_{E}}$ | |
+
+Scatterplots for Within-Blocks Factors
+=======================================================
+
+```{r, echo=FALSE}
+library(tidyverse)
+library(knitr)
+
+tree <- c(rep("tree1",3), rep("tree2",3), rep("tree3", 3),rep("tree4", 3), rep("tree5", 3))
+treatment <- rep(c("water", "spores", "oil"), 5)
+bugs_change <- c(-9, -4, 4, 18, 29, 29, 10, 4, 14, 9, -2, 14, -6, 11, 7)
+
+mealybugs <- data.frame(tree, treatment, bugs_change)
+```
+
+```{r}
+mod <- lm(bugs_change ~ tree + treatment, data = mealybugs)
+anova(mod)
+```
+
+Informal Analysis Structure
+=======================================================
+
+```{r}
+mealybugs %>%
+  spread(treatment, bugs_change) 
+```
+
+Scatterplots
+=======================================================
+
+Spores versus oil
+
+```{r}
+mealybugs %>%
+  spread(treatment, bugs_change) %>%
+  ggplot(aes(x = spores, y = oil)) +
+  geom_point() +
+  geom_abline(slope = 1, intercept = 8)
+```
+
+Scatterplots
+=======================================================
+
+Spores versus water
+
+```{r}
+mealybugs %>%
+  spread(treatment, bugs_change) %>%
+  ggplot(aes(x = spores, y = water)) +
+  geom_point() +
+  geom_abline(slope = 1, intercept = -5)
+```
+
+Scatterplots
+=======================================================
+
+Oil versus water
+
+```{r}
+mealybugs %>%
+  spread(treatment, bugs_change) %>%
+  ggplot(aes(x = oil, y = water)) +
+  geom_point() +
+  geom_abline(slope = 1, intercept = -13)
+```
+
+Analysis in R
+=======================================================
+
+[See r code](lectures/13_spitplot_design_inR.Rmd)
+
+Design practice
+=======================================================
+
+[Google slides for group work](https://docs.google.com/presentation/d/1T68byHKDVkNGKedKjl3uFLbrK6_NUKBeHPI7bvXi7Mo/edit?usp=sharing)
+
+Example from HW7: Parsnip Plants
+=======================================================
+
+Under the control conditions of this study, wild parsnip plants averaged about a thousand seeds from their first set of flowers (primary umbels), about twice as many from the second set of flowers, but only about 250 from the third set. For plants attacked by the parsnip webworm, which destroyed most of the primary umbels, the pattern was quite different: the seed production from primary, secondary, and tertiary umbels averaged about 200, 2400, and 1300, respectively.
+
+Swimsuit/Sweater Study
+=======================================================
+
+Objectification theory (Fredrickson & Roberts, 1997) posits that American culture socializes women to adopt observers' perspectives on their physical selves. This self-objectification is hypothesized to (a) produce body shame, which in turn leads to restrained eating, and (b) consume attentional resources, which is manifested in diminished mental performance. An experiment manipulated self-objectification by having participants try on a swimsuit or a sweater. Further, it tested 21 women and 20 men, in each conditiobn, and found that these effects on body shame and restrained eating replicated for women only. Additionally, self-objectification diminished math performance for women only. 
+
+Crabgrass
+=======================================================
+
+The purpose of this experiment was to study the way one species of crabgrass competed with itself and with another species for nitrogen (N), phosphorus (P), and potassium (K). Bunches of crabgrass were planted in vermiculite, in 16 Styrofoam cups; after the seeds head srouted, the plants were thinned to 20 plants per cup. Each of the 16 cups were randomly assigned to get one of 8 nutrient combinations added to its vermiculite. For example, yes-nitrogen/no-phosphorus/yes-potassium. The response is mean dry weight per plant, in milligrams.
+
+Osomoregulation
+=======================================================
+
+Worms that live at the mouth of a river must deal with varying concentrations of salt. Osomoregulating worms are able to maintain reltaively constant concentration of salt in the body. An experiment wanted to test the effects of mixtures of salt water on two species of worms: Nereis virens (N) and Goldfingia gouldii (G). Eighteen worms of each species were weighted, then randomly assigned in equal numbers to one of three conditions. Six worms of each kind were placed in 100% sea water, 67% sea water, or 33% sea water. The worms were then weighted after 30, 60, and 90 minutes, then placed in 100% sea water and weighted one last time 30 minutes later.  The response was body weight as percentage of initial body weight. 
+
+Creepy Animals
+=======================================================
+
+The effects of exposure to images of different domestic animal species in either aggressive or submissive postures on mood was tested with a split-plot/repeated measures design. Using a computer to randomize, participants were randomly assigned to either view images of dogs or images of cats. All participants saw both an aggressive animal and a submissive animal, and their moods were assessed via self-report after each image. The order of presentation (aggressive then submission, or submissive then aggressive) was randomized to control for order effects.

@@ -1,0 +1,283 @@
+Two-Way Basic Factorial Design (cont.)
+========================================================
+author: Prof Randi Garcia
+date: March 18, 2018
+autosize: true
+transition: linear
+transition-speed: default
+font-family: 'Helvetica'
+
+
+Reading Free-Write (10 minutes)
+========================================================
+
+  1. Write a short (~3 sentences) description of your 290 project study
+  2. If you have crossed factors of interest, write a hypothesis about the interaction effect. (if 
+     you have more than one type of crossing, pick one!)
+  3. Once the free-write is over, you will   
+      i. find two people who are both NOT in your group, and  
+      ii. take turns describing your studies to each other. 
+
+Announcements
+========================================================
+
+- Exam 1 grades
+- HW #6 due on Thursday 11:55pm on Moodle
+    - CITI training on Research Ethics
+- Projects
+    - Feedback on revised proposals given over email
+    - Make a calendar for data collection
+    - Final approval due on Mar 25
+- Gina DelCorazon lunchtime talk (free food!)
+    - Friday, March 22nd, 12:10p in McConnell B15
+- SDS Presentation of the major (free food!)
+    - Tuesday, March 26th, 12:15p in Ford Atrium
+
+Agenda
+========================================================
+
+- Mid-Semester Assessment
+- The BF[2] design continued
+
+<!-- Exam 1 -->
+<!-- ======================================================= -->
+
+<!-- - Great job! -->
+<!-- - Median = 93, Mean = 91.06, sd = 7.33 -->
+<!-- - Lots of trouble on the first question about the donuts. It was a BF[1] design, but many thought it was CB[1]. -->
+
+<!-- ```{r, echo = FALSE, warning=FALSE, message=FALSE} -->
+<!-- library(dplyr) -->
+<!-- library(ggplot2) -->
+<!-- library(mosaic) -->
+
+<!-- exam1 <- data.frame(scores = c(90, 84, 67, 95, 100, 93, 93, 94, 90, 95,  -->
+<!--            90, 93, 84, 95, 96, 81, 92, 100, 95, 93,  -->
+<!--            100, 91, 100, 89, 74, 85, 89, 100, 95,  -->
+<!--            87, 91, 93)) -->
+
+<!-- ggplot(exam1, aes(x = scores)) + -->
+<!--   geom_histogram(bins = 8) -->
+
+<!-- favstats(~scores, data = exam1) -->
+<!-- ``` -->
+
+Mid-Semester Assessment
+========================================================
+
+[Mid-Semester Assessment](https://smithcollege.qualtrics.com/jfe/form/SV_aarOllDLjTBFjgN)
+
+
+Piglets
+=======================================================
+It seems natural to think that adding the right vitamins to a pig's diet might produce fatter pigs faster. You've decided to study the effects of B12 in two doses (0mg and 5mg).  But pigs have bacteria living in their intestines that might prevent the uptake of vitamins, so you decided to give antibiotics to the pigs in one of two doses (0mg or 40 mg). You design your experiment in such a way that 3 piglets are randomly assigned to each of the 4 treatment conditions. You measure their weight every day, and take each pig's average daily weight gain as your final number recorded. 
+
+
+Research Questions in a BF[2] Design
+=======================================================
+
+1. Does treatment A have an effect on the response variable?
+    - Is there a main effect of factor 1?
+2. Does treatment B have an effect on the response variable?
+    - Is there a main effect of factor 2?
+3. Does being in a specific combination of treatments have an effect over and above the additive effects of treatment A and B alone?
+    - Is there an interaction between factor 1 and factor 2?
+
+
+Interaction Graphs
+=======================================================
+
+Mantra: An interaction is present if the effect of one factor is different across levels of the other factor. 
+
+For each of the following interaction graphs, answer the following questions with **YES** or **NO**.
+
+1. Is there a main effect of B12?
+2. Is there a main effect of antibiotics?
+3. Is there an interaction between B12 and antibiotics?
+
+Practice 1
+=======================================================
+
+```{r, echo = FALSE, warning=FALSE, message=FALSE}
+library(dplyr)
+library(ggplot2)
+piglets <- data.frame(gain = c(4, 4, 4, 
+                               5, 5, 5,
+                               6, 6, 6,
+                               7, 7, 7), 
+                      group = as.factor(c(rep(1, 3), rep(2, 3), rep(3, 3), rep(4, 3))), 
+                      antibiotic = c(rep("0mg", 3), rep("40mg", 3), rep("0mg", 3), rep("40mg", 3)),
+                      B12 = c(rep("0mg", 6), rep("5mg", 6)))
+
+ggplot(piglets, aes(x = B12, y = gain, 
+                    group = antibiotic, 
+                    linetype = antibiotic, 
+                    shape = antibiotic,
+                    color = antibiotic)) +
+  geom_point() +
+  geom_smooth(method = "lm", se = 0) +
+  ylim(2, 9)
+```
+
+Practice 1
+=======================================================
+
+```{r, echo = FALSE, warning=FALSE, message=FALSE}
+library(dplyr)
+library(ggplot2)
+piglets <- data.frame(gain = c(4, 4, 4, 
+                               5, 5, 5,
+                               6, 6, 6,
+                               7, 7, 7), 
+                      group = as.factor(c(rep(1, 3), rep(2, 3), rep(3, 3), rep(4, 3))), 
+                      antibiotic = c(rep("0mg", 3), rep("40mg", 3), rep("0mg", 3), rep("40mg", 3)),
+                      B12 = c(rep("0mg", 6), rep("5mg", 6)))
+
+ggplot(piglets, aes(x = B12, y = gain, 
+                    group = antibiotic, 
+                    linetype = antibiotic, 
+                    shape = antibiotic,
+                    color = antibiotic)) +
+  geom_point() +
+  geom_smooth(method = "lm", se = 0) +
+  ylim(2, 9)
+```
+
+***
+
+1. YES
+2. YES
+3. NO
+
+Practice 2
+=======================================================
+
+```{r, echo = FALSE, warning=FALSE, message=FALSE}
+library(dplyr)
+library(ggplot2)
+piglets <- data.frame(gain = c(4, 4, 4, 
+                               7, 7, 7,
+                               4, 4, 4,
+                               7, 7, 7), 
+                      group = as.factor(c(rep(1, 3), rep(2, 3), rep(3, 3), rep(4, 3))), 
+                      antibiotic = c(rep("0mg", 3), rep("40mg", 3), rep("0mg", 3), rep("40mg", 3)),
+                      B12 = c(rep("0mg", 6), rep("5mg", 6)))
+
+ggplot(piglets, aes(x = B12, y = gain, 
+                    group = antibiotic, 
+                    linetype = antibiotic, 
+                    shape = antibiotic,
+                    color = antibiotic)) +
+  geom_point() +
+  geom_smooth(method = "lm", se = 0) +
+  ylim(2, 9)
+```
+
+Practice 2
+=======================================================
+
+```{r, echo = FALSE, warning=FALSE, message=FALSE}
+library(dplyr)
+library(ggplot2)
+piglets <- data.frame(gain = c(4, 4, 4, 
+                               7, 7, 7,
+                               4, 4, 4,
+                               7, 7, 7), 
+                      group = as.factor(c(rep(1, 3), rep(2, 3), rep(3, 3), rep(4, 3))), 
+                      antibiotic = c(rep("0mg", 3), rep("40mg", 3), rep("0mg", 3), rep("40mg", 3)),
+                      B12 = c(rep("0mg", 6), rep("5mg", 6)))
+
+ggplot(piglets, aes(x = B12, y = gain, 
+                    group = antibiotic, 
+                    linetype = antibiotic, 
+                    shape = antibiotic,
+                    color = antibiotic)) +
+  geom_point() +
+  geom_smooth(method = "lm", se = 0) +
+  ylim(2, 9)
+```
+
+***
+
+1. NO
+2. YES
+3. NO
+
+
+Inside-outside Factors
+=======================================================
+
+![](09_bf2_design-figure/piglets.png)
+
+- Draw the factor diagram vertically and label all inside and outside factors with arrows. Include the universal factors (benchmark and residuals). 
+
+Mathematical notation
+=======================================================
+
+$${y}_{ijk}={\mu}+{\alpha}_{i}+{\beta}_{j}+{\alpha\beta}_{ij}+{e}_{ijk}$$
+
+- Where $i$, from 1 to $a$, is the level of the first factor,
+- $j$, from 1 to $b$, is the level of the second factor, 
+- and $k$, from 1 to $n$, is the observation in each cell. 
+
+Sum of Squares (SS)
+=======================================================
+
+$${SS}_{A} = \sum_{i=1}^{a}bn(\bar{y}_{i..}-\bar{y}_{…})^{2}$$
+
+$${SS}_{B} = \sum_{j=1}^{b}an(\bar{y}_{.j.}-\bar{y}_{…})^{2}$$
+
+$${SS}_{AB} = n\sum_{i=1}^{a}\sum_{j=1}^{b}(\bar{y}_{ij.}-\bar{y}_{i..}-\bar{y}_{.j.}+\bar{y}_{…})^{2}$$
+
+$${SS}_{E} = \sum_{i=1}^{a}\sum_{j=1}^{b}\sum_{k=1}^{n}({y}_{ijk}-\bar{y}_{ij.})^{2}$$
+
+
+Degrees of Freedom (df)
+=======================================================
+$${df}_{A}=a-1$$
+
+$${df}_{B}=b-1$$
+
+$${df}_{AB}=(a-1)(b-1)$$
+
+$${df}_{E}=ab(n-1)$$
+
+Mean Squares (MS) 
+=======================================================
+
+$${MS}_{A}=\frac{{SS}_{A}}{{df}_{A}}$$
+
+$${MS}_{B}=\frac{{SS}_{B}}{{df}_{B}}$$
+
+$${MS}_{AB}=\frac{{SS}_{AB}}{{df}_{AB}}$$
+
+$${MS}_{E}=\frac{{SS}_{E}}{{df}_{E}}$$
+
+
+F-ratios and the F-distribution
+=======================================================
+The ultimate statistics we want to calculate is Variability in treatment effects/Variability in residuals. The F-ratio.
+
+$$F = \frac{{MS}_{A}}{{MS}_{E}}$$
+
+$$F = \frac{{MS}_{B}}{{MS}_{E}}$$
+
+$$F = \frac{{MS}_{AB}}{{MS}_{E}}$$
+
+
+ANOVA Source Table for BF[2]
+=======================================================
+
+$${y}_{ijk}={\mu}+{\alpha}_{i}+{\beta}_{j}+{\alpha\beta}_{ij}+{e}_{ijk}$$
+
+| Source | SS | df | MS | F |
+|------:|:-----:|:-----:|:------:|:------:|
+| Treatment A | $\sum_{i=1}^{a}bn(\bar{y}_{i..}-\bar{y}_{…})^{2}$ | $a-1$ | $\frac{{SS}_{A}}{{df}_{A}}$ | $\frac{{MS}_{A}}{{MS}_{E}}$ |
+| Treatment B | $\sum_{j=1}^{b}an(\bar{y}_{.j.}-\bar{y}_{…})^{2}$ | $b-1$ | $\frac{{SS}_{B}}{{df}_{B}}$ | $\frac{{MS}_{B}}{{MS}_{E}}$ |
+| Interaction AB | $n\sum_{i=1}^{a}\sum_{j=1}^{b}(\bar{y}_{ij.}-\bar{y}_{i..}-\bar{y}_{.j.}+\bar{y}_{…})^{2}$ | $(a-1)(b-1)$ | $\frac{{SS}_{AB}}{{df}_{AB}}$ | $\frac{{MS}_{AB}}{{MS}_{E}}$ |
+| Error | $\sum_{i=1}^{a}\sum_{j=1}^{b}\sum_{k=1}^{n}({y}_{ijk}-\bar{y}_{ij.})^{2}$ | $ab(n-1)$ | $\frac{{SS}_{E}}{{df}_{E}}$ | |
+
+BF[2] in R
+=======================================================
+
+[See BF2 code](http://www.science.smith.edu/~rgarcia/sds290-S18/lectures/09_bf2_inR.Rmd)

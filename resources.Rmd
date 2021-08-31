@@ -1,0 +1,39 @@
+---
+title: 'Resources'
+---
+
+* [Smith Moodle](http://moodle.smith.edu)
+* [Basic Math Reviewsheet](Basic Math Review.pdf)
+* [OpenIntro with Randomization and Simulation](http://www.openintro.org/stat/index.php?stat_book=isrs)
+    + [PDF](http://www.openintro.org/download.php?file=isrs1&referrer=/stat/textbook.php) of the textbook
+    + R packages: `openintro` and `OIdata`
+    + Click on "Typos and feedback" to send corrections to the authors
+    + an online [survey](https://docs.google.com/a/smith.edu/forms/d/1BNFNwpQUEqVG0ESisZlNI4u85IvojvqpmP8fyb1rwZw/viewform)
+* RStudio IDE
+    + Choose one of two options:
+        1. Log on to the Smith College [RStudio Server](http://rstudio.smith.edu:8787)
+        2. Download and install [RStudio Desktop](http://www.rstudio.com/products/rstudio/)
+            + Download and install [R](http://cran.us.r-project.org/)
+    + Learn more about [R Markdown](http://rmarkdown.rstudio.com/)
+        + printable [Reference Guide for R Markdown](https://www.rstudio.com/wp-content/uploads/2015/02/rmarkdown-cheatsheet.pdf)
+    + RStudio's [cheatsheets](http://www.rstudio.com/resources/cheatsheets/) for:
+        + [R Markdown](https://www.rstudio.com/wp-content/uploads/2016/03/rmarkdown-cheatsheet-2.0.pdf)
+        + [Data Wrangling with `dplyr`](https://www.rstudio.com/wp-content/uploads/2015/02/data-wrangling-cheatsheet.pdf)
+        + [Data Visualization with `ggplot2`](https://www.rstudio.com/wp-content/uploads/2015/12/ggplot2-cheatsheet-2.0.pdf)
+    + Packages you should install: `mosaic`, `mosaicData`, `openintro`, `OIdata`, `knitr`, `markdown`
+    + Interactive tutorials via [swirl](http://swirlstats.com/students.html) and [DataCamp](https://www.datacamp.com/)
+* Using R with the `mosaic` package 
+    + the `mosaic` [package](http://cran.r-project.org/web/packages/mosaic/index.html)
+    + [Graphics with mosaic](https://cran.r-project.org/web/packages/mosaic/vignettes/GraphicsWithMosaic.html)
+    + [Less Volume, More Creativity](https://cran.r-project.org/web/packages/mosaic/vignettes/LessVolume-MoreCreativity.html)
+    + [Minimal R](https://cran.r-project.org/web/packages/mosaic/vignettes/MinimalR.pdf) for Intro Stats: one page handout with R commands
+    + [mosaic resources](https://cran.r-project.org/web/packages/mosaic/vignettes/mosaic-resources.html)
+    + [A Student's Guide to R](https://github.com/ProjectMOSAIC/LittleBooks/raw/master/StudentGuide/MOSAIC-StudentGuide.pdf)
+    + [Randomization-based inference using the mosaic package](https://cran.r-project.org/web/packages/mosaic/vignettes/Resampling.pdf)
+    + [Data Computing](http://data-computing.org/) at Macalester
+* Quantitative Resources on campus
+    + [Statistics TAs](http://www.smith.edu/qlc/tutoring.html#S2) are available Sunday through Thursday from 7-9 pm in Burton 301
+    + visit the [Spinelli Center for Quantitative Learning](http://www.smith.edu/qlc/)
+    + list of [single-topic workshops](http://www.smith.edu/qlc/workshop_single_topics.html) hosted by the Spinelli Center
+
+

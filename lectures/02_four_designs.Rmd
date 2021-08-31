@@ -1,0 +1,56 @@
+---
+title: "02 - Four Designs"
+author: "Randi L. Garcia"
+date: "January 6, 2021"
+output: html_document
+---
+
+#Data Analysis
+
+Loading data.
+
+```{r, message=FALSE, warning=FALSE}
+library(dplyr)
+library(tidyr)
+library(ggplot2)
+library(readr)
+
+animals <- read_csv("https://randilgarcia.github.io/sds290interterm21/animal_data.csv")
+#hamsters <- read_csv("https://randilgarcia.github.io/sds290interterm21/KellysHamsters.csv")
+```
+
+Cleaning the data
+
+```{r, message=FALSE, warning=FALSE}
+animals <- animals %>%
+  mutate(pID = seq.int(1, nrow(animals))) %>%
+  select(pID, order, animal, 
+         cute_calm, scary_calm, 
+         cute_happy, scary_happy, 
+         cute_nerv, scary_nerv, 
+         cute_scared, scary_scared) %>%
+  mutate_at(vars(cute_calm:scary_scared), as.numeric) %>%
+  slice(3:length(animals))
+```
+
+Another way to think of the data
+
+```{r}
+animals_long <- animals %>%
+  gather(var, value, cute_calm:scary_scared) %>%
+  separate(var, c("cue", "emotion"), sep = "_") %>%
+  spread(emotion, value) 
+```
+
+Visualizing the variance
+
+```{r}
+#how do we visualize variability?
+qplot(x = calm, data = animals_long, bins = 5)
+```
+
+```{r}
+#looking at variability by condition
+ggplot(animals_long, aes(x = animal, fill = cue, y = calm)) +
+  geom_boxplot()
+```
