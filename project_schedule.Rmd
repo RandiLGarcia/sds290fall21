@@ -1,0 +1,28 @@
+---
+title: "Project Schedule"
+---
+![xkcd](https://imgs.xkcd.com/comics/placebo_blocker.png)
+
+All submissions will be made via Moodle. 
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
+library(knitr)
+library(dplyr)
+
+
+`Project Component` <- c("Initial Group Project Proposal", "Group Project Update/Method Draft",
+                "Project Final Approval", "Final Poster and Presentation", "Final Technical Report", "Group Dynamic Report")
+
+`Percent of Final Grade` <- c("5%", "5%", "2%", "10%", "12%", "1%")
+
+`Due Date` <- c("February 22", "March 4", "March 25", "May 2", "May 8", "May 8")
+
+kable(cbind(`Project Component`, `Percent of Final Grade`, `Due Date`))
+```
+
+
+<!--
+        Draft handout            4/28      10 pts  MTH/SDS 220 Group-X Draft Handout
+
+-->
+

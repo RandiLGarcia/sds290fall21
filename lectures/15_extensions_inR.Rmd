@@ -1,0 +1,102 @@
+---
+  title: "Model Extensions in R"
+author: "Randi Garcia and Katherine Halvorsen"
+---
+  
+```{r global-options, include=FALSE}
+knitr::opts_chunk$set(eval = FALSE)
+library(dplyr)
+library(lattice)
+library(ggplot2)
+library(tidyr)
+library(mosaic)
+library(forcats)
+```
+
+# SP/RM[2,1]
+
+## Data
+
+```{r}
+osmo <- read.csv("http://www.science.smith.edu/~rgarcia/sds290-S18/osmoregulation3.csv")
+```
+
+```{r}
+osmo <- osmo %>%
+  mutate(Worms = as.factor(Worms),
+         Time = as.factor(Time),
+         Species = as.factor(Species),
+         Concentration = as.factor(Concentration))
+```
+
+## Informal analyses
+
+```{r}
+ggplot(osmo, aes(x = Concentration, y = Data, color = Species)) +
+  geom_boxplot()
+```
+
+```{r}
+ggplot(osmo, aes(x = Time, y = Data, color = Species)) +
+  geom_boxplot()
+```
+
+```{r}
+ggplot(osmo, aes(x = Time, y = Data, color = Concentration)) +
+  geom_boxplot()
+```
+
+Facet wrap for 3-way interaction plots
+
+```{r}
+ggplot(osmo, aes(x = Time, y = Data, color = Species)) +
+  geom_boxplot() +
+  facet_wrap(~Concentration)
+```
+
+## Formal Analysis
+
+ANOVA
+
+```{r}
+mod <- aov(Data ~ Time*Concentration*Species + Error(Worms) + Concentration*Species, data = osmo)
+
+summary(mod)
+```
+
+You can also do this with a linear model. 
+
+```{r}
+library(lme4)
+library(lmerTest)
+
+mod2 <- lmer(Data ~ Time*Concentration*Species + (1|Worms) + Concentration*Species, data = osmo)
+
+summary(mod2)
+```
+
+# Compound Within-Block Factors, CB[2]
+
+```{r}
+subject <- c(rep("1", 4), rep("2", 4), rep("3", 4), rep("4", 4),
+             rep("5", 4), rep("6", 4), rep("7", 4), rep("8", 4))
+treatment <- rep(c("control", "clamped"), 16)
+vein <- rep(c(rep("hepatic", 2), rep("portal", 2)), 8)
+pressure <- c(27, 17, 72, 81, 33, 15, 61, 46,
+              33, 22, 54, 44, 27,22, 36, 41,
+              36, 26, 54, 66, 30, 23, 43, 42,
+              33, 31, 33, 32, 25, 27, 35, 26)
+  
+oxygen <- data.frame(subject, treatment, vein, pressure)
+```
+
+```{r}
+ggplot(oxygen, aes(x = treatment, y = pressure, color = vein)) +
+  geom_boxplot()
+```
+
+```{r}
+mod <- aov(pressure ~ treatment*vein + Error(subject/(treatment*vein)), data = oxygen)
+
+summary(mod)
+```

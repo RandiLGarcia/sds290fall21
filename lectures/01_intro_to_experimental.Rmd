@@ -1,0 +1,38 @@
+---
+title: "01 - Intro to Experimental Design"
+author: "Randi L. Garcia"
+date: "January 29, 2018"
+output: html_document
+---
+
+#Data Analysis
+
+Loading data from Qualtrics.
+
+```{r}
+library(qualtRics)
+library(dplyr)
+
+registerOptions(api_token="Imlx0OAu6VhzxcDVt8XDsngLMji4RqcIjVWRheJv", 
+                root_url="https://smithcollege.qualtrics.com", useLabels = FALSE)
+
+surveys <- getSurveys()
+animals <- getSurvey(surveyID = as.character(surveys$id[17]), force_request = TRUE)
+```
+
+Cleaning the data
+
+```{r}
+animals <- animals %>%
+  mutate(pID = seq.int(1, nrow(animals))) %>%
+  select(pID, order, animal, cute_calm, scary_calm, cute_happy, scary_happy, 
+         cute_nerv, scary_nerv, cute_scared, scary_scared)
+```
+
+Basic statistics
+
+```{r}
+library(mosaic) 
+
+tally(animal~order, data = animals)
+```

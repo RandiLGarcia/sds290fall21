@@ -1,0 +1,169 @@
+Formal ANOVA III
+========================================================
+author: Prof Randi Garcia
+date: January 14, 2021
+autosize: true
+transition: linear
+transition-speed: default
+font-family: 'Helvetica'
+
+
+Reading Contemplation Question
+========================================================
+
+  1. Explain the design prinicipal of randomization. How does randomization convert 
+     variability due to differences in the experimental material into chance-like error?
+
+Announcements
+========================================================
+
+- HW3 due tonight at 11:55p
+  - Try to submit as PDF file
+  - Randi's office hours 3-5p. [sign-up](https://randigarcia.youcanbook.me/)
+- MP1 survey due for pre-approval Mon 9:20a  
+- HW4 due on Tuesday 9:20a
+- HW5 due will be posted later today
+
+Agenda
+========================================================
+
+- Zoom polls 
+- Introduce Analysis of variance (ANOVA)
+- ANOVA for the BF[1] Design    
+
+Zoom Polls
+=======================================================
+
+
+Leafhopper survival
+=======================================================
+It is reasonable to assume that the structure of a sugar molecule has something to do with its food value.
+An experiment was conducted to compare the effects of four sugar diets on the survival of leafhoppers. The four diets were glucose and fructose (6-carbon atoms), sucrose (12-carbon), and a control (2% agar). The experimenter prepared two dishes with each diet, divided the leafhoppers into eight groups of equal size, and then randomly assigned them to dishes. Then she counted the number of days until half the insects had died in each group.
+
+Decomposing the data
+=======================================================
+```{r, echo = FALSE}
+library(knitr)
+library(dplyr)
+library(tidyr)
+library(mosaic)
+library(ggplot2)
+
+kable(data.frame(control = c(2.3,1.7), sucrose = c(3.6, 4.0), glucose = c(3.0,2.8), fructose = c(2.1,2.3)))
+```
+
+- Draw the factor diagram, including the benchmark and residuals.
+
+Leafhoppers
+=======================================================
+
+Bar graph of treatment condition averages. 
+
+```{r, echo=FALSE}
+library(knitr)
+library(dplyr)
+library(tidyr)
+library(mosaic)
+library(ggplot2)
+leaf <- data.frame(diet = c("control","control","sucrose", "sucrose", "glucose", "glucose", "fructose","fructose"), days = c(2.3,1.7,3.6,4.0,3.0,2.8,2.1,2.3))
+leaf %>%
+  group_by(diet) %>%
+  summarise(means = mean(days)) %>%
+  mutate(bench = mean(means)) %>%
+ggplot(aes(x = diet, y = means)) +
+  geom_bar(stat = "identity") +
+  geom_hline(aes(yintercept = bench), color = "red") 
+
+
+leaf <- leaf %>%
+  mutate(benchmark = mean(days)) %>%
+  group_by(diet) %>%
+  mutate(grp_mean = mean(days),
+         diet_effect = grp_mean - benchmark) %>%
+  ungroup() %>%
+  mutate(fitted = benchmark + diet_effect,
+         resid = days - grp_mean,
+         resid_alt = days - fitted)
+```
+
+***
+
+- We need to start thinking about if those differences in treatment means are real, or could possibly be due to chance error. 
+- To your factor diagram, let's add in the benchmark, the effects for diet, and the residuals
+```{r, echo = FALSE}
+kable(data.frame(' ' = c("","","means"), control = c(2.3,1.7, 2.0), sucrose = c(3.6, 4.0, 3.8), glucose = c(3.0,2.8,2.9), fructose = c(2.1,2.3,2.2)))
+```
+
+Analysis of Variance ANOVA
+=======================================================
+Formal ANOVA starts with the simple idea that we can compare our estimate of **treatment effect variability** to our estimate of **chance error variability** to measure how large our treatment effect is. 
+
+Variability in treatment effects = True Effect Differences + Error
+
+Variability in residuals = Error
+
+Variability in treatment effects/Variability in residuals
+
+- If our null hypothesis is, ${H}_{0}$: True Effect Differences $=0$, then what would we expect the following ratio to equal?
+
+
+Sum of Squares (SS)
+=======================================================
+ANOVA measures variability in treatment effects with the sum of squares (SS) divided by the number of units of unique information (df). For the BF[1] design,
+
+$${SS}_{Treatments} = n\sum_{i=1}^{a}(\bar{y}_{i.}-\bar{y}_{..})^{2}$$
+
+$${SS}_{E} = \sum_{i=1}^{a}\sum_{j=1}^{n}({y}_{ij}-\bar{y}_{i.})^{2}$$
+
+$${SS}_{Total} = {SS}_{Treatments} + {SS}_{E}$$
+
+where $n$ is the group size, and $a$ is the number of treatments.
+
+Degrees of Freedom (df)
+=======================================================
+The df for a table equals the number of free numbers, the number of slots in the table you can fill in before the pattern of repetitions and adding to zero tell you what the remaining numbers have to be. 
+
+$${df}_{Treatments}=a-1$$
+
+$${df}_{E}=N-a$$
+
+Mean Squares (MS)
+=======================================================
+The ultimate statistic we want to calculate is Variability in treatment effects/Variability in residuals.
+
+**Variability in treatment effects**:
+$${MS}_{Treatments}=\frac{{SS}_{Treatments}}{{df}_{Treatments}}$$
+
+**Variability in residuals**
+$${MS}_{E}=\frac{{SS}_{E}}{{df}_{E}}$$
+
+
+F-ratios and the F-distribution
+=======================================================
+The ratio of these two MS's is called the F ratio. The following quantity is our test statistic for the null hypothesis that there are no treatment effects.
+
+$$F = \frac{{MS}_{Treatments}}{{MS}_{E}}$$
+
+If the null hypothesis is true, then F is a random variable $\sim F({df}_{Treatments}, {df}_{E})$. The [F-distribution](https://en.wikipedia.org/wiki/F-distribution).
+
+```{r, eval=FALSE}
+qplot(x = rf(500, 3, 4), geom = "density")
+```
+
+Inference Testing in ANOVA
+=======================================================
+
+${H}_{0}:\tau_1=\tau_2=\tau_3=\tau_4$
+
+We can find the p-value for our F calculation with the following code
+
+```{r, eval=FALSE}
+pf(17.67, 3, 4, lower.tail = FALSE)
+```
+
+<!-- DO FULL ANOVA TABLE ON BOARD FOR LEAFHOPPERS -->
+
+ANOVA in R
+=======================================================
+
+- Analyzing the leafhopper data in R. [code here](https://randilgarcia.github.io/sds290interterm21/lectures/05_formal_anova.Rmd)

@@ -1,0 +1,140 @@
+---
+title: "Piglets Data BF[2]"
+author: "Randi Garcia"
+---
+  
+```{r global-options, include=FALSE}
+knitr::opts_chunk$set(eval = FALSE)
+library(dplyr)
+library(lattice)
+library(ggplot2)
+library(tidyr)
+library(dae)
+library(mosaic)
+```
+
+#Enter the data
+
+```{r}
+piglets <- data.frame(gain = c(1.3, 1.19, 1.08, 
+                               1.05, 1.0, 1.04,
+                               1.26, 1.21, 1.19,
+                               1.52, 1.56, 1.54), 
+                      group = as.factor(c(rep(1, 3), rep(2, 3), rep(3, 3), rep(4, 3))), 
+                      antibiotic = c(rep("0mg", 3), rep("40mg", 3), rep("0mg", 3), rep("40mg", 3)),
+                      B12 = c(rep("0mg", 6), rep("5mg", 6)))
+```
+
+#Explore the Data
+
+First we get the cell counts. 
+
+```{r}
+tally(~ B12|antibiotic, data = piglets)
+```
+
+Then we look at it visually. 
+
+```{r}
+ggplot(piglets, aes(x = gain)) + geom_histogram(bins = 6)
+
+ggplot(piglets, aes(x = group, y = gain)) + 
+  geom_boxplot()
+```
+
+As an alternative to the `ggplot()` code above using `group`. 
+
+```{r}
+ggplot(piglets, aes(x = interaction(B12, antibiotic), y = gain)) + 
+  geom_boxplot()
+```
+
+Create a parallel dot plot for piglets data
+
+```{r}
+ggplot(piglets, aes(x = B12, y = gain, shape = antibiotic, color = antibiotic)) +
+  geom_point(size = 2.5)
+
+ggplot(piglets, aes(x = B12, y = gain, fill = antibiotic)) +
+  geom_boxplot()
+```
+
+#Check for Equal Variances
+
+```{r}
+favstats(~gain, data = piglets)
+favstats(gain~group, data = piglets)[,c(1,7:8)]
+
+favstats(gain ~ antibiotic|B12, data = piglets)[,c(1,7:8)]
+favstats(gain ~ B12|antibiotic, data = piglets)[,c(1,7:8)]
+```
+
+Note variances unequal. Try log transformation. p 217 in text: transformation made to make hand calculations easier.
+
+```{r}
+piglets <- piglets %>%
+  mutate(lgain = log10(gain),
+         new_gain = (gain-1)*100) 
+
+favstats(lgain ~ antibiotic|B12, data = piglets)[,c(1,7:8)]
+
+ggplot(piglets, aes(x = interaction(B12, antibiotic), y = lgain)) + 
+  geom_boxplot()
+```
+
+
+```{r}
+favstats(new_gain ~ antibiotic|B12, data = piglets)[,c(1,7:8)]
+
+piglets %>%
+  group_by(antibiotic, B12) %>%
+  summarize(mean = mean(new_gain),
+            sd = sd(new_gain))
+
+ggplot(piglets, aes(x = interaction(B12, antibiotic), y = new_gain)) + 
+  geom_boxplot()
+```
+
+#Formal Analysis
+
+Run two-way ANOVA without the interaction term.
+
+```{r}
+mod1 <- lm(new_gain ~ antibiotic + B12, data = piglets)
+
+anova(mod1)
+```
+
+##Interactions
+
+Check for interactions: Create an interaction plot.
+
+```{r}
+ggplot(piglets, aes(x = B12, y = new_gain, 
+                    group = antibiotic, 
+                    linetype = antibiotic, 
+                    shape = antibiotic,
+                    color = antibiotic)) +
+  geom_jitter(height = 0, width = 0.03, alpha = .7) +
+  geom_smooth(method = "lm", se = 0)
+```
+
+Conduct a two-way ANOVA
+
+```{r}
+mod2 <- lm(new_gain ~ antibiotic * B12, data = piglets)
+
+anova(mod2)
+```
+
+#Residual Analysis 
+
+Check conditions on the residuals
+
+```{r}
+par(mfrow=c(1,3))
+hist(mod2$residuals)
+qqnorm(mod2$residuals)
+plot(mod2$fitted.values,mod2$residuals)
+```
+

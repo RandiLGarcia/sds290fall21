@@ -1,0 +1,105 @@
+---
+title: "BF[1] in R"
+author: "Randi L. Garcia"
+output: html_document
+---
+
+# Loading data
+
+```{r, warning=FALSE, message=FALSE}
+library(dplyr)
+library(mosaic)
+library(ggplot2)
+
+parks <- data.frame(passes = c(rep(0, 4), rep(25, 4), 
+                            rep(75, 4), rep(200, 4), 
+                            rep(500, 4)), 
+                    height = c(20.7, 15.9, 17.8, 17.6, 
+                            12.9, 13.4, 12.7, 9.0, 
+                            11.8, 12.6, 11.4, 12.1, 
+                            7.6, 9.5, 9.9, 9.0, 
+                            7.8, 9.0, 8.5, 6.7))
+
+parks <- parks %>%
+  mutate(passes = as.factor(passes))
+
+```
+
+# Informal Analysis
+
+```{r}
+parks %>%
+  group_by(passes) %>%
+  summarise(mean = mean(height),
+            sd = sd(height)) 
+```
+
+```{r}
+2.022/0.506
+```
+
+We might consider a transformation. The ratio of largest to smallest SD is greater than 3. But it only gets worse when I try log, or sqrt. It doesn't look so bad when we make a parallel boxplot, and the sd does not seem related to the mean. 
+
+```{r}
+ggplot(parks, aes(x = passes, y = height)) +
+  geom_point()
+```
+
+
+# Formal ANOVA
+
+ANOVA for BF[1] design
+
+```{r}
+mod <- lm(height ~ passes, data = parks)
+
+anova(mod)
+```
+
+Testing residuals
+
+```{r}
+parks <- parks %>%
+  mutate(residuals = residuals(mod),
+         SD = sqrt(2.062))
+```
+
+```{r}
+ggplot(parks, aes(x = residuals)) +
+  geom_histogram(bins = 10) +
+  geom_vline(aes(xintercept = SD), color = "blue") +
+  geom_vline(aes(xintercept = -SD), color = "blue")
+```
+
+By the empirical rule, about 2/3 of the residuals should be within 1 standard deviation. 
+
+# ANOVA as a Linear Model
+
+```{r}
+parks <- parks %>%
+  mutate(trampled = ifelse(passes == 0, 0, 1))
+```
+
+```{r}
+parks %>%
+  group_by(trampled) %>%
+  summarise(mean = mean(height))
+```
+
+
+```{r}
+mod2 <- lm(height ~ trampled, data = parks)
+
+summary(mod2)
+anova(mod2)
+```
+
+```{r}
+t.test(height ~ trampled, data = parks, var.equal = TRUE)
+```
+
+They all have the same p-value. Further, the t-value (in both t-tests) is the `sqrt()` of the F-value. 
+
+```{r}
+sqrt(42.476)
+```

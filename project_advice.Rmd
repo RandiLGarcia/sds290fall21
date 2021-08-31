@@ -1,0 +1,20 @@
+---
+title: "Project Advice"
+---
+
+Every project is different, but here is some general advice culled from years of experience.
+
++ DO examine the distribution of your response variable. If it is non-normal, and your residuals are non-normal, you might want to try to transform the response variable. If the distribution of the response is right-skewed, then applying a `log()` transformation can often fix many problems. Read [this](http://www.kenbenoit.net/courses/ME104/logmodels2.pdf)
+    + DO think **very carefully** about how this changes the interpretation of your coefficients!! Try writing out the equation of the regression model. How does a one unit change in the explanatory translate into a one unit change in the response?
++ DON'T spend a lot of time worrying about model selection (e.g. backwards-elimination, etc.). Remember that there is no "best" model, and model pruning is most useful for predicting future values of the response variable, which is not the focus of most of your projects. We are far more interested in your ability to correctly interpret model coefficients, assess statistical significance, and analyze residuals, then we are in your ability to do model selection. 
++ DO consider using logistic regression if your response variable is binary (see Ch. 6.3 in OpenIntro)
++ DO include [more advanced elements of R Markdown](http://rmarkdown.rstudio.com/authoring_pandoc_markdown.html) -- such as images, table, links, and references -- in your write-up where appropriate. 
++ DO investigate the bivariate relationships between your variables. Are any of them highly correlated? 
++ DO carefully consider what to do about missing data. If you have a single variable that has a lot of missingness, can it be omitted from the model? 
++ DO disclose what you have done with the missing data. Were the data *missing at random*? Could the omission of these data have introduced some bias into your sample? 
++ DO spend a few minutes at the beginning of your talk introducing and motivating the problem, and providing context for your data and your question. 
++ DON'T forget to include a short limitation section at the end of your talk and your write-up. 
++ DON'T forget to do residual analysis.
++ DO employ judicious rounding to make your results easier to read. 
++ DON'T forget about the [Ecological Fallacy](https://en.wikipedia.org/wiki/Ecological_fallacy) -- if you have data about states or counties, you cannot interpret your results in terms of individual people.
++ DO **focus on relating to your audience what they can learn about the real-world problem from your model**.

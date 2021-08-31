@@ -1,0 +1,106 @@
+---
+title: "05 - Formal ANOVA"
+author: "Randi L. Garcia"
+date: "January 20, 2021"
+output: html_document
+---
+
+# Loading data
+
+```{r, warning=FALSE, message=FALSE}
+library(dplyr)
+library(mosaic)
+library(ggplot2)
+
+leaf <- data.frame(diet = c("control", "control", "sucrose", "sucrose", 
+                            "glucose", "glucose", "fructose", "fructose"), 
+                   days = c(2.3, 1.7, 3.6, 4.0, 3.0, 2.8, 2.1, 2.3))
+```
+
+# Visualize the means
+
+```{r}
+leaf %>%
+  group_by(diet) %>%
+  summarise(means = mean(days)) %>%
+  mutate(bench = mean(means)) %>%
+ggplot(aes(x = diet, y = means)) +
+  geom_bar(stat = "identity") +
+  geom_hline(aes(yintercept = bench), color = "red") 
+```
+
+```{r}
+#although only two observations per condition
+leaf %>%
+  group_by(diet) %>%
+  summarise(sd = sd(days))
+```
+
+
+# Calculating effects to go in factor diagram
+
+```{r}
+leaf <- leaf %>%
+  mutate(benchmark = mean(days)) %>%
+  group_by(diet) %>%
+  mutate(grp_mean = mean(days),
+         diet_effect = grp_mean - benchmark) %>%
+  ungroup() %>%
+  mutate(fitted = benchmark + diet_effect,
+         resid = days - grp_mean,
+         resid_alt = days - fitted)
+```
+
+# Formal ANOVA
+
+The F-distribution
+
+```{r, warning=FALSE}
+qplot(x = rf(5000, 3, 4), geom = "density") +
+  xlim(0, 20)
+```
+
+Finding the p-value for our test statistic
+
+```{r}
+pf(17.67, 3, 4, lower.tail = FALSE)
+```
+
+ANOVA for BF[1] design
+
+```{r}
+mod <- lm(days ~ diet, data = leaf)
+
+anova(mod)
+```
+
+# Pairwise tests
+
+You will learn much more about what are called **post hoc tests** in Chapter 11. But basically, we can do pairwise comparisons, think independent samples t-test between conditions.
+
+For example:
+
+```{r}
+leaf %>%
+  filter(diet == "control" | diet == "sucrose") %>%
+  t.test(days ~ diet, data = .)
+
+leaf %>%
+  filter(diet == "control" | diet == "sucrose") %>%
+  t.test(days ~ diet, data = ., var.equal = TRUE)
+```
+
+Or using the linear model from above
+
+```{r}
+summary(mod)
+confint(mod)
+```
+
+We probably want to adjust for multiple comparisons to control our **experimentwise type I error rate**. 
+
+```{r}
+TukeyHSD(mod, "diet")
+```
+
+

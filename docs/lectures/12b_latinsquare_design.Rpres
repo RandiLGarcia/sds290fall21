@@ -1,0 +1,347 @@
+Latin Square Design
+========================================================
+author: Prof Randi Garcia
+date: January 27, 2021
+autosize: true
+transition: linear
+transition-speed: default
+font-family: 'Helvetica'
+
+Reading contemplation question
+========================================================
+
+  1. Imagine a latin square design where the factor of interest has four levels. How many levels will 
+  you need of the blocking factor 1? How many levels of blocking factor 2? 
+
+Announcements
+========================================================
+
+- Quiz 1 due on Thursday 11:55p
+- HW6 due on Tuesday 9:20a
+- MP2 starts tonight!
+    
+Agenda
+========================================================
+
+- ANOVA for CB[1]
+- Latin square designs
+
+Example
+=======================================================
+
+[Google slides](https://docs.google.com/presentation/d/1Vjc7pDzjC8iCOuMInZxrV7zOM2wuJ8h9G9qR7291l-A/edit?usp=sharing)
+
+Male albino laboratory rats are used routinely in many kinds of experiments. This experiment was designed to determine the requirements for protein and amino acid threonine in their food. Specifically, the experiment is interested in testing the combinations of eight levels of threonine (.2 through .9% of diet) and five levels of protein (8.68, 12, 15, 18, and 21% of diet). Baby rats were separated into five groups of 40 to form groups of approximately the same weight. The 40 rats in each group were randomly assigned to each of the 40 conditions. Body weight and food consumption were measured twice weekly, and the average daily weight gain over 21 days was recorded.
+
+Example - Basic Factorial Design [2]
+=======================================================
+
+Male albino laboratory rats are used routinely in many kinds of experiments. This experiment was designed to determine the requirements for protein and amino acid threonine in their food. Specifically, the experiment is interested in testing the combinations of eight levels of threonine (.2 through .9% of diet) and five levels of protein (8.68, 12, 15, 18, and 21% of diet). 200 baby rats were randomly assigned to each of the 40 conditions. Body weight and food consumption were measured twice weekly, and the average daily weight gain over 21 days was recorded.
+
+Example
+=======================================================
+
+This experiment is interested in the blood concentration of a drug after it has been administered. The concentration will start at zero, then go up, and back down as it is metabolized. This curve may differ depending on the form of the drug (a solution, a tablet, or a capsule). We will use three subjects, and each subject will be given the drug three times, once for each method. The area under the time-concentration curve is recorded for each subject after each method of drug delivery.   
+
+Example - Basic Factorial Design
+=======================================================
+
+This experiment is interested in the blood concentration of a drug after it has been administered. The concentration will start at zero, then go up, and back down as it is metabolized. This curve may differ depending on the form of the drug (a solution, a tablet, or a capsule). We will use nine subjects, and randomly assign subjects to one of the three delivery methods. The area under the time-concentration curve is recorded for each subject after being given the drug.
+
+
+Design Principal: Blocking
+=======================================================
+
+- Blocking is using a factor that is not of research interest
+    – But there may be differences across blocks on the response variable
+- A "block" is a level of a blocking factor
+- We use blocking to improve precision/statistical power of our factor of interest
+
+
+Three Ways to Block
+=======================================================
+
+1. Sort units into similar groups
+    - Albino rats
+2. Subdivide larger chunks of material into sets of smaller pieces
+    - Mealybug trees
+3. Reuse subjects or material in each of several times slots
+    - Drug study
+
+
+Complete Block Design, CB[1]
+=======================================================
+
+- Experimental material are separated into groups (or reused) to create similar units 
+- Then each unit within a block is then is assigned one level of the factor of interest
+- "Complete Block" means that every block x treatment combination is tested
+
+Inappropriate Insects
+=======================================================
+
+Modern zoos try to reproduce natural habitats in their exhibits as much as possible. They try to use appropriate plants, but these plants can be infested with inappropriate insects. Cycads (plants that look vaguely like palms) can be infected with mealybugs, and the zoo wishes to test three treatments: 1) water, 2) horticultural oil, and 3) fungal spores in water. Nine infested cycads are taken to the testing area. Three branches are randomly selected from each tree, and 3 cm by 3 cm patches are marked on each branch. The number of mealybugs on the patch is counted. The three treatments then get randomly assigned to the three branches for each tree. After three days the mealybugs are counted again. The change in number of mealybugs is computed ($before-after$).
+
+Inappropriate Insects
+=======================================================
+
+```{r, echo=FALSE}
+library(tidyr)
+library(dplyr)
+library(ggplot2)
+library(knitr)
+
+tree <- c(rep("tree1",3), rep("tree2",3), rep("tree3", 3),rep("tree4", 3), rep("tree5", 3))
+treatment <- rep(c("water", "spores", "oil"), 5)
+bugs_change <- c(-9, -4, 4, 18, 29, 29, 10, 4, 14, 9, -2, 14, -6, 11, 7)
+
+mealybugs <- data.frame(tree, treatment, bugs_change)
+
+mealybugs %>%
+  spread(tree, bugs_change) %>%
+  kable()
+```
+
+Draw the factor diagram, labeling inside outside factors. 
+
+
+Formal ANOVA for CB[1]
+=======================================================
+
+$${y}_{ij}={\mu}+{\tau}_{i}+{\beta}_{j}+{e}_{ij}$$
+
+| Source | SS | df | MS | F |
+|------:|:-----:|:-----:|:------:|:------:|
+| Treatment | $\sum_{i=1}^{a}b(\bar{y}_{i.}-\bar{y}_{..})^{2}$ | $a-1$ | $\frac{{SS}_{T}}{{df}_{T}}$ | $\frac{{MS}_{T}}{{MS}_{E}}$ |
+| Blocks | $\sum_{j=1}^{b}a(\bar{y}_{.j}-\bar{y}_{..})^{2}$ | $b-1$ | $\frac{{SS}_{B}}{{df}_{B}}$ | $\frac{{MS}_{B}}{{MS}_{E}}$ |
+| Error | $\sum_{i=1}^{a}\sum_{j=1}^{b}({y}_{ij}-\bar{y}_{i.}-\bar{y}_{.j}+\bar{y}_{..})^{2}$ | $(a-1)(b-1)$ | $\frac{{SS}_{E}}{{df}_{E}}$ | |
+
+Data Analysis Structure
+=======================================================
+
+```{r}
+mealybugs
+```
+
+Formal ANOVA
+=======================================================
+
+```{r}
+mod <- lm(bugs_change ~ treatment + tree, data = mealybugs)
+
+anova(mod)
+```
+
+<!-- Informal Analysis Structure -->
+<!-- ======================================================= -->
+
+<!-- ```{r} -->
+<!-- library(tidyr) -->
+<!-- library(ggplot2) -->
+
+<!-- mealybugs %>% -->
+<!--   spread(treatment, bugs_change) -->
+<!-- ``` -->
+
+<!-- Scatterplots -->
+<!-- ======================================================= -->
+
+<!-- Spores versus oil -->
+
+<!-- ```{r} -->
+<!-- mealybugs %>% -->
+<!--   spread(treatment, bugs_change) %>% -->
+<!--   ggplot(aes(x = spores, y = oil)) + -->
+<!--   geom_point() + -->
+<!--   geom_abline(slope = 1, intercept = 8) -->
+<!-- ``` -->
+
+<!-- Scatterplots -->
+<!-- ======================================================= -->
+
+<!-- Spores versus water -->
+
+<!-- ```{r} -->
+<!-- mealybugs %>% -->
+<!--   spread(treatment, bugs_change) %>% -->
+<!--   ggplot(aes(x = spores, y = water)) + -->
+<!--   geom_point() + -->
+<!--   geom_abline(slope = 1, intercept = -5) -->
+<!-- ``` -->
+
+<!-- Scatterplots -->
+<!-- ======================================================= -->
+
+<!-- Oil versus water -->
+
+<!-- ```{r} -->
+<!-- mealybugs %>% -->
+<!--   spread(treatment, bugs_change) %>% -->
+<!--   ggplot(aes(x = oil, y = water)) + -->
+<!--   geom_point() + -->
+<!--   geom_abline(slope = 1, intercept = -13) -->
+<!-- ``` -->
+
+Bioequivalence of drug delivery
+=======================================================
+
+This experiment is interested in the blood concentration of a drug after it has been administered. The concentration will start at zero, then go up, and back down as it is metabolized. This curve may differ depending on the form of the drug (a solution, a tablet, or a capsule). We will use three subjects, and each subject will be given the drug three times, once for each method. The area under the time-concentration curve is recorded for each subject after each method of drug delivery.  
+
+Latin Square Design
+=======================================================
+In the bioequivalence example, because the body may adapt to the drug in some way, each drug will be used once in the first period, once in the second period, and once in the third period.
+
+- We can use a Latin Square design to control the order of drug administration
+- In this way, time is a second blocking factor (subject is the first)
+
+![](13_splitplot_design-figure/3x3.png) 
+
+Latin Square Design
+=======================================================
+
+Treatments: 
+- Solution is treatment A
+- Tablet is treatment B
+- Capsule is treatment C
+
+```{r, echo=FALSE}
+subject <- c(rep("1",3), rep("2",3), rep("3", 3))
+treatment <- c("solution", "capsule", "tablet",
+               "capsule", "tablet", "solution",
+               "tablet", "solution", "capsule")
+period <- rep(c("1", "2", "3"),3)
+concentration <- c("A 1799", "C 1846", "B 2147", "C 2075", "B 1156", "A 1777",
+                   "B 1396", "A 868", "C 2291")
+
+bioequivalence <- data.frame(subject, treatment, period, concentration) 
+
+bioequivalence %>%
+  select(-treatment) %>%
+  spread(subject, concentration) %>%
+  rename(` ` = period,
+         `timeslot 1` = `1`,
+         `timeslot 2` = `2`,
+         `timeslot 3` = `3`) %>%
+  mutate(` ` = ifelse(` ` == "1", "subject 1", 
+                      ifelse(` ` == "2", "subject 2", "subject 3"))) %>%
+  kable()
+```
+
+Factor diagram for the Latin Square??
+
+Latin Square Design
+=======================================================
+
+The actual data structure for analysis is "long" format
+
+```{r, echo=FALSE}
+bioequivalence <- data.frame(subject, treatment, period, concentration) %>%
+  separate(concentration, c("group", "c_curve"))
+
+bioequivalence %>%
+  kable()
+```
+
+Informal ANOVA for Latin Square
+=======================================================
+
+We can make a parallel dot graph
+
+```{r, echo=FALSE}
+ggplot(bioequivalence, aes(x = treatment, y = c_curve)) +
+  geom_point()
+```
+
+***
+
+And check for equal standard deviations
+
+```{r}
+library(mosaic)
+
+sd <- favstats(c_curve ~ treatment, data = bioequivalence)[,8]
+
+max(sd)/min(sd)
+```
+
+
+Formal ANOVA for the Latin Square
+=======================================================
+
+$${y}_{ijk}={\mu}+{\alpha}_{i}+{\beta}_{j}+{\tau}_{k}+{e}_{ijk}$$
+
+- ${\mu}$ is the benchmark
+- ${\alpha}_{i}$ is the row effect
+- ${\beta}_{j}$ is the column effect
+- ${\tau}_{k}$ is the treatment effect
+- There are p rows, columns, and treatments
+
+| Source | SS | df | MS | F |
+|------:|:-----:|:-----:|:------:|:------:|
+| rows | $\sum_{i=1}^{p}p(\bar{y}_{i..}-\bar{y}_{...})^{2}$ | $p-1$ | $\frac{{SS}_{A}}{{df}_{A}}$ | $\frac{{MS}_{A}}{{MS}_{E}}$ |
+| columns | $\sum_{j=1}^{p}p(\bar{y}_{.j.}-\bar{y}_{...})^{2}$ | $p-1$ | $\frac{{SS}_{B}}{{df}_{B}}$ | $\frac{{MS}_{B}}{{MS}_{E}}$ |
+| treatment | $\sum_{k=1}^{p}p(\bar{y}_{..k}-\bar{y}_{...})^{2}$ | $p-1$ | $\frac{{SS}_{T}}{{df}_{T}}$ | $\frac{{MS}_{T}}{{MS}_{E}}$ |
+| Error | $\sum_{i=1}^{p}\sum_{j=1}^{p}({y}_{ijk}-\bar{y}_{i..}-\bar{y}_{.j.}-\bar{y}_{..k}+2\bar{y}_{..})^{2}$ | $(p-1)(p-2)$ | $\frac{{SS}_{E}}{{df}_{E}}$ | |
+
+
+Formal ANOVA for the Latin Square
+=======================================================
+
+```{r}
+ls_mod <- lm(c_curve ~ treatment + period + subject, data = bioequivalence)
+
+anova(ls_mod)
+```
+
+
+Residual Plot
+=======================================================
+
+```{r, eval=FALSE}
+bioequivalence <- bioequivalence %>%
+  mutate(fitted = fitted(ls_mod), 
+         residuals = residuals(ls_mod))
+
+ggplot(bioequivalence, aes(x = fitted, residuals)) +
+  geom_point() +
+  geom_hline(yintercept = 0, color = "red")
+```
+
+Residual Plot
+=======================================================
+
+```{r, echo=FALSE}
+bioequivalence <- bioequivalence %>%
+  mutate(fitted = fitted(ls_mod), 
+         residuals = residuals(ls_mod))
+
+ggplot(bioequivalence, aes(x = fitted, residuals)) +
+  geom_point() +
+  geom_hline(yintercept = 0, color = "red")
+```
+
+Tulips
+========================================================
+A plant breeder wishes to study the effects of soil drainage and variety of tulip bulbs on flower production. Twelve 3m by 10m experimental sites are available in the test garden--each is a .5m deep trench. You can manipulate soil drainage by changing the ratio of sand to clay for the soil you put in a trench. After talking to your collaborator, you decided that four different levels of soil drainage would suffice. You'll be testing 15 different types of tulips, and measuring flower production in the spring.
+
+<!-- Split Plot Design -->
+<!-- ======================================================= -->
+
+<!-- If you suspect a design in a split-plot design, you should be able to answer the following questions: -->
+
+<!-- 1. What are the whole plots, that is, what is the nuisance factor? -->
+<!-- 2. What is the between-blocks factor? Is it observational or experimental? -->
+<!-- 3. What is the within-blocks factor? Is it observational or experimental?  -->
+
+
+<!-- Crossing versus Nesting -->
+<!-- ======================================================= -->
+
+<!-- 1. **Crossing**: Two sets of treatments are crossed if all possible combinations of treatments occur in the design. The design is called a two-way factorial and has factorial treatment structure.  -->
+<!-- 2. **Nesting**: One factor is nested within another if each level of the first ("inside") factor occurs with exactly one level of the second ("outside") factor. -->
+
+<!-- Example: Diabetic Dogs -->
+<!-- ======================================================= -->
+
+<!-- The disease diabetes affects the rate of turnover of lactic acid in a system of biochemical reactions called the Cori cycle. This experiment compares two methods of using radioactive carbon-14 to measure rate of turnover. Method 1 is injection all at once, and method 2 is infused continuously. 10 dogs were sorted into two groups, 5 were controls and 5 had their pancreas removed (to make it diabetic). The rate of turnover was then measured twice for each dog, once for each method. The order of the two methods was randomly assigned.  -->
+
+<!-- Draw the factor diagram for the data on page 263.  -->

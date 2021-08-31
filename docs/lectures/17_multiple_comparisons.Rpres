@@ -1,0 +1,167 @@
+Multiple Comparisons
+========================================================
+author: Prof Randi Garcia
+date: February 10, 2021
+autosize: true
+transition: linear
+transition-speed: default
+font-family: 'Helvetica'
+
+
+Reading contemplation question
+========================================================
+
+1. For the walking babies example (pg. 150) below are (rounded) average times to walk (months) for the four groups. Compute the estimates for the following set of three comparisons: i) Exercise vs. no exercise, ii) Special exercise vs. exercise control, and iii) Weekly report vs. final report.  
+    - Special exercise, weekly report: 10.1
+    - No exercise, weekly report: 11.6
+    - Exercise control, weekly report: 11.4
+    - No exercise, final report: 12.4
+
+Reading (Answer)
+========================================================
+
+  1. Exercise vs. no exercise: (10.1 + 11.4)/2 - (11.6 + 12.4)/2 = -1.25
+  2. Special exercise vs. exercise control: 10.1 - 11.4 = -1.3
+  3. Weekly report vs. final report: (11.6 + 11.4 + 10.1)/3 - 12.4 = -1.367
+  
+Announcements
+========================================================
+
+- HW8 grade now posted
+- Grades on Moodle calculated based on syllabus
+- MP2 and Quiz 2 are due on Friday night
+  - Interest in presenting on Thurs? 
+    
+Agenda
+======================================================== 
+
+- Design Practice
+- Extending designs by factorial crossing
+- Compound within-block factors
+- Multiple comparisons and contrasts
+    
+
+Design practice
+=======================================================
+
+[Google slides for group work](https://docs.google.com/presentation/d/1T68byHKDVkNGKedKjl3uFLbrK6_NUKBeHPI7bvXi7Mo/edit?usp=sharing)
+
+Parsnip Plants
+=======================================================
+
+Under the control conditions of this study, wild parsnip plants averaged about a thousand seeds from their first set of flowers (primary umbels), about twice as many from the second set of flowers, but only about 250 from the third set. For plants attacked by the parsnip webworm, which destroyed most of the primary umbels, the pattern was quite different: the seed production from primary, secondary, and tertiary umbels averaged about 200, 2400, and 1300, respectively. (Please think of parsnip plants as blocks. Each plant gets 3 measurements, 1 from each umbel.)
+
+Swimsuit/Sweater Study
+=======================================================
+
+Objectification theory (Fredrickson & Roberts, 1997) posits that American culture socializes women to adopt observers' perspectives on their physical selves. This self-objectification is hypothesized to (a) produce body shame, which in turn leads to restrained eating, and (b) consume attentional resources, which is manifested in diminished mental performance. An experiment manipulated self-objectification by having participants try on a swimsuit or a sweater. Further, it tested 20 women and 20 men, in each condition, and found that the hypothesized effects on body shame (and restrained eating) were present for women only. Additionally, self-objectification diminished math performance for women only. (Please consider only one response variable: body shame.) 
+
+Crabgrass
+=======================================================
+
+The purpose of this experiment was to study the way one species of crabgrass competed with itself and with another species for nitrogen (N), phosphorus (P), and potassium (K). Bunches of crabgrass were planted in vermiculite, in 16 Styrofoam cups; after the seeds had sprouted, the plants were thinned to 20 plants per cup. Each of the 16 cups were randomly assigned to get one of 8 nutrient combinations added to its vermiculite. For example, yes-nitrogen/no-phosphorus/yes-potassium. The response is mean dry weight per plant, in milligrams.
+
+Osomoregulation
+=======================================================
+
+Worms that live at the mouth of a river must deal with varying concentrations of salt. Osomoregulating worms are able to maintain relatively constant concentration of salt in the body. An experiment wanted to test the effects of mixtures of salt water on two species of worms: Nereis virens (N) and Goldfingia gouldii (G). Eighteen worms of each species were weighted, then randomly assigned in equal numbers to one of three conditions. Six worms of each kind were placed in 100% sea water, 67% sea water, or 33% sea water. The worms were then weighted after 30, 60, and 90 minutes, then placed in 100% sea water and weighted one last time 30 minutes later.  The response was body weight as percentage of initial body weight. 
+
+Creepy Animals
+=======================================================
+
+The effects of exposure to images of different domestic animal species in either aggressive or submissive postures on mood was tested with a split-plot/repeated measures design. Using a computer to randomize, participants were randomly assigned to either view images of dogs or images of cats. All participants saw both an aggressive animal and a submissive animal, and their moods were assessed via self-report after each image. The order of presentation (aggressive then submission, or submissive then aggressive) was randomized to control for order effects.
+
+Extensions by Factorial Crossing
+=======================================================
+
+We can now imagine adding complexity to these four basic designs by including additional factors crossed with our structural factors. 
+
+Take our diabetic dogs example, and now let us add in the fact that **the order of the two methods was randomly assigned.** What design do we have now?  
+    - We have an order factor and there are two levels: order 1 and order 2  
+    - The new design is a SP/RM[2,1]
+
+Compound within Block Factors
+=======================================================
+
+In an experiment, researchers wanted to compare how easy it is to remember four different kinds of words: 1) concrete, frequent: fork, brother, radio,... 2) concrete, infrequent: blimp, warthog, fedora, ... 3) abstract, frequent: truth, anger, foolishness, ... and 4) abstract, infrequent: slot, vastness, apostasy, ...
+
+Ten students in a psychology lab served as subject. During each of the 4 time slots, subjects heard a list of words from one of the four kinds, and then was tested for recall.
+
+Compound within Block Factors
+=======================================================
+
+There are two possible models for chance error in models with compound within-block factors.
+  1. The additive model  
+  2. The non-additive model
+  
+Compound within Block Factors
+=======================================================
+
+1. **The additive model** - assumes that chance error is the same for all within-block factors, thus we could pool residual terms.
+2. **The non-additive model** - does not make this (often incorrect) assumption, but tests using this model are lower in power. 
+
+How can we decide? 
+- Think about whether or not you would expect block X treatment interaction effects. If you would, then the additive model will be wrong. 
+
+Rule for Compound within Block F-ratios (non-additive)
+=======================================================
+
+$$F = \frac{{MS}_{Factor}}{{MS}_{Blocks\times Factor}}$$
+
+Rule for Compound between Block F-ratios 
+=======================================================
+
+$$F = \frac{{MS}_{Factor}}{{MS}_{Blocks}}$$
+
+Analysis in R
+=======================================================
+
+[See r code](15_extensions_inR.Rmd)
+
+Comparisons
+=======================================================
+
+- When we have more than two levels of a factor of interest, we might want to 
+  compare specific groups to see which one differ from each other.
+- We can do a set of **pairwise comparisons**, or **custom comparisons** of more 
+  complex ideas.
+  
+Confidence Intervals for Comparisons
+=======================================================  
+
+1. Compute the difference in averages.
+2. Compute the SE of that difference: $SE = SD\times\sqrt{\frac{1}{{n}_{1}}+\frac{1}{{n}_{2}}}$ 
+3. Construct the confidence interval: CI = $estimate\pm SE\times {t}_{{df}_{res},\alpha}$
+
+Practice: Walking Babies
+=======================================================  
+
+1. Exercise vs. no exercise: (10.1 + 11.4)/2 - (11.6 + 12.4)/2 = -1.25
+2. Special exercise vs. exercise control: 10.1 - 11.4 = -1.3
+3. Weekly report vs. final report: (11.6 + 11.4 + 10.1)/3 - 12.4 = -1.367
+
+```{r}
+#for number 1
+SD = 1.63
+SE = SD*sqrt(1/12+1/11)
+  
+ME = SE*qt(.975, 19)
+ME
+```
+
+
+Adjusting for Multiple Comparisons
+=======================================================
+
+When we do multiple significance tests, our effective type I error rate is inflated. Most statisticians agree that we should adjust our type I error rate to account for our multiple tests, and control the **expriment-wise** error rate. 
+
+There are four methods discussed in the chapter:
+  1. Fisher Least Significant Difference (LSD)
+  2. Tukey Honest Significant Difference (HSD)
+  3. Scheffe test
+  4. The Bonferroni correction
+
+Analysis in R
+=======================================================
+
+[See r code](18_multiple_comparisons_and_assumptions.Rmd)

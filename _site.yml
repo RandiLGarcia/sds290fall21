@@ -1,0 +1,148 @@
+name: www
+exclude:
+- makefile
+- gfx
+- lectures/figure
+navbar:
+  title: SDS 290 - Interterm 2021
+  left:
+  - text: Home
+    icon: fa-home
+    href: index.html
+  - text: Syllabus
+    href: syllabus.html
+  - text: Schedule
+    href: schedule.html
+  - text: Resources
+    menu:
+    - text: Helpful Links
+      href: resources.html
+    - text: Downloading R and RStudio
+      href: Downloading_R_and_RStudio.pdf
+    - text: Modern Data Science with R
+      href: https://mdsr-book.github.io/mdsr2e/
+    - text: Troubleshooting R Markdown
+      href: https://smithcollege-sds.github.io/sds-www/rmarkdown_problems.html
+    - text: Qualtrics
+      href: https://smithcollege.qualtrics.com/
+    - text: Data Ethics Resources
+      href: data-ethics.html
+  - text: Lectures
+    menu:
+    - text: Notes
+    - text: 01 - Intro to Experimental Design
+      href: lectures/01_intro_to_experimental.html
+    - text: 02 - Four Basic Designs
+      href: lectures/02_four_designs.html
+    - text: 03 - Four Basic Designs (cont.)
+      href: lectures/02b_four_designs.html
+    - text: 04 - Informal ANOVA
+      href: lectures/03_informal_anova.html      
+    - text: 05 - Informal ANOVA (cont.)
+      href: lectures/03b_informal_anova.html  
+    - text: 06 - Formal ANOVA I
+      href: lectures/05c_formal_anova.html
+    - text: 07 - Formal ANOVA II
+      href: lectures/05b_formal_anova.html  
+    - text: 08 - Formal ANOVA III
+      href: lectures/05d_formal_anova.html       
+    - text: 09 - BF[1] Design
+      href: lectures/06_bf1_design.html  
+#    - text: 08 - BF[1] Design in R    
+#      href: lectures/07_bf1_inR.html
+    - text: 10 - BF[2] Design I
+      href: lectures/07_bf1_inR.html       
+    - text: 11 - BF[2] Design II  
+      href: lectures/09_bf2_design.html
+#    - text: Review Questions
+#      href: Exam_1_Review_Questions.html
+#    - text: 11 - BF[2] Design (cont.)
+#      href: lectures/10_bf2_design_cont.html   
+    - text: 12 - CB[1] Design I
+      href: lectures/11_cb1_design.html         
+    - text: 13 - CB[1] Design II
+      href: lectures/12_cb1_design_cont.html       
+    - text: 14 - Latin Square Design
+      href: lectures/12b_latinsquare_design.html  
+    - text: 15 - SP/RM[1,1] Design I
+      href: lectures/13_spitplot_design.html 
+    - text: 16 - SP/RM[1,1] Design II      
+      href: lectures/14_spitplot_design_cont.html  
+    - text: 17 - Scatterplots for Within-Block Factors I
+      href: lectures/14b_spitplot_design_cont.html      
+    - text: 18 - Scatterplots for Within-Block Factors II
+      href: lectures/14c_spitplot_design_cont.html   
+    - text: 19 - Design Practice
+      href: lectures/14d_design_practice.html        
+    - text: 20 - Extending the Basic Designs I
+      href: lectures/15_extensions.html   
+    - text: 21 - Extending the Basic Designs II
+      href: lectures/16_extensions_cont.html    
+    - text: 22 - Multiple Comparisons
+      href: lectures/17_multiple_comparisons.html         
+#    - text: 18 - Fisher Assumptions
+#      href: lectures/18_fisher_assumptions.html 
+#    - text: 19 - Exam 2 Review   
+#      href: lectures/18_exam2_review.html      
+  - text: Code
+    menu:
+    - text: 01 - Four Designs
+      href: lectures/02_four_designs.Rmd
+    - text: 02 - Informal ANOVA
+      href: lectures/02_informal_anova.Rmd
+    - text: 03 - Formal ANOVA
+      href: lectures/05_formal_anova.Rmd
+    - text: 03b - BF[1] Design in R
+      href: lectures/07_bf1_inR.Rmd
+    - text: 04 - BF[2] Design in R
+      href: lectures/09_bf2_inR.Rmd    
+    - text: 05 - CB[1], Latin Square, SP/RM[1,1] Design in R
+      href: lectures/13_spitplot_design_inR.Rmd       
+    - text: 06 - Extensions in R
+      href: lectures/15_extensions_inR.Rmd    
+    - text: 07 - Multiple Comparisons
+      href: lectures/18_multiple_comparisons_and_assumptions.Rmd             
+  - text: Homework
+    menu:
+    - text: Problem Sets
+    - text: 'HW1a: Record your names on Moodle'
+      href: http://moodle.smith.edu
+    - text: 'HW1b: CITI Training'
+      href: HW 1b_CITI Training.pdf
+    - text: 'HW2 (OPTIONAL): Getting started with R'
+      href: labs/intro_to_r.html
+    - text: 'HW3: Review Exercises (p. 34-37), 3, 6, 9, 11, 13a, 14, 16, 17'
+      href: homework.html
+    - text: 'HW4: Review Exercises (p. 57), 1-3, 5, 6 (but using R)'
+      href: labs/homework4_W21.html
+    - text: 'HW5: RE CH 3: 3-4 (data in fig 3.21 on pg. 102), 12, 13, 17'
+      href: homework.html
+    - text: 'HW6: Using software; Due 2/02 at 9:20a'
+      href: labs/homework6_W21.html
+    - text: 'HW7: RE CH 7: A1-A3, A6, B5-B6, C1-C3, C6-C9'
+      href: homework.html  
+    - text: 'HW8: Using software - BF[2], Compound factors'
+      href: labs/homework8.html        
+#    - text: 'HW9: Using software-last homework'      
+#      href:           
+  - text: Projects
+    menu:
+#    - text: Project
+    - text: 'Mini project 1'
+      href: mini-project-1.html
+    - text: 'Mini Project 2'
+      href: mini-project-2.html
+#    - text: Advice
+  - text: Book Office Hours
+    href: https://randigarcia.youcanbook.me/
+output:
+  html_document:
+    theme: journal
+    highlight: textmate
+    css: include/randilgarcia.css
+    include:
+      after_body: include/after_body.html
+    lib_dir: site_libs
+    self_contained: no
+output_dir: docs
+

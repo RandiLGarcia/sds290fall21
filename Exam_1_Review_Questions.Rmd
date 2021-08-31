@@ -1,0 +1,23 @@
+---
+title: "SDS/MTH 290"
+---
+
+1. Difference between structural factors and factor strucure?
+2. Not sure about the chace error assuptions. What's the deal with the S assumption?
+3. I'm still confused about the concept of blocking.
+4. Review mathematical notation please.
+5. ANOVA?
+6. What's the deal with the F factor? It's not the p-value but it corresponds to it?
+7. Would hamster chunks be inside day length?
+8. I would like to go over identifying experimental material and units, inside/outside factors, decomposition, and identifying different designs.
+9. I am confused about factors and levels generally.
+10. F-ratios versus the F critical value?
+11. Still unclear on the decomposition. It almost makes sense, but not yet. 
+12. I am still confused about the df for residuals. 
+13. Identifying the different designs.
+14. I'd like to systematically review all of the different "squares," (SS, MS, sqrt(MSE)) to help keep them straight in my head. 
+15. Partial fit. 
+16. How do the inside/outside factors relate to the study designs? Is it only related to the BF[1]?
+17. I'm not sure about the interaction effect estimates.
+18. Can you use ANOVA for experiments when you don't have a random sample?
+19. I'd like to differentiate the types of research designs better. 

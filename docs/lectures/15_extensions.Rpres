@@ -1,0 +1,193 @@
+Extending the Four Basic Designs
+========================================================
+author: Prof Randi Garcia
+date: February 8, 2021
+autosize: true
+transition: linear
+transition-speed: default
+font-family: 'Helvetica'
+
+
+Reading contemplation question
+========================================================
+
+1. What is the response variable?
+2. What are the basic factors? 
+  - How many levels does each basic factor have?
+  - Is there crossing? Which factors are crossed?
+  - Is there blocking? What are the bigger and smaller units?
+3. If there is blocking, which factors are between and which are within? Which are observational and which are experimental?
+4. What is the name of this design?
+
+Reading contemplation question
+========================================================
+
+People with severe psychiatric problems find it harder to focus their attention; this theory predicts that psychiatrically normal subjects would be less affected than others by distracting sounds while they tried to remember things. In an experiment, participants were classified as 1) schizophrenic, 2) schizotypal, 3) borderline, or 4) psychiatrically normal. In each of a series of trials, subjects heard a voice read a series of digits and were asked to repeat them back. The digit strings were either 3, 4, or 7 digits long, and the trials either had a distracting male voice between the female voice reading the letters or it did not have interference. One response was defined by lumping together all the trials of a given type, such as four digits/no interference, and adding up the number of times the subject remembered the string correctly. 
+
+Reading Answers
+========================================================
+
+  1. Response is number of correct recollections
+  2. Factors: disorder; digit length; distraction; subject
+      - Levels: 4, 3, 2, ?
+      - digit length is crossed with distraction
+      - digit length is crossed with disorder
+      - distraction is crossed with disorder
+      - Subjects are blocks; time slots are units
+  3. Disorder is between, observational; digit length and distraction are within, experimental 
+  4. This is a SP/RM[1,2]
+
+  
+Announcements
+========================================================
+
+- HW7 grades are posted
+- HW8 is due tomorrow at 9:20p
+  - You will need to read ahead in Ch 9
+- Tonight's session is office hours instead
+  - Please [sign up](https://randigarcia.youcanbook.me/)! 
+    
+Agenda
+======================================================== 
+
+- Review from Thurs
+- Effect sizes
+- Data collection for MP2!
+- Design practice
+- Extending designs by factorial crossing
+
+Effect Sizes and Confidence Intervals
+=======================================================
+
+- The inference test in ANOVA only tells us if effects are **detectable**, not their size or direction.
+- Practical significance is different from **statistical** significance.
+- We need to think about which effects we want to construct confidence intervals for (or calculate an effect size for). Some options:
+  - How far away a specific condition is from the grand average.
+  - How far away a specific condition is from another condition. 
+  - How far away a specific condition (or set of conditions) is(are) from a(nother) set of conditions.
+  - Additional effect size option: The overall variance explained by a factor of interest.
+
+Effect Sizes
+=======================================================
+- The overall variance explained by a factor of interest.
+  - $\eta^2$ (eta squared)
+- How far away a specific condition is from the grand average.
+  - Confidence intervals.
+- How far away a specific condition is from another condition. 
+  - Confidence intervals and/or Cohen's d
+- How far away a specific condition (or set of conditions) is(are) from a(nother) set of conditions.
+  - Confidence intervals and/or Cohen's d
+
+Effect Sizes
+=======================================================
+- The overall variance explained by a factor of interest
+  - Same as $R^2$ in regression
+  
+$$\eta^2 = \frac{{MS}_{treatment}}{{MS}_{total}}$$
+
+  - For BF[1]: 
+
+$$\eta^2 = \frac{{MS}_{treatment}}{{MS}_{treatment} + {MS}_{error}}$$  
+
+- Cohen's d (0.2 is "small", 0.5 is "medium", and 0.8 is "large")
+$$d = \frac{\bar{y}_{1.}-\bar{y}_{2.}}{{s}_{pooled}}$$
+
+
+Data Collection!! 
+=======================================================
+
+- Are we ready?...
+- Did you test your survey and it appears correct?
+- Generate test data and download your test dataset?
+- Delete fake responses and reset counts in the randomizer?
+
+- Let's do it! Please participate in 5 to 6 experiments (not yours). 
+  - Here is the [sheet](https://docs.google.com/spreadsheets/d/1N3x8QzJ6hWPYg7ALIWS96XQJR7A3s2Mu1uf4SD85HqM/edit#gid=0)
+
+Design practice
+=======================================================
+
+[Google slides for group work](https://docs.google.com/presentation/d/1T68byHKDVkNGKedKjl3uFLbrK6_NUKBeHPI7bvXi7Mo/edit?usp=sharing)
+
+Parsnip Plants
+=======================================================
+
+Under the control conditions of this study, wild parsnip plants averaged about a thousand seeds from their first set of flowers (primary umbels), about twice as many from the second set of flowers, but only about 250 from the third set. For plants attacked by the parsnip webworm, which destroyed most of the primary umbels, the pattern was quite different: the seed production from primary, secondary, and tertiary umbels averaged about 200, 2400, and 1300, respectively. (Please think of parsnip plants as blocks. Each plant gets 3 measurements, 1 from each umbel.)
+
+Swimsuit/Sweater Study
+=======================================================
+
+Objectification theory (Fredrickson & Roberts, 1997) posits that American culture socializes women to adopt observers' perspectives on their physical selves. This self-objectification is hypothesized to (a) produce body shame, which in turn leads to restrained eating, and (b) consume attentional resources, which is manifested in diminished mental performance. An experiment manipulated self-objectification by having participants try on a swimsuit or a sweater. Further, it tested 20 women and 20 men, in each condition, and found that the hypothesized effects on body shame (and restrained eating) were present for women only. Additionally, self-objectification diminished math performance for women only. (Please consider only one response variable: body shame.) 
+
+Crabgrass
+=======================================================
+
+The purpose of this experiment was to study the way one species of crabgrass competed with itself and with another species for nitrogen (N), phosphorus (P), and potassium (K). Bunches of crabgrass were planted in vermiculite, in 16 Styrofoam cups; after the seeds had sprouted, the plants were thinned to 20 plants per cup. Each of the 16 cups were randomly assigned to get one of 8 nutrient combinations added to its vermiculite. For example, yes-nitrogen/no-phosphorus/yes-potassium. The response is mean dry weight per plant, in milligrams.
+
+Osomoregulation
+=======================================================
+
+Worms that live at the mouth of a river must deal with varying concentrations of salt. Osomoregulating worms are able to maintain relatively constant concentration of salt in the body. An experiment wanted to test the effects of mixtures of salt water on two species of worms: Nereis virens (N) and Goldfingia gouldii (G). Eighteen worms of each species were weighted, then randomly assigned in equal numbers to one of three conditions. Six worms of each kind were placed in 100% sea water, 67% sea water, or 33% sea water. The worms were then weighted after 30, 60, and 90 minutes, then placed in 100% sea water and weighted one last time 30 minutes later.  The response was body weight as percentage of initial body weight. 
+
+Creepy Animals
+=======================================================
+
+The effects of exposure to images of different domestic animal species in either aggressive or submissive postures on mood was tested with a split-plot/repeated measures design. Using a computer to randomize, participants were randomly assigned to either view images of dogs or images of cats. All participants saw both an aggressive animal and a submissive animal, and their moods were assessed via self-report after each image. The order of presentation (aggressive then submission, or submissive then aggressive) was randomized to control for order effects.
+
+
+Extensions by Factorial Crossing
+=======================================================
+
+We can now imagine adding complexity to these four basic designs by including additional factors crossed with our structural factors. 
+
+Take our diabetic dogs example, and now let us add in the fact that **the order of the two methods was randomly assigned.** What design do we have now?  
+    - We have an order factor and there are two levels: order 1 and order 2  
+    - The new design is a SP/RM[2,1]
+    
+Example: Crabgrass
+=======================================================
+
+The purpose of this experiment was to study the way one species of crabgrass competed with itself and with another species for nitrogen (N), phosphorus (P), and potassium (K). Bunches of crabgrass were planted in vermiculite, in 16 Styrofoam cups; after the seeds had sprouted, the plants were thinned to 20 plants per cup. Each of the 16 cups were randomly assigned to get one of 8 nutrient combinations added to its vermiculite. For example, yes-nitrogen/no-phosphorus/yes-potassium. The response is mean dry weight per plant, in milligrams.
+
+Example: Osmoregulation
+=======================================================
+
+Worms that live at the mouth of a river must deal with varying concentrations of salt. Osomoregulating worms are able to maintain relatively constant concentration of salt in the body. An experiment wanted to test the effects of mixtures of salt water on two species of worms: Nereis virens (N) and Goldfingia gouldii (G). Eighteen worms of each species were weighted, then randomly assigned in equal numbers to one of three conditions. Six worms of each kind were placed in 100% sea water, 67% sea water, or 33% sea water. The worms were then weighted after 30, 60, and 90 minutes, then placed in 100% sea water and weighted one last time 30 minutes later.  The response was body weight as percentage of initial body weight. 
+
+Analysis in R
+=======================================================
+
+[See r code](15_extensions_inR.Rmd)
+
+Compound within Block Factors
+=======================================================
+
+In an experiment, researchers wanted to compare how easy it is to remember four different kinds of words: 1) concrete, frequent: fork, brother, radio,... 2) concrete, infrequent: blimp, warthog, fedora, ... 3) abstract, frequent: truth, anger, foolishness, ... and 4) abstract, infrequent: slot, vastness, apostasy, ...
+
+Ten students in a psychology lab served as subject. During each of the 4 time slots, subjects heard a list of words from one of the four kinds, and then was tested for recall.
+
+Compound within Block Factors
+=======================================================
+
+There are two possible models for chance error in models with compound within-block factors.
+  1. The additive model  
+  2. The non-additive model
+  
+Compound within Block Factors
+=======================================================
+
+1. **The additive model** - assumes that chance error is the same for all within-block factors, thus we could pool residual terms.
+2. **The non-additive model** - does not make this (often incorrect) assumption, but tests using this model are lower in power. 
+
+How can we decide? 
+- Think about whether or not you would expect block X treatment interaction effects. If you would, then the additive model will be wrong. 
+
+Rule for Compound within Block F-ratios (non-additive)
+=======================================================
+
+$$F = \frac{{MS}_{Factor}}{{MS}_{Blocks\times Factor}}$$
+
+Rule for Compound between Block F-ratios 
+=======================================================
+
+$$F = \frac{{MS}_{Factor}}{{MS}_{Blocks}}$$

@@ -1,0 +1,178 @@
+Basic Factorial Design, BF[1]
+========================================================
+author: Prof Randi Garcia
+date: January 19, 2021
+autosize: true
+transition: linear
+transition-speed: default
+font-family: 'Helvetica'
+
+
+Reading contemplation question
+========================================================
+
+  1. What is the critical F-value used for in ANOVA? (What is the p-value for an F statistic?) 
+
+Announcements
+========================================================
+
+- HW3 grades posted
+- HW4 now due tonight at 11:55pm 
+  - Yes, simply list the four letters.
+- HW5 due on Thursday at 11:55p
+  - Please start working on it.
+- HW6 postponed! MP1 now due on Tues 1/26
+- **NEW** Thursday 8-8:30a office hours
+  - Sign up for office hours [here](https://randigarcia.youcanbook.me/)
+
+Agenda
+========================================================
+
+- MP1 Data Collection!!
+  - Approval columns; content notes
+  - Jterm psychology courses can help us out...
+- ANOVA for the BF[1] Design    
+
+Before Data Collection
+========================================================
+
+1. Make sure all changes have been published.
+2. Delete all fake responses.
+3. Zero out counts of all conditions (in survey flow).
+4. Ideally you would have tested your study several times, and also checked the (fake) data before launching... 
+
+Data Collection!!
+========================================================
+
+- Please respond to at least 5 experiments that are for someone **NOT** in your breakout room.
+- Read the content notes to make sure you are OK with the riskier studies.
+- Please prioritize the **SDS 290 participants only** studies
+- I'll give you about 10-15 minutes.
+
+Warm up - Barley Sprouting
+=======================================================
+
+**DISCUSS IN YOUR GROUPS** - [Google Slides!!](https://docs.google.com/presentation/d/1m8ThjiY2pUbQK_aBh4Dx2cOrvyifiQnEM04k-iwi_GA/edit?usp=sharing)
+
+Barley seeds are divided into 30 lots of 100 seeds each. The 30 lots are then divided at random into ten different groups of three lots each, with each group receiving a different treatment combination. The amount of water given per day is varied (4 ml or 8 ml). Also, the number of seeds sprouted is measured at different lengths of time randomly assigned to the groups. Thus, the researchers can understand the effect of the age of the seeds (1 week, 3 weeks, 6 weeks, 9 weeks, and 12 weeks), as well as water, on growth. 
+
+Leafhopper survival
+=======================================================
+
+```{r, echo = FALSE}
+library(knitr)
+library(dplyr)
+library(tidyr)
+library(mosaic)
+library(ggplot2)
+
+kable(data.frame(control = c(2.3,1.7), sucrose = c(3.6, 4.0), glucose = c(3.0,2.8), fructose = c(2.1,2.3)))
+```
+
+Sum of Squares (SS)
+=======================================================
+ANOVA measures variability in treatment effects with the sum of squares (SS) divided by the number of units of unique information (df). For the BF[1] design,
+
+$${SS}_{Treatments} = n\sum_{i=1}^{a}(\bar{y}_{i.}-\bar{y}_{..})^{2}$$
+
+$${SS}_{E} = \sum_{i=1}^{a}\sum_{j=1}^{n}({y}_{ij}-\bar{y}_{i.})^{2}$$
+
+$${SS}_{Total} = {SS}_{Treatments} + {SS}_{E}$$
+
+where $n$ is the group size, and $a$ is the number of treatments.
+
+Degrees of Freedom (df)
+=======================================================
+The df for a table equals the number of free numbers, the number of slots in the table you can fill in before the pattern of repetitions and adding to zero tell you what the remaining numbers have to be. 
+
+$${df}_{Treatments}=a-1$$
+
+$${df}_{E}=N-a$$
+
+Mean Squares (MS)
+=======================================================
+The ultimate statistic we want to calculate is Variability in treatment effects/Variability in residuals.
+
+**Variability in treatment effects**:
+$${MS}_{Treatments}=\frac{{SS}_{Treatments}}{{df}_{Treatments}}$$
+
+**Variability in residuals**
+$${MS}_{E}=\frac{{SS}_{E}}{{df}_{E}}$$
+
+
+F-ratios and the F-distribution
+=======================================================
+The ratio of these two MS's is called the F ratio. The following quantity is our test statistic for the null hypothesis that there are no treatment effects.
+
+$$F = \frac{{MS}_{Treatments}}{{MS}_{E}}$$
+
+If the null hypothesis is true, then F is a random variable $\sim F({df}_{Treatments}, {df}_{E})$. The [F-distribution](https://en.wikipedia.org/wiki/F-distribution).
+
+```{r, eval=FALSE}
+qplot(x = rf(500, 3, 4), geom = "density")
+```
+
+Inference Testing in ANOVA
+=======================================================
+
+${H}_{0}:\tau_1=\tau_2=\tau_3=\tau_4$
+
+We can find the p-value for our F calculation with the following code
+
+```{r, eval=FALSE}
+pf(17.67, 3, 4, lower.tail = FALSE)
+```
+
+<!-- DO FULL ANOVA TABLE ON BOARD FOR LEAFHOPPERS -->
+
+ANOVA in R
+=======================================================
+
+- Analyzing the leafhopper data in R. [code here](https://randilgarcia.github.io/sds290interterm21/lectures/05_formal_anova.Rmd)
+
+
+Treatment effects and F-ratios for all designs
+=======================================================
+- We cannot ALWAYS use the same formula for the treatment effects. It depends 
+  on *inside* and *outside* factors.
+- We do not ALWAYS divide the ${MS}_{factor}$ by ${MS}_{E}$. To test some effects 
+  in some designs we will need a different denominator. 
+
+Inside-outside Factors
+=======================================================
+- One factor is *inside* another if each group of the first (inside) fits completely 
+  inside some group of the second (outside) factor.
+- Estimated effect for a factor = Average for the factor - sum of estimated effects 
+  for all outside factors. 
+- The **sum of estimated effects for all outside factors** is called the **partial fit**. 
+- Thus, the general rule is:
+
+$$Effect = Average - Partial Fit$$
+
+<!-- Inside-outside Factors -->
+<!-- ======================================================= -->
+<!-- ```{r animals-example, echo = FALSE, warning=FALSE, message=FALSE} -->
+<!-- library(dplyr) -->
+<!-- library(tidyr) -->
+<!-- library(knitr) -->
+<!-- animals <- read.csv("/Users/rgarcia/Dropbox/Smith-Teaching/SDS-290/Spring2018/www/animal_data.csv", header = TRUE) -->
+
+<!-- animals <- animals %>% -->
+<!--   mutate(student = seq.int(1, nrow(animals))) %>% -->
+<!--   select(student, order, animal, cute_calm, scary_calm, cute_happy, scary_happy,  -->
+<!--          cute_nerv, scary_nerv, cute_scared, scary_scared) %>% -->
+<!--   gather(var, value, cute_calm:scary_scared) %>% -->
+<!--   separate(var, c("cue", "emotion"), sep = "_") %>% -->
+<!--   spread(emotion, value) %>% -->
+<!--   unite(cell, cue, animal, remove = FALSE) %>% -->
+<!--   select(student, animal, cue, calm) %>% -->
+<!--   group_by(animal) %>% -->
+<!--   slice(5:8) %>% -->
+<!--   spread(cue, calm) %>% -->
+<!--   arrange(animal) -->
+
+<!-- kable(animals) -->
+<!-- ``` -->
+<!-- - Draw the factor diagram as a hierarchy of inside and outside factors.  -->
+<!-- - Use this rule to calculate effects for this example we we did for the leafhoppers. -->
+

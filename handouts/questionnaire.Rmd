@@ -1,0 +1,38 @@
+---
+title: "SDS 390: Pre-Course Questionnaire"
+date: "Spring 2019"
+output: pdf_document
+---
+
+### Purpose 
+Thank you for completing this questionnaire, which is helpful to me in structuring the course. All information will be kept confidential.  
+
+> Name (nickname):  
+> Pronoun (e.g., she/her):  
+> Class Year:  
+> Major:  
+> Email Address:  
+
+### Background 
+  + Please tell me about your background (e.g. where are you from, major and area of interest, other activities, significant orgs or athletics):  
+  <br>  
+  <br>  
+  + Please list any other statistics or research methods courses you’ve taken (which may be in high school):  
+  <br>  
+  <br>  
+  + What was your experience like in those courses?  
+  <br>  
+  <br>  
+  + Which statistical software packages have you used (e.g., R, SPSS, Python, SAS)? Please list them, and describe your confort level using them:  
+  <br>  
+  <br>  
+  + What are your personal goals for this course?  
+  <br>  
+  <br>  
+  + In which areas of applied statistics are you most interested (e.g. biology, economics, psychology, finance, sociology, etc.) [list as many as you like]?    
+  <br> 
+  <br>
+  <br>  
+  <br>  
+  + Is there any other information that I should know?  
+  <br>  
