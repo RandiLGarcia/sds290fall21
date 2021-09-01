@@ -57,7 +57,18 @@ Introduction to SDS/MTH 290
 - Course website at https://bit.ly/sds290fall2021
 - Syllabus
 
+Our First Experiment
+========================================================
+incremental: true
+In your groups: 
+- Take turns describing what you saw/did.
+- Your objective, as a group, is to describe the FULL experimental design.
 
+Discussion questions:
+- What were all of the possibilities? How do you think that was determined?
+- Which conditions were distributed *across* people, and which *within* people?
+- What do you think are the possible research questions answered by this study?
+        
 
 
 <!-- New Section -->
