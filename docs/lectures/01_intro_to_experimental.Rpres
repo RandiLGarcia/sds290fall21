@@ -1,7 +1,7 @@
 Research Design and Analysis 
 ========================================================
 author: Prof Randi Garcia
-date: January 04, 2021
+date: September 02, 2021
 autosize: true
 transition: linear
 transition-speed: default
@@ -39,22 +39,22 @@ Now it is your turn. But first, let's do a 2-minute free write
 - For 2 minutes, write about:
     - Your goals for this course,
     - What you hope to learn, and
-    - Some fun things you'll do over J-term
+    - Some fun things you'll do over Spring semester
 - PollEverywhere!
 
 Introductions
 ========================================================
-In the chat, introduce yourselves
+In groups of three introduce yourselves...
 
 - Name
-- Pronouns (Add to your zoom name with `...`)
+- Pronouns
 - One goal for this course
 - Favorite animal
 
 Introduction to SDS/MTH 290
 ========================================================
 
-- Course website at http://bit.ly/sds290interterm21
+- Course website at https://bit.ly/sds290fall2021
 - Syllabus
 
 

@@ -30,8 +30,8 @@ navbar:
   - text: Lectures
     menu:
     - text: Notes
-#    - text: 01 - Intro to Experimental Design
-#      href: lectures/01_intro_to_experimental.html
+    - text: 01 - Intro to Experimental Design
+      href: lectures/01_intro_to_experimental.html
 #    - text: 02 - Four Basic Designs
 #      href: lectures/02_four_designs.html
 #    - text: 03 - Four Basic Designs (cont.)
@@ -84,8 +84,8 @@ navbar:
 #      href: lectures/18_fisher_assumptions.html 
 #    - text: 19 - Exam 2 Review   
 #      href: lectures/18_exam2_review.html      
-  - text: Code
-    menu:
+#  - text: Code
+#    menu:
 #    - text: 01 - Four Designs
 #      href: lectures/02_four_designs.Rmd
 #    - text: 02 - Informal ANOVA
@@ -134,8 +134,8 @@ navbar:
     - text: 'Mini Project 2'
 #      href: mini-project-2.html
 #    - text: Advice
-  - text: Book Office Hours
-    href: https://randigarcia.youcanbook.me/
+#  - text: Book Office Hours
+#    href: https://randigarcia.youcanbook.me/
 output:
   html_document:
     theme: journal
