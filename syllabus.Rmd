@@ -143,12 +143,12 @@ Assignments {#assignments .unnumbered}
 ```{r, echo=FALSE, message=FALSE, warning=FALSE}
 library(knitr)
 
-Assignment <- c("Homework", "Participation", "Quizzes", 
+Assignment <- c("Homework", "Participation", "Exams", 
                 "Mini Project 1", "Mini Project 2", "Final Grade")
 
 `Percent of Total` <- c("40%", "10%", "20%", "10%", "20%", "100%")
 
-`Due Date` <- c("Fridays", "Daily", "Jan 28 and Feb 11", "Jan 21", "Feb 11", "")
+`Due Date` <- c("Fridays", "Daily", "Oct 22 and Dec 10", "Oct 20", "Dec 17", "")
 
 kable(cbind(Assignment, `Percent of Total`, `Due Date`))
 ```
@@ -176,7 +176,7 @@ Resources {#resources .unnumbered}
 
 #### Course Website and Moodle
 
-The [course website](https://randilgarcia.github.io/sds290interterm21/index.html) will be regularly updated with lecture slides, project information, assignments, and other course resources. Assignments and grades will be submitted via Moodle. You should check both regularly. 
+The [course website](https://randilgarcia.github.io/sds290fall21/index.html) will be regularly updated with lecture slides, project information, assignments, and other course resources. Assignments and grades will be submitted via Moodle. You should check both regularly. 
 
 #### Computing
 

@@ -62,7 +62,7 @@ Our First Experiment
 incremental: true
 Get in breakout groups of ~8 we will discuss. 
 
-As you participate in the experiment at the link below, remember: 
+As you participate in the experiment remember: 
 - what you saw 
 - what you did
 - the order in which it happened. 
