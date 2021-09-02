@@ -11,6 +11,8 @@ font-family: 'Helvetica'
 
 Welcome to **SDS 290**! 
 
+Complete the course questionnaire: https://bit.ly/sds290survey
+
 Introductions
 ========================================================
 
@@ -35,7 +37,7 @@ Who am I?
 ========================================================
 Now it is your turn. But first, let's do a 2-minute free write
 
-- On a peice of paper (or blank word-processing file).
+- On a piece of paper (or blank word-processing file).
 - For 2 minutes, write about:
     - Your goals for this course,
     - What you hope to learn, and
