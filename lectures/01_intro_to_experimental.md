@@ -60,6 +60,18 @@ Introduction to SDS/MTH 290
 Our First Experiment
 ========================================================
 incremental: true
+Get in breakout groups of ~8 we will discuss. 
+
+As you participate in the experiment at the link below, remember: 
+- what you saw 
+- what you did
+- the order in which it happened. 
+
+To participate, find the experiment link in the course schedule!!
+
+Our First Experiment
+========================================================
+incremental: true
 In your groups: 
 - Take turns describing what you saw/did.
 - Your objective, as a group, is to describe the FULL experimental design.
