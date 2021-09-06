@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+
+
+<title>syllabus.utf8</title>
+
+<script src="site_libs/header-attrs-2.7/header-attrs.js"></script>
+<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/journal.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/textmate.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+<link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+<style type="text/css">code{white-space: pre;}</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+
+
+<link rel="stylesheet" href="include/randilgarcia.css" type="text/css" />
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+pre code {
+  padding: 0;
+}
+</style>
+
+
+<style type="text/css">
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #adb5bd;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script type="text/javascript">
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.tab('show');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+
+  // Navbar adjustments
+  var navHeight = $(".navbar").first().height() + 15;
+  var style = document.createElement('style');
+  var pt = "padding-top: " + navHeight + "px; ";
+  var mt = "margin-top: -" + navHeight + "px; ";
+  var css = "";
+  // offset scroll position for anchor links (for fixed navbar)
+  for (var i = 1; i <= 6; i++) {
+    css += ".section h" + i + "{ " + pt + mt + "}\n";
+  }
+  style.innerHTML = "body {" + pt + "padding-bottom: 40px; }\n" + css;
+  document.head.appendChild(style);
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">SDS 290 - Fall 2021</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">
+    <span class="fas fa-home"></span>
+     
+    Home
+  </a>
+</li>
+<li>
+  <a href="syllabus.html">Syllabus</a>
+</li>
+<li>
+  <a href="schedule.html">Schedule</a>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Resources
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="resources.html">Helpful Links</a>
+    </li>
+    <li>
+      <a href="Downloading_R_and_RStudio.pdf">Downloading R and RStudio</a>
+    </li>
+    <li>
+      <a href="https://mdsr-book.github.io/mdsr2e/">Modern Data Science with R</a>
+    </li>
+    <li>
+      <a href="https://smithcollege-sds.github.io/sds-www/rmarkdown_problems.html">Troubleshooting R Markdown</a>
+    </li>
+    <li>
+      <a href="https://smithcollege.qualtrics.com/">Qualtrics</a>
+    </li>
+    <li>
+      <a href="data-ethics.html">Data Ethics Resources</a>
+    </li>
+  </ul>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Lectures
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li class="dropdown-header">Notes</li>
+    <li>
+      <a href="lectures/01_intro_to_experimental.html">01 - Intro to Experimental Design</a>
+    </li>
+  </ul>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Homework
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="http://moodle.smith.edu">HW1a: Record your names on Moodle</a>
+    </li>
+    <li>
+      <a href="HW 1b_CITI Training.pdf">HW1b: CITI Training</a>
+    </li>
+    <li class="dropdown-header">HW1c: Getting started with R</li>
+  </ul>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Projects
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li class="dropdown-header">Mini project 1</li>
+    <li class="dropdown-header">Mini Project 2</li>
+  </ul>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div id="header">
+
+
+
+
+</div>
+
+
+<p>a— title: “Syllabus” —</p>
+<div id="about-the-course" class="section level2 smith">
+<h2 class="smith">About the Course</h2>
+<div id="instructor" class="section level4">
+<h4>Instructor</h4>
+<ul>
+<li>Randi Garcia (<code>rgarcia@smith.edu</code>). Bass Hall 412. Randi’s office hours will be held on Wednesdays 10:50-12:05p and Thursdays 1:20-2:35p, or by appointment.</li>
+</ul>
+</div>
+<div id="description-and-goals" class="section level4">
+<h4>Description and Goals</h4>
+<p>This course provides students with an overview of statistical methods needed for scientific research. Our discussions will focus primarily on the basic principles of the design of experiments and observational studies, standard balanced designs, extensions of these designs, and the analysis of data collected under these designs. Most physical, biological, and social processes, produce variable results. This variability can often be quantified and decomposed in ways that enhance our understanding of the process and facilitate decision making. Statisticians and Data Scientists use four steps to quantify and interpret this variability. The steps are:</p>
+<ol style="list-style-type: decimal">
+<li>Formulate a statistical question about the process,</li>
+<li>Design a data collection procedure, or comparison scheme, to answer the question,</li>
+<li>Collect and analyze the data, and</li>
+<li>Interpret and communicate the results in written, visual, and oral forms.</li>
+</ol>
+<p>One major objective of this course is to give you practice with all four of these steps. Developing our statistical thinking around the factors that produce variability in observations in a key goal of all statistic courses. SDS 290 course goals:</p>
+<ol style="list-style-type: decimal">
+<li>Distinguish between observational and experimental studies, and explain the advantages and disadvantages of each.</li>
+<li>Explain the three design principles: random assignment, blocking, factorial crossing.</li>
+<li>Identify the factor structures of the four basic experimental designs: 1) One-way Basic Factorial, 2) One-way Complete Block, 3) Two-way Basic Factorial, and 4) Split Plot/Repeated Measures.</li>
+<li>Recognize potential sources of confounding and selection bias.</li>
+<li>Combine the four basic designs to recommend, recognize, and create new designs.</li>
+<li>Carry out, document, and explain a randomization plan for a survey or an experiment.</li>
+<li>Analyze data using R statistical software:
+<ol style="list-style-type: lower-roman">
+<li>Name and be able to check the six Fisher Assumptions.</li>
+<li>Calculate and interpret an analysis of variance (ANOVA) table for each of the four basic designs.</li>
+<li>Check for and interpret interactions between variables.</li>
+</ol></li>
+</ol>
+<p><strong>Prerequisite</strong>: An introductory statistics such as SDS 220/201, ECO 220, PSY 201, or equivalent.</p>
+</div>
+<div id="readings" class="section level4">
+<h4>Readings</h4>
+<ul>
+<li><em>STAT2: Modeling with Regression and ANOVA</em>, Second Edition by Ann R. Cannon, George W. Cobb, and Bradley A. Hartlaub. ISBN-13: 978-1319054076.<br />
+</li>
+<li>[PDFs provided on moodle] <em>Introduction to Design and Analysis of Experiments</em>, by George Cobb. Hardcover edition published by John Wiley &amp; Sons, 1998, ISBN: 978-0-470-41216-9.</li>
+</ul>
+<p>The first few chapters of the Cobb book are provided as PDFs on our course Moodle page. We will mostly be using the Stat2 book but will supplement with the Cobb book. It is very important that you read the textbook before every class—time in class will be devoted to jumping right into using the ideas presented in the text. The textbook is full of great examples of real statistical studies.</p>
+</div>
+<div id="class-structure" class="section level4">
+<h4>Class Structure</h4>
+<p>All class sessions will be focused on active learning activities and there will be less lecturing. We will spend class time discussing your questions, looking at other examples, doing homework proclems, and doing activities. With this semi-flipped class structure, it is VERY important that you do the assigned readings before coming to class. To this end, I will be starting most class sessions with questions about the readings to encourage you to keep up with the reading and to synthesize your thoughts before we begin class. On some class sessions, I will be giving mini-lectures, but they will often be focused statistical computing in R. Many activities will be designed to give you experience using statistical software to do the extensive computations most statistical analyses require. The computer is faster and more accurate than we are at doing arithmetic and graphs, but we have to know what arithmetic and which graphs will be useful.</p>
+<p>The primary way you will get information about this course is from the course website. The course website will be regularly updated with handouts, project information, assignments, and other course resources. All assignments will be submitted via Moodle. Finally, this course will use Slack to communicate including announcements, discussions about extra credit events, group project channels, and other uses as the interterm progresses.</p>
+</div>
+</div>
+<div id="policies" class="section level2 unnumbered">
+<h2 class="unnumbered">Policies</h2>
+<div id="attendance" class="section level4">
+<h4>Attendance</h4>
+<p>Participation has two components: 1) being present and 2) engaging in class activities. Your participation is an important part of the process of learning statistics, and we need you in class to help stimulate discussion. You can make a valuable contribution to the discussion by bringing up connections between our work and study designs you have seen in other courses, in the newspaper, or in research literature. I realize that, especially during these difficult times, you won’t always be able to get to class and I ask that if you cannot make it to class that you please let me know why via a Slack direct message. There be many different ways to participate in this course (Zoom sessions, Slack, office hours, group projects, etc.) and you can demonstrate your participation in a combination of ways.</p>
+</div>
+<div id="collaboration" class="section level4">
+<h4>Collaboration</h4>
+<p>Much of this course will operate on a collaborative basis, and you are expected and encouraged to work together with a partner or in small groups to study, complete homework assignments, and prepare for exams. However, <strong>every word that you write must be your own</strong>. Copying and pasting sentences, paragraphs, or blocks of code from another student is not acceptable and will receive no credit. No interaction with anyone but the instructor and course assistant is allowed on any exams. All students, staff and faculty are bound by the Smith College Honor Code, which Smith has had since 1944.</p>
+</div>
+<div id="academic-honor-code-statement" class="section level4">
+<h4>Academic Honor Code Statement</h4>
+<p>Cases of dishonesty, plagiarism, or other infractions, will be reported to the Academic Honor Board. You must always provide appropriate citations for others’ work and ideas. Giving other scholars due credit in your written and oral communication is a fundamental social gesture in academic work—a way for us to acknowledge each other’s scholarship and signify that we respect each other.</p>
+<p>From the <a href="https://www.smith.edu/sao/handbook/socialconduct/honorcode.php">Smith honor code website</a>:</p>
+<blockquote>
+<p>Smith College expects all students to be honest and committed to the principles of academic and intellectual integrity in their preparation and submission of course work and examinations. Students and faculty at Smith are part of an academic community defined by its commitment to scholarship, which depends on scrupulous and attentive acknowledgement of all sources of information, and honest and respectful use of college resources.</p>
+</blockquote>
+<p><strong>Cases of dishonesty, plagiarism, etc., will be reported to the Academic Honor Board.</strong></p>
+</div>
+<div id="classroom-environment" class="section level4">
+<h4>Classroom Environment</h4>
+<p>Realizing the benefits of a diverse space can only occur if we create a climate of psychological safety (Edmondson, 1999). To this end, we will always be respectful of one another. Together we should have the goal of creating an environment where we all feel comfortable sharing our thoughts and opinions. To this end, I value <strong>“half-formed,”</strong> informal thoughts—sometimes a deeper understanding is reached via communicating ideas before they are perfectly polished.</p>
+<p>Please let me know <strong>your gender pronouns</strong> by changing your name in zoom and adding them. You can do this in your zoom account preferences or each class session by clicking the <code>...</code> symbol in your square. In your written work for this class I am fine with (even encourage) the use of “they,” “their,” or simply “she” instead of “his or her” or “he or she.” I am also fine with “ze” and “zir.” Just please do not write “he,” “his” or “himself” when referring to all people. We also should also not say “you guys” when referring to a mixed-gender group, or refer to women as “girls.”</p>
+</div>
+<div id="accommodations" class="section level4">
+<h4>Accommodations</h4>
+<p>Everyone should have all that they need to succeed in this course. Please send me your accommodation letter, or have the Disability Office work with me. If you need to register for accommodations, please contact the Disability Services office at <a href="mailto:ODS@smith.edu" class="email">ODS@smith.edu</a>. Please check out the office <a href="https://www.smith.edu/ods/">website</a> for more information. Smith provides flexible and individualized accommodation to students with documented disabilities that may affect their ability to fully participate in course activities or to meet course requirements. To receive accommodation services, students must be registered with the Smith College Disability Services office, College Hall 104; phone: (413) 585-2071 (voice, TTY, TDD). Students with disabilities are encouraged to contact the instructor for a confidential discussion of their individual needs for academic accommodation.</p>
+<p>If you have special needs concerning quiz taking, please bring documentation of your needs and make an appointment to discuss them with me, at least ONE WEEK BEFORE the first exxam. That will give me time to provide accommodation for your needs.</p>
+</div>
+</div>
+<div id="assignments" class="section level2 unnumbered">
+<h2 class="unnumbered">Assignments</h2>
+<ol style="list-style-type: decimal">
+<li><p><strong>Homework</strong> [40%]: Weekly homework will be due on <strong>Fridays by 11:55p</strong> on Moodle. Late homework will NOT be accepted except in cases of a family or personal health emergency. Homework will be a combination of problems sets from the book and statistical computation exercises in R. I recommend that you form study groups of 3 or 4 students from the class, and get together outside of class to discuss the homework. Each of you should try the exercises on your own and then get together to discuss your work. This process helps you to develop your own way of thinking about statistics questions before hearing how others think. <strong>I will be dropping the lowest homework grade at the end of the term.</strong></p></li>
+<li><p><strong>Participation</strong> [10%]: Active participation in class and regular attendance will comprise 10% of your grade. Most class periods will begin with questions from the reading for that day. Participating in the discussion about the readings is a great way to demonstrate engagement. Reading before class will help us move towards a “flipped” classroom. In non-flipped classrooms, students attend lectures and are asked to apply the material outside of class in the form of homework assignments. But often students need the most help from professors when they are in the midst of applying the material (Bergman &amp; Sams, 2012). In flipped classrooms, students are asked to learn the facts at home and do the application in class. There will be many ways to demonstrate enagement throughout the term, and we will be recording attended by saving the participant list each day.</p></li>
+<li><p><strong>Exams</strong> [20%]: There will be two take home exams throughout the term. See the schedule for tentative dates of these exams. They will usually be distributed on a Tuesday and due that Friday. You will have time in class to work on the exams.</p></li>
+<li><p><strong>Mini Projects and Presentations</strong> [30% - 10% MP1 + 20% MP2]: There will two mini projects during the semester. The first mini project (MP1) will be completed individually and the second mini project (MP2) will be completed in groups of three. For these projects, you and your group will be posing your own research questions and designing an experiment. The specific content of your mini projects will vary, but all projects will consist of designing an experiment (or appropriate observational study), collecting and analyzing data, and writing a technical report on your study. For MP2 each group of three students will complete an experiment together. During the last week of class, you (and your group) will create short presentation of your study and present it to the class. We’ll talk more about the project as the term proceeds and detailed instructions for the projects will be posted on the course website.</p></li>
+</ol>
+<div id="summary" class="section level4">
+<h4>Summary</h4>
+<table>
+<thead>
+<tr class="header">
+<th align="left">Assignment</th>
+<th align="left">Percent of Total</th>
+<th align="left">Due Date</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Homework</td>
+<td align="left">40%</td>
+<td align="left">Fridays</td>
+</tr>
+<tr class="even">
+<td align="left">Participation</td>
+<td align="left">10%</td>
+<td align="left">Daily</td>
+</tr>
+<tr class="odd">
+<td align="left">Exams</td>
+<td align="left">20%</td>
+<td align="left">Oct 22 and Dec 10</td>
+</tr>
+<tr class="even">
+<td align="left">Mini Project 1</td>
+<td align="left">10%</td>
+<td align="left">Oct 20</td>
+</tr>
+<tr class="odd">
+<td align="left">Mini Project 2</td>
+<td align="left">20%</td>
+<td align="left">Dec 17</td>
+</tr>
+<tr class="even">
+<td align="left">Final Grade</td>
+<td align="left">100%</td>
+<td align="left"></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="grading" class="section level4">
+<h4>Grading</h4>
+<p>When we grade your written work, I am looking for problem solutions that are technically correct and reasoning that is clearly explained. Numerically correct answers, alone, are not sufficient on homework or exams. I value neatness and brief, clear, well-organized answers that explain your thinking. If the grader cannot read or follow your work, she cannot give you credit for it. The grader will check each homework submission for completeness and grade a subset of the exercises. Homework answer keys will be posted on Moodle after the due date.</p>
+</div>
+<div id="assignment-late-policy" class="section level4">
+<h4>Assignment Late Policy</h4>
+<p>For every day late on the written assignments I will reduce your grade for that assignment by 1/3 letter grade (i.e., if you wrote a B+ report, but turned it in 1 day late, you’ll get a B. Two days late? B-, and so forth). I will not accept any late final group research reports.</p>
+</div>
+<div id="final-grade-brackets" class="section level4">
+<h4>Final Grade Brackets</h4>
+<table>
+<thead>
+<tr class="header">
+<th align="left">Grade</th>
+<th align="left">Percent</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">A</td>
+<td align="left">95-100%</td>
+</tr>
+<tr class="even">
+<td align="left">A-</td>
+<td align="left">90-95%</td>
+</tr>
+<tr class="odd">
+<td align="left">B+</td>
+<td align="left">87-89%</td>
+</tr>
+<tr class="even">
+<td align="left">B</td>
+<td align="left">83-86%</td>
+</tr>
+<tr class="odd">
+<td align="left">B-</td>
+<td align="left">80-82%</td>
+</tr>
+<tr class="even">
+<td align="left">C+</td>
+<td align="left">77-79%</td>
+</tr>
+<tr class="odd">
+<td align="left">C</td>
+<td align="left">73-76%</td>
+</tr>
+<tr class="even">
+<td align="left">C-</td>
+<td align="left">70-72%</td>
+</tr>
+<tr class="odd">
+<td align="left">D+</td>
+<td align="left">60-66%</td>
+</tr>
+<tr class="even">
+<td align="left">D</td>
+<td align="left">67-69%</td>
+</tr>
+<tr class="odd">
+<td align="left">E</td>
+<td align="left">59% and below</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="resources" class="section level2 unnumbered">
+<h2 class="unnumbered">Resources</h2>
+<div id="course-website-and-moodle" class="section level4">
+<h4>Course Website and Moodle</h4>
+<p>The <a href="https://randilgarcia.github.io/sds290fall21/index.html">course website</a> will be regularly updated with lecture slides, project information, assignments, and other course resources. Assignments and grades will be submitted via Moodle. You should check both regularly.</p>
+</div>
+<div id="computing" class="section level4">
+<h4>Computing</h4>
+<p>The use of the <code>R</code> statistical computing environment with the <a href="http://rstudio.org">RStudio</a> interface is thoroughly integrated into the course. You have two options for using <code>RStudio</code>:</p>
+<ul>
+<li>The <strong>server</strong> version of <code>RStudio</code> on the <a href="http://rstudio.smith.edu">web</a>. The advantage of using the server version is that all of your work will be stored in the cloud, where it is automatically saved and backed up. This means that you can access your work from any computer with a web browser (Firefox is recommended) and an Internet connection.</li>
+<li>A <strong>desktop</strong> version of <code>RStudio</code> installed on your machine. The downside to this approach is that your work is only stored locally, and you will have to manage your own installation.</li>
+</ul>
+<p>Note that you do not have to choose one or the other – you may use both. However, it is important that you understand the distinction so that you can keep track of your work. Both <code>R</code> and <code>RStudio</code> are free and open-source, and are installed on most computer labs on campus. Please see the <a href="resources.html">Resources</a> page for help with <code>R</code>.</p>
+</div>
+<div id="use-of-technology-during-class" class="section level4">
+<h4>Use of Technology during Class</h4>
+<p>As we will always be using our computers to attend this course, I hope it goes without saying that while the class is in session, you should resist the temptation to use your computer or cell phone for personal email, web browsing, social media, or any activity that’s not related to the class.</p>
+</div>
+<div id="writing" class="section level4">
+<h4>Writing</h4>
+<p>Your ability to communicate results, which may be technical in nature, to your audience, which is likely to be non-technical, is critical to your success as a data analyst. The assignments in this class will place an emphasis on the clarity of your writing.</p>
+</div>
+<div id="extra-help" class="section level4">
+<h4>Extra Help</h4>
+<p>There are <a href="https://www.smith.edu/qlc/tutoring.html?colStats=open#PanelStats">Statistics TAs</a> available from 7:00-9:00pm on Sunday–Thursday evenings in Sabin-Reed 301. In addition, the Spinelli Center for Quantitative Learning (Seeley 207) supports students doing quantitative work across the curriculum. Your fellow students are also an excellent source for explanations, tips, etc.</p>
+</div>
+<div id="tentative-schedule" class="section level4">
+<h4>Tentative Schedule</h4>
+<p>Please refer to the complete <a href="schedule.html">day-to-day schedule</a> for more detailed information.</p>
+<!-- Week | Reading | Topic |  -->
+<!-- -----|---------|-------| -->
+<!-- 1 | Ch. 1 | Introduction to Four Basic Designs -->
+<!-- 2 | Ch. 2| Decisions about Content of an Experiment -->
+<!-- 3 | Ch. 3 | Formal Analysis of Variance (ANOVA) -->
+<!-- 4 | Ch. 5 | Basic Factorial Design -->
+<!-- 5 | | **Exam 1: take home due on March 7th** -->
+<!-- 6 | Ch. 6 | Factorial Crossing -->
+<!-- 7 | Ch. 7 | Complete Block Design and the Split-Plot Design -->
+<!-- 8 | Ch. 7 | Complete Block Design and the Split-Plot Design -->
+<!-- 9 | Ch. 9| Extending the Basic Designs -->
+<!-- 10 | Ch. 9| Extending the Basic Designs -->
+<!-- 11 | Ch. 11 | Correcting for Multiple Comparisons and Assumption Checking -->
+<!-- 12 | | **Exam 2: take home due on April 25th** -->
+<!-- 13 | | Projects -->
+<!-- 14 | | Projects and **Poster Presentations** -->
+<!-- May 9 | | **All work due** -->
+</div>
+</div>
+
+    <div id="footer">
+      <div class="container">
+        <p class="muted credit">Course created by <a href="https://www.smith.edu/academics/faculty/randi-garcia">Randi Garcia</a>.</p>
+        <p class="muted credit">Originally based on course by <a href="https://smith.edu/academics/faculty/katherine-halvorsen">Katherine Halvorsen</a>.</p>
+        <p class="muted credit">Webcode by <a href="https://www.smith.edu/academics/faculty/ben-baumer">Ben Baumer</a>.</p>
+      </div>
+    </div>
+
+
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open');
+  });
+});
+</script>
+
+<!-- code folding -->
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

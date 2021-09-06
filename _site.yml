@@ -109,7 +109,7 @@ navbar:
     - text: 'HW1b: CITI Training'
       href: HW 1b_CITI Training.pdf
     - text: 'HW1c: Getting started with R'
-#      href: labs/intro_to_r.html
+      href: labs/intro_to_r.html
 #    - text: 'HW2:'
 #      href: homework.html
 #    - text: 'HW3: Review Exercises (p. 34-37), 3, 6, 9, 11, 13a, 14, 16, 17'
