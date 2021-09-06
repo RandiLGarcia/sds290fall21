@@ -84,10 +84,10 @@ navbar:
 #      href: lectures/18_fisher_assumptions.html 
 #    - text: 19 - Exam 2 Review   
 #      href: lectures/18_exam2_review.html      
-#  - text: Code
-#    menu:
-#    - text: 01 - Four Designs
-#      href: lectures/02_four_designs.Rmd
+  - text: Code
+    menu:
+    - text: 01 - Animal Data
+      href: lectures/01_animal_data.Rmd
 #    - text: 02 - Informal ANOVA
 #      href: lectures/02_informal_anova.Rmd
 #    - text: 03 - Formal ANOVA
@@ -134,8 +134,8 @@ navbar:
     - text: 'Mini Project 2'
 #      href: mini-project-2.html
 #    - text: Advice
-#  - text: Book Office Hours
-#    href: https://randigarcia.youcanbook.me/
+  - text: Book Zoom OHs
+    href: https://randigarcia.youcanbook.me/
 output:
   html_document:
     theme: journal

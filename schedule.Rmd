@@ -9,17 +9,17 @@ Please read the specified sections *before* class that day.
 
 
 <div class="row">
-  <div class="col-md-3">
+  <div class="col-md-3 past">
 #### Tue, Aug 31
 + No class
   </div>
   
-  <div class="col-md-3">
+  <div class="col-md-3 past">
 #### Wed, Sep 1
 + No class
   </div>
   
-  <div class="col-md-3">
+  <div class="col-md-3 past">
 #### Thurs, Sep 2
 + Introduction to the course
 + Four-step process
@@ -29,7 +29,7 @@ Please read the specified sections *before* class that day.
     + HW #1b: CITI training
   </div>
   
-  <div class="col-md-3">
+  <div class="col-md-3 past">
 #### Fri, Sep 3
 + Homework due today:
     + Read **Stat2** Ch. 0 (PDF on Moodle)
@@ -64,6 +64,7 @@ Please read the specified sections *before* class that day.
 #### Fri, Sep 10
 + Homework due today:
     + **HW #1b and #1c due today at 11:55p**
++ Zoom office hours: 1:30-3:00p [book here](https://randigarcia.youcanbook.me)    
   </div>
 </div>
 
@@ -95,6 +96,7 @@ Please read the specified sections *before* class that day.
 #### Fri, Sep 17
 + Homework due today:
     + **HW #2 due today at 11:55p**
++ Zoom office hours: 1:30-3:00p [book here](https://randigarcia.youcanbook.me)      
   </div>
 </div>
 
@@ -126,6 +128,7 @@ Please read the specified sections *before* class that day.
 #### Fri, Sep 24
 + Homework due today:
   + **HW #3 due on today at 11:55p**
++ Zoom office hours: 1:30-3:00p [book here](https://randigarcia.youcanbook.me)    
   </div>
 </div>
 
@@ -154,6 +157,7 @@ Please read the specified sections *before* class that day.
 #### Fri, Oct 1
 + Homework due today:
   + **HW #4 due on today at 11:55p**
++ Zoom office hours: 1:30-3:00p [book here](https://randigarcia.youcanbook.me)    
   </div>
 </div>
 
@@ -183,6 +187,7 @@ Please read the specified sections *before* class that day.
   <div class="col-md-3">
 #### Fri, Oct 8
 + No homework due
++ Zoom office hours: 1:30-3:00p [book here](https://randigarcia.youcanbook.me)  
   </div>
 </div>
 
@@ -213,6 +218,7 @@ Please read the specified sections *before* class that day.
 + Homework due today:
     + **HW #5 due tonight at 11:55p**
     + **Mini Project 1 due Tuesday morning** (upload to Moodle by Midnight)
++ Zoom office hours: 1:30-3:00p [book here](https://randigarcia.youcanbook.me)      
   </div>
 </div>
 
@@ -239,6 +245,7 @@ Please read the specified sections *before* class that day.
 #### Fri, Oct 22
 + Homework due today:
     + **Exam 1 due tonight at 11:55p**
++ Zoom office hours: 1:30-3:00p [book here](https://randigarcia.youcanbook.me)      
   </div>
 </div>
 
@@ -270,6 +277,7 @@ Please read the specified sections *before* class that day.
   <div class="col-md-3">
 #### Fri, Oct 29
 + No homework due
++ Zoom office hours: 1:30-3:00p [book here](https://randigarcia.youcanbook.me)  
   </div>
 </div>
 
@@ -303,6 +311,7 @@ Please read the specified sections *before* class that day.
 #### Fri, Nov 5
 + Homework due today:
     + [**HW #6 due today at 11:55p**](homework.html) 
++ Zoom office hours: 1:30-3:00p [book here](https://randigarcia.youcanbook.me)      
   </div>
 </div>
 
@@ -334,7 +343,7 @@ Please read the specified sections *before* class that day.
 #### Fri, Nov 12
 + Homework due today:
     + [**HW #7 due thurs at 11:55p**](homework.html)
-
++ Zoom office hours: 1:30-3:00p [book here](https://randigarcia.youcanbook.me)      
   </div>
 </div>
 
@@ -367,7 +376,7 @@ Please read the specified sections *before* class that day.
 #### Fri, Nov 19
 + Homework due today:
     + [**HW #8 due today at 9:20a**](homework.html)
-
++ Zoom office hours: 1:30-3:00p [book here](https://randigarcia.youcanbook.me)      
   </div>
 </div>
 
@@ -393,6 +402,7 @@ Please read the specified sections *before* class that day.
   
   <div class="col-md-3">
 #### Fri, Nov 26
++ **Thanksgiving break**
   </div>
 </div>
 
@@ -424,6 +434,7 @@ Please read the specified sections *before* class that day.
 #### Fri, Dec 3
 + Homework due today:
     + [**HW #9 due today at 9:20a**](homework.html)
++ Zoom office hours: 1:30-3:00p [book here](https://randigarcia.youcanbook.me)      
 
   </div>
 </div>
@@ -451,7 +462,7 @@ Please read the specified sections *before* class that day.
 #### Fri, Dec 10
 + Homework due today:
     + **Exam 2 due tonight at 11:55p**
-
++ Zoom office hours: 1:30-3:00p [book here](https://randigarcia.youcanbook.me)  
   </div>
 </div>
 

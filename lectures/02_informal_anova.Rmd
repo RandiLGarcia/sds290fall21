@@ -13,7 +13,7 @@ library(mosaic)
 library(readr)
 library(ggplot2)
 
-animals <- read_csv("https://randilgarcia.github.io/sds290interterm21/animal_data.csv")
+animals <- read_csv("https://randilgarcia.github.io/sds290fall21/animals.csv")
 
 animals <- animals %>%
   mutate(student = seq.int(1, nrow(animals))) %>%
