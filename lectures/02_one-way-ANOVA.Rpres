@@ -17,29 +17,6 @@ Announcements
 
 Our First Experiment
 ========================================================
-incremental: true
-In your groups: 
-- Take turns describing what you saw/did.
-- Your objective, as a group, is to describe the FULL experimental design.
-
-Discussion questions:
-- What were all of the possibilities? How do you think that was determined?
-- Which conditions were distributed *across* people, and which *within* people?
-- What do you think are the possible research questions answered by this study?
-        
-        
-What makes a study an "Experiment"?
-========================================================
-incremental: true
-- Can you assign experimental material to conditions?
-- You've created those conditions
-- If the material alredy comes in different "varieties", then it's an *observational* study
-    - People with different psychiatric illnesses
-    - Different species of plants
-- Sometimes one "study" will have both **experimental** and **observational** variables
-
-========================================================
-
 ![](02_four_designs-figure/cute-cat.png)
 ![](02_four_designs-figure/quest.png)
 
@@ -48,6 +25,7 @@ incremental: true
 ![](02_four_designs-figure/scary-cat.png)
 ![](02_four_designs-figure/quest.png)
 
+Our First Experiment
 ========================================================
 
 ![](02_four_designs-figure/cute-dog.png)
@@ -58,17 +36,35 @@ incremental: true
 ![](02_four_designs-figure/scary-dog.png)
 ![](02_four_designs-figure/quest.png)
 
+Our First Experiment
+========================================================
 
-Terms
+- What were all of the possibilities? How do you think that was determined?
+- Which conditions were distributed *across* people, and which *within* people?
+- What do you think are the possible research questions answered by this study?
+        
+        
+What made this study an "Experiment"?
+========================================================
+incremental: true
+- Can you assign experimental material to conditions?
+- You've created those conditions
+- If the material alredy comes in different "varieties", then it's an *observational* study
+    - People with different psychiatric illnesses
+    - Different species of plants
+- Sometimes one "study" will have both **experimental** and **observational** explanatory variables.
+
+Defining Terms
 =======================================================
-- Balanced verusus unbalanced designs
-- Experimental units
-- Experimental factors and levels
-- Response
+- **Balanced Designs**: all conditions (or *treatments*) have the same number of observations.
+    - Unbalanced design do not.
+- **Experimental Units**: the element that gets randomized to conditions. We record one score on our response variable per unit.
+- **Factors** and **Levels**: The factor is the entire explanatory variable. Also called an **independent variable**. A factor's levels are the individual conditions (or *treatments*).
+- **Response**: The outcome variable. Also called **dependent vairable**. We want to see if our factors have an effect on our response variable. 
 
 Confounding Variables
 =======================================================
-I want to test if smelling a tasty food (fresh cinnamon rolls) versus a non-tasty food (broccoli) has an effect on salivation in humans. So, I recruit some participants to come to my lab, I'll have to bake the cinnamon rolls and run that condition all at once, so I decide that I will bake my rolls at 9a, then from 10a-12p I will run the cinnamon roll condition. I bring people into individual distraction free rooms, hook them up to the salivation sensor, then bring them a plate with a freshly baked cinnamon roll. I record their salivation. Then, I will run the broccoli from 1p-3p, using the same measurement procedure. 
+I want to test if smelling a sweet food (fresh cinnamon rolls) versus a non-sweet food (broccoli) has an effect on salivation in humans. So, I recruit some participants to come to my lab, I'll have to bake the cinnamon rolls and run that condition all at once, so I decide that I will bake my rolls at 9a, then from 10a-12p I will run the cinnamon roll condition. I bring people into individual distraction free rooms, hook them up to the salivation sensor, then bring them a plate with a freshly baked cinnamon roll. I record their salivation. Then, I will run the broccoli condition from 1p-3p, using the same measurement procedure. 
 
 Are there any confounding variables in my study?
 
@@ -80,6 +76,33 @@ Our data will be "off" in a systematic, non-random, way
 - Selection Bias: Assigning the skinnier rats to the good lab chow. 
 
 ![](02_four_designs-figure/Bias.png)
+
+One-Way ANOVA
+=======================================================
+
+- One factor (explanatory variable) with any number of levels.
+- One quantitative (non-binary) response variable. 
+
+```{r, message=FALSE, warning=FALSE}
+library(tidyverse)
+library(readr)
+
+survey <- read_csv("https://randilgarcia.github.io/sds290fall21/class_surveyData.csv")
+survey <- read_csv("class_surveyData.csv")
+glimpse(survey)
+```
+
+```{r}
+qplot(x = graduation, y = chalk_est, data = survey)
+```
+
+```{r}
+qplot(x = graduation, y = chalk_est, data = survey, geom = "boxplot")
+```
+
+```{r}
+qplot(x = factor(graduation), y = chalk_est, data = survey, geom = "boxplot")
+```
 
 The Meats 
 =======================================================
