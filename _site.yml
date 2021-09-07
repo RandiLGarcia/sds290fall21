@@ -32,9 +32,9 @@ navbar:
     - text: Notes
     - text: 01 - Intro to Experimental Design
       href: lectures/01_intro_to_experimental.html
-#    - text: 02 - Four Basic Designs
-#      href: lectures/02_four_designs.html
-#    - text: 03 - Four Basic Designs (cont.)
+    - text: 02 - One-Way ANOVA
+      href: lectures/02_one-way-ANOVA.html
+    - text: 03 - One-Way ANOVA II
 #      href: lectures/02b_four_designs.html
 #    - text: 04 - Informal ANOVA
 #      href: lectures/03_informal_anova.html      

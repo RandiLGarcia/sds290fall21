@@ -7,13 +7,52 @@ transition: linear
 transition-speed: default
 font-family: 'Helvetica'
 
+<style>
+.small-code pre code {
+  font-size: 1em;
+}
+</style>
+
 Announcements
 ========================================================
 
-- Any Slack issues?
-- Registration
-- Zoom Office hours
+- Slack issues?
+- Registration issues?
 - Homework 1c
+- In-person Office hours (Bass 412)
+    - Wed 10:50-12:05p
+    - Thurs 1:20-2:35p
+- Zoom Office hours
+    - Book a 15-min time slot [here](https://randigarcia.youcanbook.me/)
+
+Why Model?
+========================================================
+1. Making Predictions
+2. Understanding Relationships
+3. Assessing Differences
+
+Why Model?
+========================================================
+1. Making Predictions
+2. Understanding Relationships
+3. **Assessing Differences**
+
+4 Step Process
+========================================================
+
+1. *Choose* the model: What type of model?
+2. *Fit* the model to the data
+3. *Assess* the model: Is the model adequate? Could it be simpler? Are assumptions met?
+4. *Use*: Answer the question of interest
+
+4 Step Process
+========================================================
+
+1. *Choose* the model: What type of model?
+    - We design the experiment and collect the data to match the model.
+2. *Fit* the model to the data
+3. *Assess* the model: Is the model adequate? Could it be simpler? Are assumptions met?
+4. *Use*: Answer the question of interest
 
 Our First Experiment
 ========================================================
@@ -79,7 +118,7 @@ Our data will be "off" in a systematic, non-random, way
 
 One-Way ANOVA
 =======================================================
-
+class: small-code
 - One factor (explanatory variable) with any number of levels.
 - One quantitative (non-binary) response variable. 
 
@@ -88,27 +127,28 @@ One-Way ANOVA
 library(tidyverse)
 library(readr)
 
-#survey <- read_csv("https://randilgarcia.github.io/sds290fall21/class_surveyData.csv")
-survey <- read_csv("class_surveyData.csv")
-head(survey)
+survey <- read_csv("https://randilgarcia.github.io/sds290fall21/class_surveyData.csv")
+
+survey %>%
+  select(graduation, chalk_est) %>%
+  head()
 ```
 
 ```
-# A tibble: 6 x 9
-  graduation major_minor1 major_minor2 miles hieght Handedness chalk_est
-       <dbl> <chr>        <chr>        <dbl>  <dbl> <chr>          <dbl>
-1       2022 SDS          [eco]           86     65 Right             16
-2       2023 PSY          PHI           2500     69 Right             25
-3       2023 SDS          <NA>           112     59 Right             17
-4       2022 ECO          [sds]          178     63 Right             24
-5       2023 SDS          [mth]           80     62 Right             30
-6       2021 PSY          <NA>           900     69 Right             36
-# … with 2 more variables: pages_read_est <dbl>, texts <dbl>
+# A tibble: 6 x 2
+  graduation chalk_est
+       <dbl>     <dbl>
+1       2022        16
+2       2023        25
+3       2023        17
+4       2022        24
+5       2023        30
+6       2021        36
 ```
 
 One-Way ANOVA
 =======================================================
-
+class: small-code
 
 ```r
 qplot(x = graduation, y = chalk_est, data = survey)
@@ -118,7 +158,7 @@ qplot(x = graduation, y = chalk_est, data = survey)
 
 One-Way ANOVA
 =======================================================
-
+class: small-code
 
 ```r
 qplot(x = graduation, y = chalk_est, data = survey, geom = "boxplot")
@@ -128,7 +168,7 @@ qplot(x = graduation, y = chalk_est, data = survey, geom = "boxplot")
 
 One-Way ANOVA
 =======================================================
-
+class: small-code
 
 ```r
 qplot(x = factor(graduation), y = chalk_est, data = survey, geom = "boxplot")
