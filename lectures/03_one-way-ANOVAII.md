@@ -1,0 +1,163 @@
+One-Way ANOVA II
+========================================================
+author: Prof Randi Garcia
+date: September 9, 2021
+autosize: true
+transition: linear
+transition-speed: default
+font-family: 'Helvetica'
+
+<style>
+.small-code pre code {
+  font-size: 1em;
+}
+</style>
+
+Announcements
+========================================================
+
+- HW1b and HW1c due tomorrow at 11:55p
+- In-person Office hours (Bass 412)
+    - Wed 10:50-12:05p
+    - Thurs 1:20-2:35p
+- Zoom Office hours
+    - Book a 15-min time slot [here](https://randigarcia.youcanbook.me/)
+- Where to get HW help
+- MP1: Have a few topics ideas by Monday    
+
+Reading contemplation question
+========================================================
+
+  1. Explain what you remember about the assembly line metaphor (p. 40). This was the metaphor for how each observation of the response variable was composed. If it helps, you can think about the enzyme concentrations from Kelly's hamster experiment as the response.
+
+The Meats 
+=======================================================
+One-Way Design
+
+The shelf life of meats is the time a prepackaged cut remains salable, safe, and nutritious. Recent studies suggested controlled gas atmospheres as possible alternatives to existing packaging. To test this, beef steaks (75$g$) were randomly assigned to packaging with either 1) ambient air in a  commercial plastic wrap, 2) vacuum packed, 3) 100% carbon dioxide ($CO_2$), or 4) a mixture of 1% carbon monoxide (CO), 40% oxygen ($O_2$), and 59% nitrogen (N). The number of psychrotrophic bacteria on the meat was measured after nine days of storage at 4 degrees C.
+
+Gender Bias in STEM
+=======================================================
+One-Way Design 
+
+In a randomized double-blind study (n = 127), science faculty from research-intensive universities rated the application materials of a student who was randomly assigned either a male or female name for a laboratory manager position. Faculty participants rated the male applicant as significantly more hireable than the (identical) female applicant. [See materials here](http://www.pnas.org/content/suppl/2012/09/16/1211286109.DCSupplemental/pnas.201211286SI.pdf#nameddest=STXT)
+
+Acid Rain   
+=======================================================
+One-Way Design
+
+"Clean" precipitation has a pH in the 5.0 to 5.5 range, but observed precipitation pH in northern New Hampshire is often in the 3.0 to 4.0 range. Is this acid rain hurting trees? 240 six-week-old yellow birch seedlings were randomly assigned to one of 5 groups. Each group received an acid rain mist at the following pH levels: 4.7, 4.0, 3.3, 3.0, and 2.3. After 17 weeks, the seedling were weighed, and their total plant (dry) weight was recorded. 
+
+Leafhopper survival
+=======================================================
+One-Way Design
+
+It is reasonable to assume that the structure of a sugar molecule has something to do with its food value.
+An experiment was conducted to compare the effects of four sugar diets on the survival of leafhoppers. The four diets were glucose and fructose (6-carbon atoms), sucrose (12-carbon), and a control (2% agar). The experimenter prepared two dishes with each diet, divided the leafhoppers into eight groups of equal size, and then randomly assigned them to dishes. Then she counted the number of days until half the insects had died in each group.
+
+Six Fisher Assumptions
+=======================================================
+type: section
+
+Six Fisher Assumptions
+=======================================================
+![](04_exp_decisions-figure/CA-SINZ2.png)
+
+***
+
+- C. Constant effects
+- A. Additive effects
+- S. Same standard deviations
+- I. Independent residuals
+- N. Normally distributed residuals
+- Z. Zero mean residuals
+
+
+Breakout rooms
+=======================================================
+
+- Take turns giving one or two ideas for your MP1. Give each presenter thoughts or suggestions before moving onto the next person.
+- Raise your hand if anyone in your group has a question!
+
+
+Parallel Dot Graphs
+=======================================================
+
+- See code **02-Informal ANOVA** from the course website
+
+
+Simulation Activity: Assembly Line Metaphor
+=======================================================
+- [Simulation code/lecture](http://www.science.smith.edu/~rgarcia/sds290-S18/lectures/03_informal_anova.Rmd).
+- Get into pairs.
+- Talk about where the six assumptions are present in the simulation.
+
+C. Constant effects
+=======================================================
+
+We assume every observation in a similar condition is affected exactly the same. (Gets the same true score).  
+
+
+```r
+animals_sim <- animals %>%
+  mutate(benchmark = mean(calm)) %>%
+  group_by(animal) %>%
+  mutate(animal_mean = mean(calm),
+         aminal_effect = animal_mean - benchmark)
+```
+
+A. Additive effects
+=======================================================
+
+We add the effects as we go down the assembly line. 
+
+The interaction effect captures the possibility that conditions have non-additive effects, but it is also added to everythign else. 
+
+
+```r
+calm_sim = benchmark 
+         + aminal_effect 
+         + cue_effect 
+         + interaction_effect 
+         + student_effect 
+```
+
+S. Same standard deviations
+=======================================================
+
+The peice of code for adding error is not dependent on which condition the observations is in.
+
+
+```r
+ + rnorm(64, 0, 0.65)
+```
+
+I. Independent residuals
+=======================================================
+
+Takes 64 independent draws from a normal distribution.
+
+
+```r
+ + rnorm(64, 0, 0.65)
+```
+
+N. Normally distributed residuals
+=======================================================
+
+It's `rnorm()`, and not `rbinom()` or `rpois()`...
+
+
+```r
+ + rnorm(64, 0, 0.65)
+```
+
+Z. Zero mean residuals
+=======================================================
+
+The second argument is the mean.
+
+
+```r
+ + rnorm(64, 0, 0.65)
+```

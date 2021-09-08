@@ -40,21 +40,21 @@ Please read the specified sections *before* class that day.
 ***
 
 <div class="row">
-  <div class="col-md-3">
+  <div class="col-md-3 past">
 #### Tue, Sep 7
 + One-way ANOVA
 + Homework due today:
     + Read **Stat2** Ch. 5.1-5.2
   </div>
   
-  <div class="col-md-3">
+  <div class="col-md-3 past">
 #### Wed, Sep 8
 + Office hours: 10:50-12:05p
   </div>
   
   <div class="col-md-3">
 #### Thurs, Sep 9
-+ Informal ANOVA
++ One-way ANOVA (cont.)
 + Homework due today:
   + Read **Stat2** Ch. 5.3 
 + Office hours: 1:20-2:35p    
