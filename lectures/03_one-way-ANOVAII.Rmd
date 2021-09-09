@@ -54,7 +54,7 @@ One-Way Randomized Design
 
 ## Simulation in R: Assembly Line Metaphor
 
-- [Assembly Line Metaphor code](https://randilgarcia.github.io/sds290fall21//lectures/03_informal_anova.Rmd).
+- [Assembly Line Metaphor code](https://randilgarcia.github.io/sds290fall21/lectures/03_informal_anova.Rmd).
 
 ## Leafhopper survival
 
@@ -102,8 +102,11 @@ leaf <- leaf %>%
          resid_alt = days - fitted)
 ```
 
+## Leafhoppers
+
 - We'll now start thinking about if those differences in treatment effects are real, or could possibly be due to chance error. 
 - To the factor diagram, let's add in the grand mean, the effects for diet, and the residuals
+
 ```{r, echo = FALSE}
 kable(data.frame(' ' = c("","","means"), control = c(2.3,1.7, 2.0), sucrose = c(3.6, 4.0, 3.8), glucose = c(2.9,2.7,2.8), fructose = c(2.1,2.3,2.2)))
 ```
