@@ -110,10 +110,8 @@ Decomposing the data
 =======================================================
 ```{r, echo = FALSE}
 library(knitr)
-library(dplyr)
-library(tidyr)
+library(tidyverse)
 library(mosaic)
-library(ggplot2)
 
 kable(data.frame(control = c(2.3,1.7), sucrose = c(3.6, 4.0), glucose = c(3.0,2.8), fructose = c(2.1,2.3)))
 ```
@@ -127,10 +125,8 @@ Bar graph of treatment condition averages.
 
 ```{r, echo=FALSE}
 library(knitr)
-library(dplyr)
-library(tidyr)
+library(tidyverse)
 library(mosaic)
-library(ggplot2)
 leaf <- data.frame(diet = c("control","control","sucrose", "sucrose", "glucose", "glucose", "fructose","fructose"), days = c(2.3,1.7,3.6,4.0,3.0,2.8,2.1,2.3))
 leaf %>%
   group_by(diet) %>%

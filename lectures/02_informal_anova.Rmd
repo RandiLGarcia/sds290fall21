@@ -1,5 +1,5 @@
 ---
-title: "03 - Informal Analysis"
+title: "02 - Informal Analysis"
 author: "Randi L. Garcia"
 output: html_document
 ---
@@ -7,11 +7,9 @@ output: html_document
 # Loading data
 
 ```{r, warning=FALSE, message=FALSE}
-library(dplyr)
-library(tidyr)
+library(tidyverse)
 library(mosaic)
 library(readr)
-library(ggplot2)
 
 animals <- read_csv("https://randilgarcia.github.io/sds290fall21/animals.csv")
 
@@ -52,11 +50,11 @@ ggplot(animals, aes(x = animal, y = calm, color = cue)) +
 
 To make the set of assembly instructions, first we calculate the effects of all of our structural factors under the Fisher assumptions. We use the data to calculate all of these effects.
 
-The chunks of code below calculate all of the peices we'll need in our assembly line. Each chunk is a station. The Fisher assumptions are built into the way we are calculating our assembly line instructions and when simulating the data below. 
+The chunks of code below calculate all of the pieces we'll need in our assembly line. Each chunk is a station. The ANOVA conditions assumptions are built into the way we are calculating our assembly line instructions and when simulating the data below. 
 
 ```{r}
 animals_sim <- animals %>%
-  mutate(benchmark = mean(calm)) #universal factor
+  mutate(benchmark = mean(calm)) #benckmark is the grand average or grand mean
 ```
 
 ```{r}
@@ -104,7 +102,7 @@ Lastly, we create a blank calm variable such that we can simulate it next.
 
 ```{r, simulation}
 animals_sim <- animals_sim %>%
-  mutate(calm_sim = NA)
+  mutate(calm_sim = NA) #initializing simulated variable
 ```
 
 ## Simulating Data
@@ -118,7 +116,7 @@ animals_sim <- animals_sim %>%
          + cue_effect 
          + interaction_effect 
          + student_effect
-         + rnorm(82, 0, 0.68)) #SIMULATED universial factor
+         + rnorm(82, 0, 0.68)) #SIMULATED residuals factor
 ```
 
 ## Comparing Simulated Data to Real Data

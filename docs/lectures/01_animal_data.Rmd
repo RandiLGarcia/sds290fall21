@@ -51,3 +51,6 @@ qplot(x = calm, data = animals_long, bins = 5)
 ggplot(animals_long, aes(x = animal, fill = cue, y = calm)) +
   geom_boxplot()
 ```
+
+
+
