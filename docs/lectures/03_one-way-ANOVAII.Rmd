@@ -12,12 +12,14 @@ output:
 ## Announcements
 
 - HW1b and HW1c due tomorrow at 11:55p
-    - Any questions?
+    - Exercise 5.
+    - Any more questions?
 - In-person Office hours (Bass 412)
     - Thurs (today) 1:20-2:35p
 - Zoom Office hours
     - Full for this week!
 - Where to get HW help
+    - [Spinelli center](https://www.smith.edu/qlc/tutoring.html) tutoring Sun-Thurs 7-9p, Sabin-Reed 301. More info coming soon.
 
 ## The Meats 
 
@@ -70,6 +72,7 @@ library(mosaic)
 
 kable(data.frame(control = c(2.3,1.7), sucrose = c(3.6, 4.0), glucose = c(2.9,2.7), fructose = c(2.1,2.3)))
 ```
+
 
 - Let's draw a factor diagram, including a place for the grand mean and residuals.
 
