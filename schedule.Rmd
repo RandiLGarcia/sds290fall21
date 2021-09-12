@@ -52,7 +52,7 @@ Please read the specified sections *before* class that day.
 + Office hours: 10:50-12:05p
   </div>
   
-  <div class="col-md-3">
+  <div class="col-md-3 past">
 #### Thurs, Sep 9
 + One-way ANOVA (cont.)
 + Homework due today:
@@ -60,7 +60,7 @@ Please read the specified sections *before* class that day.
 + Office hours: 1:20-2:35p    
   </div>
   
-  <div class="col-md-3">
+  <div class="col-md-3 past">
 #### Fri, Sep 10
 + Homework due today:
     + **HW #1b and #1c due today at 11:55p**
