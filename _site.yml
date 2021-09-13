@@ -36,8 +36,8 @@ navbar:
       href: lectures/02_one-way-ANOVA.html
     - text: 03 - One-Way ANOVA II
       href: lectures/03_one-way-ANOVAII.html 
-#    - text: 04 - Inference for ANOVA
-#      href: lectures/03_informal_anova.html      
+    - text: 04 - Inference for ANOVA
+      href: lectures/04_inference-ANOVA.html      
 #    - text: 05 - Informal ANOVA (cont.)
 #      href: lectures/03b_informal_anova.html  
 #    - text: 06 - Formal ANOVA I
@@ -90,8 +90,8 @@ navbar:
       href: lectures/01_animal_data.Rmd
     - text: 02 - Informal ANOVA
       href: lectures/02_informal_anova.Rmd
-#    - text: 03 - Formal ANOVA
-#      href: lectures/05_formal_anova.Rmd
+    - text: 03 - Formal ANOVA
+      href: lectures/05_formal_anova.Rmd
 #    - text: 03b - BF[1] Design in R
 #      href: lectures/07_bf1_inR.Rmd
 #    - text: 04 - BF[2] Design in R

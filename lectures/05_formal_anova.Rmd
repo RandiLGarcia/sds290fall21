@@ -1,7 +1,7 @@
 ---
 title: "05 - Formal ANOVA"
 author: "Randi L. Garcia"
-date: "January 20, 2021"
+date: "September 14, 2021"
 output: html_document
 ---
 
@@ -66,7 +66,7 @@ Finding the p-value for our test statistic
 pf(17.67, 3, 4, lower.tail = FALSE)
 ```
 
-ANOVA for BF[1] design
+ANOVA for One-Way design
 
 ```{r}
 mod <- leaf %>%
@@ -78,7 +78,7 @@ anova(mod)
 
 # Pairwise tests
 
-You will learn much more about what are called **post hoc tests** in Chapter 11. But basically, we can do pairwise comparisons, think independent samples t-test between conditions.
+You will learn much more about what are called **post hoc tests** next week. But basically, we can do pairwise comparisons, think independent samples t-test between conditions.
 
 For example:
 
