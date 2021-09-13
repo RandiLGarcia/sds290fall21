@@ -88,7 +88,6 @@ Please read the specified sections *before* class that day.
 + Review linear regression
 + Homework due today:
   + Read **Stat2** Ch. 4.5 
-  + Read [How to spot good Covid-19 vaccine trials results when you see them](https://www.statnews.com/2020/11/10/spot-good-covid-19-vaccine-trials-results-when-you-see-them/)
 + Office hours: 1:20-2:35p
   </div>
   
