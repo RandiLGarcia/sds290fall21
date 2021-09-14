@@ -343,7 +343,21 @@ slide:not(.current) .plotly.html-widget{
 
 <p>We can find the p-value for our F calculation with the following code</p>
 
-<pre class = 'prettyprint lang-r'>pf(17.67, 3, 4, lower.tail = FALSE)</pre>
+<pre class = 'prettyprint lang-r'>pf(17.422, 3, 4, lower.tail = FALSE)</pre>
+
+</article></slide><slide class=""><hgroup><h2>ANOVA Source Table</h2></hgroup><article  id="anova-source-table" class="smaller ">
+
+<pre class = 'prettyprint lang-r'>mod &lt;- lm(days ~ diet, data = leaf)
+anova(mod)</pre>
+
+<pre >## Analysis of Variance Table
+## 
+## Response: days
+##           Df Sum Sq Mean Sq F value   Pr(&gt;F)   
+## diet       3   3.92  1.3067  17.422 0.009248 **
+## Residuals  4   0.30  0.0750                    
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</pre>
 
 <!-- DO FULL ANOVA TABLE ON BOARD FOR LEAFHOPPERS -->
 
@@ -374,7 +388,7 @@ slide:not(.current) .plotly.html-widget{
 
 </article></slide><slide class=""><hgroup><h2>C. Constant effects</h2></hgroup><article  id="c.-constant-effects" class="smaller ">
 
-<p>We assume every observation in a similar condition is affected exactly the same. (Gets the same true score).</p>
+<p>We assume every observation in a similar condition is affected exactly the same. (Gets the same &ldquo;true score&rdquo;).</p>
 
 <pre class = 'prettyprint lang-r'>animals_sim &lt;- animals %&gt;%
   mutate(benchmark = mean(calm)) %&gt;%
@@ -386,7 +400,7 @@ slide:not(.current) .plotly.html-widget{
 
 <p>We add the effects as we go down the assembly line.</p>
 
-<p>The interaction effect captures the possibility that conditions have non-additive effects, but it is also added to everythign else.</p>
+<p>The interaction effect captures the possibility that conditions have non-additive effects, but it is also added to everything else.</p>
 
 <pre class = 'prettyprint lang-r'>calm_sim = benchmark
          + aminal_effect
@@ -398,25 +412,25 @@ slide:not(.current) .plotly.html-widget{
 
 <p>The peice of code for adding error is not dependent on which condition the observations is in.</p>
 
-<pre class = 'prettyprint lang-r'> + rnorm(82, 0, 0.65)</pre>
+<pre class = 'prettyprint lang-r'> + rnorm(82, 0, 0.79)</pre>
 
 </article></slide><slide class=""><hgroup><h2>I. Independent residuals</h2></hgroup><article  id="i.-independent-residuals" class="smaller ">
 
 <p>Takes 82 independent draws from a normal distribution.</p>
 
-<pre class = 'prettyprint lang-r'> + rnorm(82, 0, 0.65)</pre>
+<pre class = 'prettyprint lang-r'> + rnorm(82, 0, 0.79)</pre>
 
 </article></slide><slide class=""><hgroup><h2>N. Normally distributed residuals</h2></hgroup><article  id="n.-normally-distributed-residuals" class="smaller ">
 
 <p>It’s <code>rnorm()</code>, and not <code>rbinom()</code> or <code>rpois()</code>…</p>
 
-<pre class = 'prettyprint lang-r'> + rnorm(82, 0, 0.65)</pre>
+<pre class = 'prettyprint lang-r'> + rnorm(82, 0, 0.79)</pre>
 
 </article></slide><slide class=""><hgroup><h2>Z. Zero mean residuals</h2></hgroup><article  id="z.-zero-mean-residuals" class="smaller ">
 
 <p>The second argument is the mean.</p>
 
-<pre class = 'prettyprint lang-r'> + rnorm(82, 0, 0.65)</pre>
+<pre class = 'prettyprint lang-r'> + rnorm(82, 0, 0.79)</pre>
 
 </article></slide><slide class=""><hgroup><h2>ANOVA in R</h2></hgroup><article  id="anova-in-r" class="smaller ">
 

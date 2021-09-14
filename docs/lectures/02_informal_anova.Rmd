@@ -116,7 +116,7 @@ animals_sim <- animals_sim %>%
          + cue_effect 
          + interaction_effect 
          + student_effect
-         + rnorm(82, 0, 0.68)) #SIMULATED residuals factor
+         + rnorm(82, 0, 0.79)) #SIMULATED residuals factor
 ```
 
 ## Comparing Simulated Data to Real Data

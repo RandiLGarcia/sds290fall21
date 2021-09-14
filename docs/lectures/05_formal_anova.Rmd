@@ -53,25 +53,10 @@ leaf <- leaf %>%
 
 # Formal ANOVA
 
-The F-distribution
-
-```{r, warning=FALSE}
-qplot(x = rf(5000, 3, 4), geom = "density") +
-  xlim(0, 20)
-```
-
-Finding the p-value for our test statistic
-
-```{r}
-pf(17.67, 3, 4, lower.tail = FALSE)
-```
-
 ANOVA for One-Way design
 
 ```{r}
-mod <- leaf %>%
-  filter(diet == "control" | diet == "sucrose") %>%
-lm(days ~ diet, data = .)
+mod <- lm(days ~ diet, data = leaf)
 
 anova(mod)
 ```

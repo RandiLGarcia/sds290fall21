@@ -162,8 +162,17 @@ $${H}_{A}:some\:\mu_i\neq\mu_j$$
 We can find the p-value for our F calculation with the following code
 
 ```{r, eval=FALSE}
-pf(17.67, 3, 4, lower.tail = FALSE)
+
+pf(17.422, 3, 4, lower.tail = FALSE)
 ```
+
+## ANOVA Source Table
+
+```{r}
+mod <- lm(days ~ diet, data = leaf)
+anova(mod)
+```
+
 
 <!-- DO FULL ANOVA TABLE ON BOARD FOR LEAFHOPPERS -->
 
@@ -190,7 +199,7 @@ But only under certain conditions can we rely on this inference.
 
 ## C. Constant effects
 
-We assume every observation in a similar condition is affected exactly the same. (Gets the same true score).
+We assume every observation in a similar condition is affected exactly the same. (Gets the same "true score").
 
 ```{r, eval=FALSE}
 animals_sim <- animals %>%
@@ -204,7 +213,7 @@ animals_sim <- animals %>%
 
 We add the effects as we go down the assembly line.
 
-The interaction effect captures the possibility that conditions have non-additive effects, but it is also added to everythign else.
+The interaction effect captures the possibility that conditions have non-additive effects, but it is also added to everything else.
 
 ```{r, eval=FALSE}
 calm_sim = benchmark
@@ -219,7 +228,7 @@ calm_sim = benchmark
 The peice of code for adding error is not dependent on which condition the observations is in.
 
 ```{r, eval=FALSE}
- + rnorm(82, 0, 0.65)
+ + rnorm(82, 0, 0.79)
 ```
 
 ## I. Independent residuals
@@ -227,7 +236,7 @@ The peice of code for adding error is not dependent on which condition the obser
 Takes 82 independent draws from a normal distribution.
 
 ```{r, eval=FALSE}
- + rnorm(82, 0, 0.65)
+ + rnorm(82, 0, 0.79)
 ```
 
 ## N. Normally distributed residuals
@@ -235,7 +244,7 @@ Takes 82 independent draws from a normal distribution.
 It's `rnorm()`, and not `rbinom()` or `rpois()`...
 
 ```{r, eval=FALSE}
- + rnorm(82, 0, 0.65)
+ + rnorm(82, 0, 0.79)
 ```
 
 ## Z. Zero mean residuals
@@ -243,7 +252,7 @@ It's `rnorm()`, and not `rbinom()` or `rpois()`...
 The second argument is the mean.
 
 ```{r, eval=FALSE}
- + rnorm(82, 0, 0.65)
+ + rnorm(82, 0, 0.79)
 ```
 
 ## ANOVA in R
