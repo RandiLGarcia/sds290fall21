@@ -1,5 +1,5 @@
 ---
-title: "Inference for ANOVA"
+title: "ANOVA Conditions"
 author: "SDS 290"
 date: "September 16, 2021"
 output: 
@@ -47,7 +47,7 @@ ANOVA Source table:
 
 ## Running an ANOVA in R
 
-```{r, echo = FALSE}
+```{r, echo = FALSE, message=FALSE, warning=FALSE}
 library(tidyverse)
 leaf <- data.frame(diet = c("control","control","sucrose", "sucrose", "glucose", "glucose", "fructose","fructose"), days = c(2.3,1.7,3.6,4.0,2.9,2.7,2.1,2.3))
 ```
@@ -55,7 +55,7 @@ leaf <- data.frame(diet = c("control","control","sucrose", "sucrose", "glucose",
 Three steps:
 
 1. Boxplots or some data visualization
-2. Discriptive statistics (n, means, standard deviations)
+2. Descriptive statistics (n, means, standard deviations)
 3. ANOVA
 4. Check assumptions
 
@@ -91,23 +91,23 @@ Diet has a statistically significant effect on leafhopper survival rates, $F(3, 
 
 ## Try it!
 
-In groups of three run all three steps (visualize, descriptive stats, and ANOVA). Write a sentence about your conclusion from the ANOVA. 
+In groups of three run all three steps (visualize, descriptive stats, and ANOVA) for the two datasets below. Write a sentence about your conclusion from the ANOVA. 
+
+**Dataset 1**: `SandwichAnts`
+
+- Factor: `Bread`
+- Response: `Ants`
+
+**Dataset 2**: `Meniscus`
+
+- Factor: `Method`
+- Response: `Displacement`
 
 ```{r, eval=FALSE}
 library(Stat2Data)
 data("SandwichAnts")
 ?SandwichAnts
 ```
-
-Dataset 1: `SandwichAnts`
-
-- Factor: `Bread`
-- Response: `Ants`
-
-Dataset 2: `Meniscus`
-
-- Factor: `Method`
-- Response: `Displacement`
 
 ## ANOVA Conditions
 
@@ -161,7 +161,7 @@ calm_sim = benchmark
 
 ## S. Same standard deviations
 
-The peice of code for adding error is not dependent on which condition the observations is in.
+The piece of code for adding error is not dependent on which condition the observations is in.
 
 ```{r, eval=FALSE}
  + rnorm(82, 0, 0.79)
@@ -236,18 +236,18 @@ qplot(x = mod$residuals, bins = 4)
 
 ## Try it!
 
-Back in your groups of three, check or discuss the last 4 ANOVA assumptions. The SINZ.
+Back in your groups of three, check or discuss the last 4 ANOVA assumptions: The **SINZ**.
 
-Dataset 1: `SandwichAnts`
+**Dataset 1**: `SandwichAnts`
 
 - Factor: `Bread`
 - Response: `Ants`
 
-Dataset 2: `Meniscus`
+**Dataset 2**: `Meniscus`
 
 - Factor: `Method`
 - Response: `Displacement`
 
 ## Mini Project 1
 
-
+See [Mini Project 1 instructions](https://randilgarcia.github.io/sds290fall21/lectures/mini-project-1.html)
