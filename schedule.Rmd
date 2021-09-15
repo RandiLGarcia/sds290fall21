@@ -71,23 +71,24 @@ Please read the specified sections *before* class that day.
 ***
 
 <div class="row">
-  <div class="col-md-3">
+  <div class="col-md-3 past">
 #### Tue, Sep 14
 + Inference for ANOVA
 + Homework due today:
   + Read **Stat2** Ch. 5.4 
   </div>
   
-  <div class="col-md-3">
+  <div class="col-md-3 past">
 #### Wed, Sep 15
 + Office hours: 10:50-12:05p
   </div>
   
   <div class="col-md-3">
 #### Thurs, Sep 16
-+ Review linear regression
++ ANOVA Conditions
++ MP 1 assignment
 + Homework due today:
-  + Read **Stat2** Ch. 4.5 
+  + No reading for today
 + Office hours: 1:20-2:35p
   </div>
   
@@ -106,7 +107,9 @@ Please read the specified sections *before* class that day.
 #### Tue, Sep 21
 + Confidence intervals and effect sizes
 + Transformations 
++ MP1 topics
 + Homework due today:
+  + Brainstorm topics for MP1
   + Read **Stat2** Ch. 5.5-5.6
   </div>
   
@@ -119,7 +122,9 @@ Please read the specified sections *before* class that day.
 #### Thurs, Sep 23
 + Multiple comparisons
 + Homework due today:
-    + Read **Stat2** 5.7-5.8
+    + Find potential stimuli (images) for MP1
+    + Read **Stat2** 4.5 (up to, not including, example 4.10)
+    + Read **Stat2** 5.7
 + Office hours: 1:20-2:35p
   </div>
   
