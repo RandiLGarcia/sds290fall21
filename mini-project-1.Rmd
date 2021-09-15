@@ -9,10 +9,9 @@ output:
 
 The learning goals of this first mini project are 
 
-1. to solidify your understanding of what a true experiment is, specifically 
-an experiment with crossed factors, 
+1. to solidify your understanding of what a true experiment is, 
 2. to learn how to use the Qualtrics software to deliver experiments, and
-3. to gain experience with analyzing the data generated from an experiment with crossed factors. 
+3. to gain experience with analyzing the data generated from an experiment. 
 
 You will conduct an online experimental study using survey methodology. Your 
 experiments will be set up using the Qualtrics survey platform. Your experiments will 
@@ -20,19 +19,17 @@ utilize [vingettes](https://en.wikipedia.org/wiki/Vignette_(psychology)) or very
 visual stimuli presentation. 
 
 Your study is required to be experimental, meaning you 
-will manipulate factors and randomly assign levels of those factors to units (people). For this 
-first mini project you must employ a **basic factorial design with two factors** (called a 
-BF[2] in our  textbook). Your factors will each have at least **two levels** and your factors 
-will be **crossed**, thus you will be creating four carefully controlled conditions (i.e., four 
-vignettes). These four conditions will be randomly assigned to people (fellow classmates). They are 
-your "experimental material".   
+will manipulate a factor and randomly assign levels of that factor to units (people). For this 
+first mini project you must employ a **randomized one-way design**. Your factor must have at least **three levels**. You will be creating at least three carefully controlled conditions (i.e., three 
+vignettes). These three (or more) conditions will be randomly assigned to people (fellow 
+classmates). They are your "experimental units".   
 
-This mini project will require you to design a BF[2] study, implement that study in Qualtrics, 
+This mini project will require you to design a one-way study, implement that study in Qualtrics, 
 collect and analyze relevant data, and hand in a short
 written report describing your study and its findings. Your project will
-involve fitting an *analysis of variance* (ANOVA) model. ANOVA is the primary
-statistical technique we are learning in this course. The project is an 
-opportunity to apply and synthesize the material we are learning in
+involve fitting an *analysis of variance* (ANOVA) model and checking the ANOVA 
+conditions. ANOVA is the primary statistical technique we are learning in this course. The 
+project is an opportunity to apply and synthesize the material we are learning in
 class to a specific context. It will also give you the opportunity to show off 
 what you have learned about data analysis, visualization, and variance 
 decomposition in this course and from other SDS courses you may have taken. 
@@ -42,37 +39,34 @@ These projects are a major component of the class, and successful completion is 
 
 After settling on a research question, you will 
 learn how to use Qualtrics and begin creating your experimental stimuli. **Reading chapter 
-four of your textbook could be helpful as you decide on the content of your study.** 
+four of the Cobb textbook (PDF on Moodle) could be helpful as you decide on the content 
+of your study.** 
 
 Picking a good research question might be tricky. But start by brain storming things about 
 people that you are interested in. Perhaps you are interested in how stressful people 
 perceive different situations to be, or their helping behavior given different 
 characteristics of a person in need. You might also assess health behaviors --- for example, 
-making judgement about which exercises to do, or foods to eat, or which situations might 
+making judgements about which exercises to do, or foods to eat, or which situations might 
 lead people to be more or less likely to want to get vaccinated. Starting with something 
-your are curious about with regards to your own behavior is often and interesting place to 
+you are curious about with regards to your own behavior is often an interesting place to 
 start. When choosing your research question the most important feature is that you would 
 be able to write short (two or three sentences) vignettes, 
 varying the scenarios, characteristics, features, etc., to answer your question. Secondary 
 in importance is how interested you are in the question, and then as a *distant* third would 
 be how important your research question is for society. This is not the time for earth 
-shattering research discoveries. I will not be grading on creativity for this assignment. 
-Just make it something **very doable** that you capture your interest for a few weeks. 
+shattering research discoveries. Just make it something **very doable** that you 
+capture your interest for a few weeks. It could even be something that makes you smile...like 
+kittens and puppies. 
 
 # Hypotheses
 
 The topics I list above are meant to get you started, you should pose the question 
-your want to answer as precisely as possible at the outset. Next, identify 
-the factor(s) of interest, the levels of these factors (i.e., treatment conditions), 
-and think about how you will measure your response variable. You should also make three hypotheses, 
+you want to answer as precisely as possible at the outset. Next, identify 
+the factor of interest, the levels of this factor (i.e., treatment conditions), 
+and think about how you will measure your response variable. You should also make hypotheses, 
 *a priori* (before you collect and analyze the data), about the results
-you expect to see. Remember that each design comes with a *set* of questions that 
-it can answer. For example, think about the the three important questions from 
-Kelly's hamster study. Your three hypotheses will be about 
-
-1. The main effect of factor 1,
-2. The main effect of factor 2, and
-3. The interaction of factor 1 and factor 2.
+you expect to see. Each design comes with a *set* of questions that 
+it can answer. 
 
 # General Rules
 
@@ -80,8 +74,8 @@ You may discuss your project with other students, but each of you will have a di
 topic, so there is a limit to how much you can help each other. You may
 consult other sources for information about the non-statistical,
 substantive issues in your problem, but you should credit these sources
-in your report. Feel free to consult Randi or the Stats TAs about statistical
-questions.
+in your report. I will be showing you how to do citations in R Markdown. Feel free 
+to consult Randi or the Stats TAs about statistical questions.
 
 # Submission {#submission .unnumbered}
 
@@ -90,8 +84,8 @@ Moodle by the due date. Please submit
 
 1. your exported Qualtrics survey experiment, 
 2. the *cleaned* data generated by your experiment, 
-3. the `.Rmd` file you use to create you report, and
-3. your project technical report as an `.html` file.
+3. the `.Rmd` file you used to create your report, and
+3. your project technical report as a PDF file.
 
 # Technical Report
 
@@ -129,30 +123,31 @@ your paper and get the gist of it.
 
 Your technical report should follow this basic format:
 
-1.  Introduction: an overview of your project. In a few sentences, you
+1.  **Introduction**: an overview of your project. In a paragraph or two, you
     should explain *clearly* and *precisely* what your research question(s)
     are and what hypotheses you have about them.
 
-3.  Method: a detailed description of your study design. Describe 
-    the factors, each level, if there is crossing, blocks, etc. Here is where
+3.  **Method**: a detailed description of your study design. Describe 
+    the factor, each level, if there is crossing, blocks, etc. Here is where
     you also describe your materials/stimuli. What were your experimental 
     units? How did you measure your responses variable? How did you deliver 
     your manipulation? The method section of a research study is extremely important for 
     others to assess the validity of your findings and to replicate what you
     found in future studies. 
 
-4.  Results: an explanation of what your model tells us about the
+4.  **Results**: an explanation of what your model tells us about the
     research question. You will be using ANOVA here, but also present 
-    visualization that show the data and test the Fisher assumptions. 
+    visualizations that show the data and test the ANOVA conditions. 
     You should interpret effect sizes and CIs in context and explain their 
-    relevance. What does your model tell us that we didn't already know before? 
+    relevance. You should also do any corrections for multiple comparisons. What 
+    does your model tell us that we didn't already know before? 
     You also want to include null results, but be careful about how you interpret 
     them. For example, you may want to say something along the lines of: "we 
     found no evidence that factor $A$ has an effect on response variable $y$." 
     On other hand, you probably shouldn't claim: "there is no effect of 
     factor $A$ on $y$."
 
-5.  Conclusion: a quick summary of your findings and a discussion of their
+5.  **Conclusion**: a quick summary of your findings and a discussion of their
     limitations. First, remind the reader of the question that you
     originally set out to answer, and summarize your findings. Second,
     discuss the limitations of your model, and what could be done to
@@ -175,8 +170,8 @@ and digesting it into meaningful ideas that human beings can understand.
 Your technical report should allow a reviewer to follow your steps from
 converting data into information. There is no limit to the length of the
 technical report, but it should not be longer than it needs to be. You
-will not receive extra credit for simply describing your data *ad
-infinitum*. For example, simply displaying a table with the means and
+will not receive extra credit for simply describing your data *ad infinitum*. 
+For example, simply displaying a table with the means and
 standard deviations of your variables is not meaningful. Writing a
 sentence that reiterates the content of the table (e.g. "the mean of
 variable $x$ was 34.5 and the standard deviation was 2.8...") is equally
@@ -184,8 +179,7 @@ meaningless. What you should strive to do is interpret these values in
 context (e.g. "although variables $x_1$ and $x_2$ have similar means,
 the spread of $x_1$ is much larger, suggesting...").
 
-**No figure or table is required for mini project 1**. If you do choose to include them, 
-you should present figures and tables in your technical report in
+You should present figures and tables in your technical report in
 context. These items should be understandable on their own, in the
 sense that they have understandable titles, axis labels, legends, and
 captions. Someone glancing through your technical report should be able
@@ -193,8 +187,6 @@ to make sense of your figures and tables without having to read the
 entire report. That said, you should also include a discussion of what
 you want the reader to learn from your figures and tables.
 
-Your report should be submitted via Moodle as an R Markdown (`.Rmd`) file
-and the corresponding rendered output (`.html`) file.
 
 <!-- ## Assessment Criteria -->
 

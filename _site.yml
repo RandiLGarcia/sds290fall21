@@ -38,8 +38,8 @@ navbar:
       href: lectures/03_one-way-ANOVAII.html 
     - text: 04 - Inference for ANOVA
       href: lectures/04_inference-ANOVA.html      
-#    - text: 05 - Informal ANOVA (cont.)
-#      href: lectures/03b_informal_anova.html  
+    - text: 05 - ANOVA Conditions
+      href: lectures/05_ANOVA-conditions.html  
 #    - text: 06 - Formal ANOVA I
 #      href: lectures/05c_formal_anova.html
 #    - text: 07 - Formal ANOVA II
@@ -130,7 +130,7 @@ navbar:
     menu:
 #    - text: Project
     - text: 'Mini project 1'
-#      href: mini-project-1.html
+      href: mini-project-1.html
     - text: 'Mini Project 2'
 #      href: mini-project-2.html
 #    - text: Advice
