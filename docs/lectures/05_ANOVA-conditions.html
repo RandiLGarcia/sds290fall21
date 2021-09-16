@@ -96,6 +96,7 @@ slide:not(.current) .plotly.html-widget{
             pre > code.sourceCode { white-space: pre; position: relative; }
             pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
             pre > code.sourceCode > span:empty { height: 1.2em; }
+            .sourceCode { overflow: visible; }
             code.sourceCode > span { color: inherit; text-decoration: inherit; }
             div.sourceCode { margin: 1em 0; }
             pre.sourceCode { margin: 0; }
@@ -295,6 +296,8 @@ anova(mod)</pre>
 ## ---
 ## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</pre>
 
+<h3>Write a sentence interpreting the One-Way ANOVA results</h3>
+
 <p>There are statistically significant differences in leafhopper survival rates across diets, \(F(3, 4) = 17.42\), \(p = .009\).</p>
 
 <p><strong>OR</strong></p>
@@ -402,12 +405,12 @@ data(&quot;SandwichAnts&quot;)
 </article></slide><slide class=""><hgroup><h2>How to check assumptions</h2></hgroup><article  id="how-to-check-assumptions" class="smaller ">
 
 <ul>
-<li>C. <strong>Constant effects</strong> – <em>think</em> about whether it is reasonable.</li>
-<li>A. <strong>Additive effects</strong> – <em>think</em> about whether it is reasonable.</li>
-<li>S. <strong>Same standard deviations</strong> – is the biggest SD less than two times as large as the smallest?</li>
-<li>I. <strong>Independent residuals</strong> – <em>think</em> about whether it is reasonable.</li>
-<li>N. <strong>Normally distributed residuals</strong> – construct a histogram or normal probability plot of residuals.</li>
-<li>Z. <strong>Zero mean residuals</strong> – construct a histogram or normal probability plot of residuals.</li>
+<li><p>C. <strong>Constant effects</strong> – <em>think</em> about whether it is reasonable.</p></li>
+<li><p>A. <strong>Additive effects</strong> – <em>think</em> about whether it is reasonable.</p></li>
+<li><p>S. <strong>Same standard deviations</strong> – is the biggest SD less than two times as large as the smallest?</p></li>
+<li><p>I. <strong>Independent residuals</strong> – <em>think</em> about whether it is reasonable.</p></li>
+<li><p>N. <strong>Normally distributed residuals</strong> – construct a histogram or normal probability plot of residuals.</p></li>
+<li><p>Z. <strong>Zero mean residuals</strong> – construct a histogram or normal probability plot of residuals.</p></li>
 </ul>
 
 </article></slide><slide class=""><hgroup><h2>To check the Residual Assumptions: SINZ</h2></hgroup><article  id="to-check-the-residual-assumptions-sinz" class="smaller ">

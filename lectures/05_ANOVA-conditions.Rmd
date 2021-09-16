@@ -83,6 +83,8 @@ mod <- lm(days ~ diet, data = leaf)
 anova(mod)
 ```
 
+### Write a sentence interpreting the One-Way ANOVA results
+
 There are statistically significant differences in leafhopper survival rates across diets, $F(3, 4) = 17.42$, $p = .009$. 
 
 **OR**
@@ -194,10 +196,15 @@ The second argument is the mean.
 ## How to check assumptions
 
 - C. **Constant effects** -- *think* about whether it is reasonable.
+
 - A. **Additive effects** -- *think* about whether it is reasonable.
+
 - S. **Same standard deviations** -- is the biggest SD less than two times as large as the smallest?
+
 - I. **Independent residuals** -- *think* about whether it is reasonable.
+
 - N. **Normally distributed residuals** -- construct a histogram or normal probability plot of residuals.
+
 - Z. **Zero mean residuals** -- construct a histogram or normal probability plot of residuals.
 
 ## To check the Residual Assumptions: SINZ
