@@ -218,7 +218,7 @@ leaf %>%
             m = mean(days),
             sd = sd(days))
 
-0.424/0.283
+0.424/0.141
 ```
 
 **I**: Judge for yourself -- what do we think about the leafhopper dishes?
@@ -257,4 +257,4 @@ Back in your groups of three, check or discuss the last 4 ANOVA assumptions: The
 
 ## Mini Project 1
 
-See [Mini Project 1 instructions](https://randilgarcia.github.io/sds290fall21/lectures/mini-project-1.html)
+See [Mini Project 1 instructions](https://randilgarcia.github.io/sds290fall21/mini-project-1.html)

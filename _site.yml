@@ -112,8 +112,8 @@ navbar:
       href: labs/intro_to_r.html
     - text: 'HW2: 5.11, 5.16, 5.18, 5.27 (a only), 5.32'
       href: homework.html
-#    - text: 'HW3: Review Exercises (p. 34-37), 3, 6, 9, 11, 13a, 14, 16, 17'
-#      href: homework.html
+    - text: 'HW3: 5.38, 5.54, 5.59, 5.60, 5.70'
+      href: homework.html
 #    - text: 'HW4: Review Exercises (p. 57), 1-3, 5, 6 (but using R)'
 #      href: labs/homework4_W21.html
 #    - text: 'HW5: RE CH 3: 3-4 (data in fig 3.21 on pg. 102), 12, 13, 17'

@@ -84,7 +84,7 @@ Please read the specified sections *before* class that day.
 + Office hours: 10:50-12:05p
   </div>
   
-  <div class="col-md-3">
+  <div class="col-md-3 past">
 #### Thurs, Sep 16
 + ANOVA Conditions
 + MP1 assignment
@@ -93,7 +93,7 @@ Please read the specified sections *before* class that day.
 + Office hours: 1:20-2:35p
   </div>
   
-  <div class="col-md-3">
+  <div class="col-md-3 past">
 #### Fri, Sep 17
 + Homework due today:
     + **HW #2 due today at 11:55p**
