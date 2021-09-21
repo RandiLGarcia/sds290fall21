@@ -40,8 +40,8 @@ navbar:
       href: lectures/04_inference-ANOVA.html      
     - text: 05 - ANOVA Conditions
       href: lectures/05_ANOVA-conditions.html  
-#    - text: 06 - Formal ANOVA I
-#      href: lectures/05c_formal_anova.html
+    - text: 06 - Confidence Intervals and Effect Sizes
+      href: lectures/06_CI-effect-sizes.html
 #    - text: 07 - Formal ANOVA II
 #      href: lectures/05b_formal_anova.html  
 #    - text: 08 - Formal ANOVA III
