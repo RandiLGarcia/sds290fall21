@@ -70,7 +70,7 @@ Diamonds %>%
             m = mean(TotalPrice, na.rm = TRUE),
             sd = sd(TotalPrice, na.rm = TRUE))
 
-0.59/0.12
+10937/736 #Yikes!
 ```
 
 ## Transformations: Example
@@ -205,7 +205,7 @@ But what else do we want to know??
     - Answers the question: **IS** there an effect? 
 - Practical significance is different from **statistical** significance.
     - Need to answer the question: How big is **IT**? 
--Which values in ANOVA do we want to construct confidence intervals for (or calculate an effect size for)? 
+- Which values in ANOVA do we want to construct confidence intervals for (or calculate an effect size for)? 
 
 Some options:
 
@@ -227,6 +227,8 @@ $$(\bar{y_i}-\bar{y_j}) \pm t^*\cdot SD \sqrt{1/n_i+1/n_j}$$
 
 ## Calculating CI between groups in R
 
+$$(\bar{y_G}-\bar{y_F}) \pm t^*\cdot SD \sqrt{1/n_G+1/n_F}$$
+
 For difference between G (near colorless) and F (colorless)
 
 ```{r}
@@ -235,7 +237,7 @@ df_E = 344 #from our ANOVA source table
 t <- qt(.975, df_E) #for 95% CI
 
 n_g = filter(ds, Color == "G")$n #sample size for G
-n_f = log(filter(ds, Color == "F")$n) #sample size for F
+n_f = filter(ds, Color == "F")$n #sample size for F
 
 mean_g <- log(filter(ds, Color == "G")$m) #mean for G
 mean_f <- log(filter(ds, Color == "F")$m) #mean for F
@@ -256,15 +258,15 @@ UL
 
 Sentence interpretation:
 
-We are 95% confident that the true mean difference in (log) price between near colorless and colorless Diamonds is between -0.74 and 0.83.   
+We are 95% confident that the true mean difference in (log) price between near colorless and colorless Diamonds is between -0.20 and 0.29.   
 
 ## Equivalence of Confidence Intervals and Tests
 
 > Two group means are statistically different at the 5% (1%) level if and only if a 95% (99%) confidence interval for their diffrence does not include 0. 
 
-## Effect Sizes
+## Effect Size (D)
 
-But how big is **IT**?
+But **how big is IT**?
 
 We can compare the differences between groups to to the standard deviation within all groups:
 
@@ -272,21 +274,47 @@ $$D_{ij} = \frac{(\bar{y_i}-\bar{y_j})}{SD}$$
 
 - Where again $SD = \sqrt{MSE}$ 
 
+## Effect Size (D)
+
+For difference between G (near colorless) and F (colorless)
+
+```{r}
+D = (mean_g-mean_f)/sqrt(MSE)
+
+D
+```
+
+The difference between the price of nearly colorless diamonds and colorless diamonds is only 0.052 times the size of the typical within-group deviations in price. Such a small difference!
+
+## R-squared for One-Way ANOVA
+
+But how much does color matter overall?
+
+$R^2$ is the proportion of total variation explained by the factor:
+
+$$R^2 = \frac{SS_{treatment}}{SS_{Total}}$$
+
+OR
+
+$$R^2 = 1-\frac{SS_{error}}{SS_{total}}$$
+
+## R-squared for Diamond Color
+
+```{r}
+modDia <- lm(log(TotalPrice) ~ Color, data = Diamonds)
+anova(modDia)
+```
+
+```{r}
+R2 = 29.946/(29.946+232.913)
+R2
+```
+
+The $R^2$ value is 0.11, so about 11% of the variation in the total price of a diamonds is explained by the diamonds' colors. 
+
 ## Try it!
 
-Back in your groups of three, check or discuss the last 4 ANOVA assumptions: The **SINZ**.
-
-**Dataset 1**: `SandwichAnts`
-
-- Factor: `Bread`
-- Response: `Ants`
-- CI and effect size for difference between `MultiGrain` and `Rye`
-
-**Dataset 2**: `Meniscus`
-
-- Factor: `Method`
-- Response: `Displacement`
-- CI and effect size for difference between Method `1` and Method `2`
+Use the `SandwichAnts` dataset to calculate the CI and effect size for difference between `MultiGrain` and `Rye` in number of `Ants`.
 
 ## Mini Project 1
 

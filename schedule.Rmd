@@ -309,11 +309,8 @@ Please read the specified sections *before* class that day.
   
   <div class="col-md-3">
 #### Thurs, Nov 4
-+ Using two-way design
-+ Practice designs
-+ Homework due today:
-    + Read Ch **Stat2** 7.6
-+ Office hours: 1:20-2:35p
++ **Cromwell Day - Class cancelled**
++ **Office hours cancelled**
   </div>
   
   <div class="col-md-3">
@@ -329,9 +326,10 @@ Please read the specified sections *before* class that day.
 <div class="row">
   <div class="col-md-3">
 #### Tue, Nov 9
-+ Test for homogeneity of variance
++ Using two-way design
++ Practice designs
 + Homework due today:
-    + Read Ch **Stat2** 8.1
+    + Read Ch **Stat2** 7.6
   </div>
   
   <div class="col-md-3">
@@ -341,10 +339,11 @@ Please read the specified sections *before* class that day.
   
   <div class="col-md-3">
 #### Thurs, Nov 11
++ Test for homogeneity of variance
 + Multiple tests
 + Comparisons and contrasts
 + Homework due today:
-    + Read Ch **Stat2** 8.2-8.3
+    + Read Ch **Stat2** 8.1-8.3
 + Office hours: 1:20-2:35p
   </div>
   

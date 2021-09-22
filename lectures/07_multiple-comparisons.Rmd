@@ -1,0 +1,151 @@
+---
+title: "Confidence Intervals and Effect Sizes"
+author: "SDS 290"
+date: "September 21, 2021"
+output: 
+  ioslides_presentation:
+    widescreen: true
+    smaller: true
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(message = FALSE, warning = FALSE)
+```
+
+```{r, include = FALSE}
+library(Stat2Data)
+library(tidyverse)
+data("Diamonds")
+ds <- Diamonds %>%
+  group_by(Color) %>%
+  summarise(n = n(),
+            m = mean(TotalPrice),
+            sd = sd(TotalPrice))
+```
+
+## Announcements
+
+- Grades are posted for HW2
+    - See feedback in comments!
+- HW3 posted    
+    - 5.54d: “Compare your answers to parts (b) and (c). Discuss the similarities and differences between the two methods.”
+    - 5.60 a and b: 
+    
+```{r}
+NCbirths_no7 <- NCbirths %>%
+  filter(RaceMom != 7)
+```
+    
+- In-person Office hours (Bass 412)
+    - Thurs 1:20-2:35p
+    - or by appointment
+- Zoom Office hours are full
+- Where to get HW help
+    - [Spinelli center](https://www.smith.edu/qlc/tutoring.html) tutoring Sun-Thurs 7-9p, Sabin-Reed 301.
+
+## Agenda
+
+- CI and Effect sizes warm-up
+- Multiple comparisons
+- MP1 topics time
+- Introduction to Qualtrics
+
+## Last time
+
+### Effect Sizes and Confidence Intervals
+
+- The p-value for our F-ratio only tells us if effects are **detectable**.
+    - Answers the question: **IS there an effect?** 
+- Practical significance is different from **statistical** significance.
+    - Need to answer the question: **How big is IT**? 
+- Which values in ANOVA do we want to construct confidence intervals for (or calculate an effect size for)? 
+
+#### Some options:
+
+  - A specific group mean. 
+  - How far away a specific condition is from the grand average (the treatment effect).
+  - **How far away a specific condition is from another condition.** 
+  - How far away a specific condition (or set of conditions) is(are) from a(nother) set of conditions.
+  - Additional effect size option: The overall variance explained by a factor of interest.
+
+## Calculating CI between groups in R
+
+$$(\bar{y_G}-\bar{y_F}) \pm t^*\cdot SD \sqrt{1/n_G+1/n_F}$$
+
+For difference between G (near colorless) and F (colorless)
+
+```{r}
+MSE = 0.6771 #from our ANOVA source table
+df_E = 344 #from our ANOVA source table
+t <- qt(.975, df_E) #for 95% CI
+
+n_g = filter(ds, Color == "G")$n #sample size for G
+n_f = filter(ds, Color == "F")$n #sample size for F
+
+mean_g <- log(filter(ds, Color == "G")$m) #mean for G
+mean_f <- log(filter(ds, Color == "F")$m) #mean for F
+
+#Confidence interval
+UL <- (mean_g-mean_f) + t*sqrt(MSE)*sqrt(1/n_g+1/n_f) #upper limit
+LL <- (mean_g-mean_f) - t*sqrt(MSE)*sqrt(1/n_g+1/n_f) #lower limit
+```
+
+We are 95% confident that the true mean difference in (log) price between near colorless and colorless Diamonds is between -0.20 and 0.29.   
+
+
+## Effect Size 
+
+But **how big is IT**?
+
+### Effect Size (D)
+
+$$D_{ij} = \frac{(\bar{y_i}-\bar{y_j})}{SD}$$
+
+- Where again $SD = \sqrt{MSE}$ 
+
+```{r}
+D = (mean_g-mean_f)/sqrt(MSE)
+D
+```
+
+The difference between the price of nearly colorless diamonds and colorless diamonds is only 0.052 times the size of the typical within-group deviations in price. Such a small difference!
+
+
+## Effect Size 
+
+### R-squared for One-Way ANOVA
+
+But how much does color matter overall?
+
+$R^2$ is the proportion of total variation explained by the factor:
+
+$$R^2 = \frac{SS_{treatment}}{SS_{Total}}$$
+
+OR
+
+$$R^2 = 1-\frac{SS_{error}}{SS_{total}}$$
+
+## R-squared for Diamond Color
+
+```{r}
+modDia <- lm(log(TotalPrice) ~ Color, data = Diamonds)
+anova(modDia)
+```
+
+```{r}
+R2 = 29.946/(29.946+232.913)
+R2
+```
+
+The $R^2$ value is 0.11, so about 11% of the variation in the total price of a diamonds is explained by the diamonds' colors. 
+
+## Try it!
+
+Use the `SandwichAnts` dataset to calculate the CI and effect size for difference between `MultiGrain` and `Rye` in number of `Ants`. Can calculate the $R^2$ for `Bread` and interpret it in a sentence. 
+
+## Multiple Comparisons
+
+## Mini Project 1
+
+Topic brainstorm
