@@ -363,5 +363,5 @@ Topic brainstorming
 
 ## Introduction to Qualtrics
 
-- Log in to [Qualtrics](smithcollege.qualtrics.com) and enter your Smith credentials.
+- Log in to [Qualtrics](https://www.smith.edu/about-smith/institutional-research-qualtrics) and enter your Smith credentials.
     - I usually just google "Smith Qualtrics"
