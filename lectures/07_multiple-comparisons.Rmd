@@ -204,6 +204,8 @@ Use the `SandwichAnts` dataset to
 
 ### I'll do it with you! (and post the code afterwards)
 
+![](https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRjFZHkSMoVLVMmPdJMbOWRxUEwMpDAi9kHiA&usqp=CAU)
+
 ## Multiple Comparisons
 
 If we want to do all pairwise comparisons for the walking babies, how many comparisons would we need to make? 
@@ -268,7 +270,7 @@ Fisher's HSD reasons that a pairwise difference is significant as long as it's l
 
 $$LSD = t^*\cdot SD \sqrt{1/n_1+1/n_2}$$
 
-  - Where $t^2$ is your critical $t$ for the $df_{error}$ and your level of confidence,
+  - Where $t^*$ is your critical $t$ for the $df_{error}$ and your level of confidence,
   - and $SD = \sqrt{MSE}$.
   
 &nbsp;
@@ -346,6 +348,13 @@ Using multiple regression with a bonferroni correction applied, what do we concl
 
 ## Mini Project 1
 
-Topic brainstorm
+Topic brainstorming
+
+1. Two minute free write to write down some ideas for your factor of interest and response variable.
+2. Get into groups of three and take turns discussing your ideas. 
+3. Raise your hand if you have any questions.
 
 ## Introduction to Qualtrics
+
+- Log in to [Qualtrics](smithcollege.qualtrics.com) and enter your Smith credentials.
+    - I usually just google "Smith Qualtrics"
