@@ -42,8 +42,8 @@ navbar:
       href: lectures/05_ANOVA-conditions.html  
     - text: 06 - Confidence Intervals and Effect Sizes
       href: lectures/06_CI-effect-sizes.html
-#    - text: 07 - Formal ANOVA II
-#      href: lectures/05b_formal_anova.html  
+    - text: 07 - Multiple Comparisons
+      href: lectures/07_multiple-comparisons.html  
 #    - text: 08 - Formal ANOVA III
 #      href: lectures/05d_formal_anova.html       
 #    - text: 09 - BF[1] Design
@@ -92,8 +92,8 @@ navbar:
       href: lectures/02_informal_anova.Rmd
     - text: 03 - Formal ANOVA
       href: lectures/05_formal_anova.Rmd
-#    - text: 03b - BF[1] Design in R
-#      href: lectures/07_bf1_inR.Rmd
+#    - text: 04 - SandwichAnts Analysis
+#      href: lectures/SandwichAnts_analysis.Rmd
 #    - text: 04 - BF[2] Design in R
 #      href: lectures/09_bf2_inR.Rmd    
 #    - text: 05 - CB[1], Latin Square, SP/RM[1,1] Design in R

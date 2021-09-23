@@ -1,0 +1,104 @@
+---
+title: "SanwishAnts analysis"
+author: "Randi L. Garcia"
+date: "9/23/2021"
+output: html_document
+---
+
+```{r}
+library(Stat2Data)
+library(tidyverse)
+data("SandwichAnts")
+```
+
+```{r}
+qplot(x = Filling, y = Ants, data = SandwichAnts)
+```
+
+```{r}
+ds <- SandwichAnts %>%
+  group_by(Filling) %>%
+  summarise(n = n(),
+            m = mean(Ants),
+            sd = sd(Ants))
+
+ds
+
+14.18/11.16
+```
+
+```{r}
+antsMod <- lm(Ants ~ Filling, data = SandwichAnts)
+anova(antsMod)
+```
+
+```{r}
+plot(antsMod, which =2)
+qplot(x = antsMod$residuals, bins = 8)
+```
+
+The condition of same standard deviations is satisfied, but there appear to be some departures from noramlity in the residuals. The residuals do look (more or less) centered on zero. I am also a bit concerned about the independence assumption given that the researcher used the same ant hill for repeated tests of sandwiches.
+
+Keeping in mind these possible issues, with the ANOVA, I do find that there are statistically significant differences across filling type in mean number of ants on the sandwiches, $F(2, 45)=11.84, p < .001$.
+
+```{r}
+MSE = 157.01 #from our ANOVA source table
+df_E = 45 #from our ANOVA source table
+t <- qt(.975, df_E) #for 95% CI
+
+n_h = filter(ds, Filling == "HamPickles")$n #sample size for HamPickles
+n_p = filter(ds, Filling == "PeanutButter")$n #sample size for PeanutButter
+
+mean_h <- filter(ds, Filling == "HamPickles")$m 
+mean_p <- filter(ds, Filling == "PeanutButter")$m 
+
+#Confidence interval
+UL <- (mean_h-mean_p) + t*sqrt(MSE)*sqrt(1/n_h+1/n_p) #upper limit
+LL <- (mean_h-mean_p) - t*sqrt(MSE)*sqrt(1/n_h+1/n_p) #lower limit
+```
+
+```{r}
+LL
+UL
+```
+
+```{r}
+D = (mean_h-mean_p)/sqrt(MSE)
+D
+```
+
+I am 95% confident that the true mean difference in ants bewteen the sandwiches filled with ham and pickles and the sandwiches filled with peanut butter is between 6.20 and 24.05 ants. There is a significant differnce in ants bewteen the two conditions. This difference between conditons is 1.21 times the typical size of the difference in number of ants within conditions. 
+
+```{r}
+MSE = 157.01 #from our ANOVA source table
+df_E = 45 #from our ANOVA source table
+t <- qt(.975, df_E) #for 95% CI
+
+n_v = filter(ds, Filling == "Vegemite")$n #sample size for HamPickles
+n_p = filter(ds, Filling == "PeanutButter")$n #sample size for PeanutButter
+
+mean_v <- filter(ds, Filling == "Vegemite")$m 
+mean_p <- filter(ds, Filling == "PeanutButter")$m 
+
+#Confidence interval
+UL <- (mean_v-mean_p) + t*sqrt(MSE)*sqrt(1/n_v+1/n_p) #upper limit
+LL <- (mean_v-mean_p) - t*sqrt(MSE)*sqrt(1/n_v+1/n_p) #lower limit
+```
+
+```{r}
+LL
+UL
+
+D = (mean_v-mean_p)/sqrt(MSE)
+D
+```
+
+There are no difference between these two conditions because the confidence interval contains zero, $CI_{95}=[-14.67, 3.17]$, $D = -0.46$. 
+
+```{r}
+r2 = 3720.5/(3720.5+7065.5)
+r2
+```
+
+The sandwich's filling accounts for 34.5% of the variance in ants on the sandwich.
+
