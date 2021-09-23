@@ -26,7 +26,7 @@ ds <- Diamonds %>%
 ## Announcements
 
 - Grades for HW2: See feedback in comments 
-- HW3 posted
+- HW3 is due on Friday 11:55p
 - Office hours (Bass 412)
     - Thurs 1:20-2:35p (In-person)
     - or by appointment
@@ -106,6 +106,8 @@ babyMod <- lm(Age ~ Group, data = WalkingBabies)
 anova(babyMod)
 ```
 
+There is no evidence of differences in walking age across exercise conditions, $F(3,20)=2.34$, $p = .104$. (There are no statistically significant mean differences in age across walking conditions.)
+
 ## Warm-up: Walking Babies Example
 
 ```{r}
@@ -169,6 +171,11 @@ D
 ```
 
 The difference between the price of nearly colorless diamonds and colorless diamonds is only 0.052 times the size of the typical within-group deviations in price. Such a small difference!
+
+
+## Effect Size (D)
+
+![](https://www.researchgate.net/profile/Cirilo-Garcia-Cadena/publication/283153156/figure/tbl1/AS:613928308600848@1523383323320/Interpretation-of-the-results-on-d-according-to-Cohens-1992-recommendations.png)
 
 ## Effect Size 
 
