@@ -26,7 +26,7 @@ ds <- Diamonds %>%
 ## Announcements
 
 - Grades for HW2: See feedback in comments 
-- HW3 is due on Friday 11:55p
+- HW3 posted
 - Office hours (Bass 412)
     - Thurs 1:20-2:35p (In-person)
     - or by appointment
@@ -39,14 +39,6 @@ ds <- Diamonds %>%
 ## Notes on HW 3 
 
 - 5.54d: “Compare your answers to parts (b) and (c). Discuss the similarities and differences between the two methods.”
-- 5.59b: Please report your results with the actual race categories **in words**. 
-- 5.60 a and b: 
-
-```{r, eval=FALSE}
-NCbirths_no7 <- NCbirths %>%
-  filter(RaceMom != 7)
-```
-
 - 5.70: Open ended Hawks `culmen`
 
 ## Agenda
@@ -105,8 +97,6 @@ S: No...but could be worse. I: babies are in different families.
 babyMod <- lm(Age ~ Group, data = WalkingBabies)
 anova(babyMod)
 ```
-
-There is no evidence of differences in walking age across exercise conditions, $F(3,20)=2.34$, $p = .104$. (There are no statistically significant mean differences in age across walking conditions.)
 
 ## Warm-up: Walking Babies Example
 
@@ -171,11 +161,6 @@ D
 ```
 
 The difference between the price of nearly colorless diamonds and colorless diamonds is only 0.052 times the size of the typical within-group deviations in price. Such a small difference!
-
-
-## Effect Size (D)
-
-![](https://www.researchgate.net/profile/Cirilo-Garcia-Cadena/publication/283153156/figure/tbl1/AS:613928308600848@1523383323320/Interpretation-of-the-results-on-d-according-to-Cohens-1992-recommendations.png)
 
 ## Effect Size 
 
@@ -265,9 +250,9 @@ Four methods for controlling the familywise :
   3. Scheffe test
   4. **The Bonferroni correction**
 
-## Fisher's HSD
+## Fisher's LSD
 
-Fisher's HSD reasons that a pairwise difference is significant as long as it's larger than the margin of error for that pairwise comparison. Thee step process:
+Fisher's LSD reasons that a pairwise difference is significant as long as it's larger than the margin of error for that pairwise comparison. Thee step process:
 
 - **Step 1**: Is the omnibus ANOVA F-test significant? No $\longrightarrow$ Stop, Yes $\longrightarrow$ Step 2,
 
@@ -322,7 +307,7 @@ mean_h-mean_v
 mean_p-mean_v
 ```
 
-Based on Fisher's HSD there are statistically significant differences between the number of ants on the ham and pickles filled sandwiches and both the peanut butter and Vegemite sandwiches, but not between the peanut butter and Vegemite sandwiches. Do ants like meat or pickles?!
+Based on Fisher's LSD there are statistically significant differences between the number of ants on the ham and pickles filled sandwiches and both the peanut butter and Vegemite sandwiches, but not between the peanut butter and Vegemite sandwiches. Do ants like meat or pickles?!
 
 ## Bonferroni Correction
 
@@ -363,5 +348,5 @@ Topic brainstorming
 
 ## Introduction to Qualtrics
 
-- Log in to [Qualtrics](https://www.smith.edu/about-smith/institutional-research-qualtrics) and enter your Smith credentials.
+- Log in to [Qualtrics](smithcollege.qualtrics.com) and enter your Smith credentials.
     - I usually just google "Smith Qualtrics"
