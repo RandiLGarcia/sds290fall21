@@ -1,5 +1,8 @@
 ---
 title: "Syllabus"
+output:
+  html_document:
+    df_print: paged
 ---
 
 About the Course {#about-the-course .smith}
