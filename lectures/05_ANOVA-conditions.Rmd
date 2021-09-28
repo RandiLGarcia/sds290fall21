@@ -35,7 +35,7 @@ $${y}_{ij}=\mu+{\alpha}_{i}+{e}_{ij}$$
 
 Null hypothesis:
 
-$${H}_{0}:{\alpha}_{1}={\alpha}_{2}=...={\alpha}_{a}$$
+$${H}_{0}:{\alpha}_{1}={\alpha}_{2}=...={\alpha}_{a}=0$$
 
 ANOVA Source table:
 

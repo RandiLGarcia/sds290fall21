@@ -44,8 +44,8 @@ navbar:
       href: lectures/06_CI-effect-sizes.html
     - text: 07 - Multiple Comparisons
       href: lectures/07_multiple-comparisons.html  
-#    - text: 08 - Formal ANOVA III
-#      href: lectures/05d_formal_anova.html       
+    - text: 08 - Four Designs
+      href: lectures/08_four-designs.html       
 #    - text: 09 - BF[1] Design
 #      href: lectures/06_bf1_design.html  
 #    - text: 08 - BF[1] Design in R    

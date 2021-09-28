@@ -155,11 +155,11 @@ qplot(x = rf(500, 3, 4), geom = "density")
 
 $${H}_{0}:\mu_1=\mu_2=\mu_3=\mu_4$$
 
-*OR*, ${H}_{0}:\alpha_1=\alpha_2=\alpha_3=\alpha_4$
+*OR*, ${H}_{0}:\alpha_1=\alpha_2=\alpha_3=\alpha_4=0$
 
 $${H}_{A}:some\:\mu_i\neq\mu_j$$
 
-We can find the p-value for our F calculation with the following code
+Or $H_a: Some\:\alpha_i\neq 0$. We can find the p-value for our F calculation with the following code
 
 ```{r, eval=FALSE}
 
