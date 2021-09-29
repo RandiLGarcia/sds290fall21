@@ -136,7 +136,7 @@ ds <- Diamonds %>%
 Make a scatterplot of log(sd) versus log(m) with a **line of best fit**.
 
 ```{r}
-qplot(x = log(sd), y = log(m), data = ds) +
+qplot(x = log(m), y = log(sd), data = ds) +
   geom_smooth(method = lm, se = 0)
 ```
 
