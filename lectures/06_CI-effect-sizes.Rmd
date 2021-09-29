@@ -145,13 +145,13 @@ qplot(x = log(sd), y = log(m), data = ds) +
 Your transformation will be the response raised to the **power of 1-slope** of that line.
 
 ```{r}
-lm(log(m) ~ log(sd), data = ds)
+lm(log(sd) ~ log(m), data = ds)
 ```
 
 ## Diagnostic plot to pick a transformation: Step 3
 
 ```{r}
-p = 1 - 0.6364
+p = 1 - 1.480
 
 qplot(x = Color, y = TotalPrice^p, data = Diamonds, geom = "boxplot")
 ```
