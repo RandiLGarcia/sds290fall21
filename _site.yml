@@ -93,7 +93,7 @@ navbar:
     - text: 03 - Formal ANOVA
       href: lectures/05_formal_anova.Rmd
     - text: 04 - SandwichAnts Analysis
-      href: lectures/SandwichAnts_analysis.Rmd
+      href: lectures/SandwichAnts_analysis.rmd
 #    - text: 04 - BF[2] Design in R
 #      href: lectures/09_bf2_inR.Rmd    
 #    - text: 05 - CB[1], Latin Square, SP/RM[1,1] Design in R
