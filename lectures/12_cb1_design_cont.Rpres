@@ -181,51 +181,51 @@ anova(mod)
 ```
 
 
-<!-- Informal Analysis Structure -->
-<!-- ======================================================= -->
+Informal Analysis Structure
+=======================================================
 
-<!-- ```{r} -->
-<!-- library(tidyr) -->
+```{r}
+library(tidyr)
 
-<!-- mealybugs %>% -->
-<!--   spread(treatment, bugs_change) -->
-<!-- ``` -->
+mealybugs %>%
+  spread(treatment, bugs_change)
+```
 
-<!-- Scatterplots -->
-<!-- ======================================================= -->
+Scatterplots
+=======================================================
 
-<!-- ```{r} -->
-<!-- library(ggplot2) -->
+```{r}
+library(ggplot2)
 
-<!-- mealybugs %>% -->
-<!--   spread(treatment, bugs_change) %>% -->
-<!--   ggplot(aes(x = spores, y = oil)) + -->
-<!--   geom_point() -->
-<!-- ``` -->
+mealybugs %>%
+  spread(treatment, bugs_change) %>%
+  ggplot(aes(x = spores, y = oil)) +
+  geom_point()
+```
 
-<!-- Scatterplots -->
-<!-- ======================================================= -->
+Scatterplots
+=======================================================
 
-<!-- ```{r} -->
-<!-- library(ggplot2) -->
+```{r}
+library(ggplot2)
 
-<!-- mealybugs %>% -->
-<!--   spread(treatment, bugs_change) %>% -->
-<!--   ggplot(aes(x = spores, y = water)) + -->
-<!--   geom_point() -->
-<!-- ``` -->
+mealybugs %>%
+  spread(treatment, bugs_change) %>%
+  ggplot(aes(x = spores, y = water)) +
+  geom_point()
+```
 
-<!-- Scatterplots -->
-<!-- ======================================================= -->
+Scatterplots
+=======================================================
 
-<!-- ```{r} -->
-<!-- library(ggplot2) -->
+```{r}
+library(ggplot2)
 
-<!-- mealybugs %>% -->
-<!--   spread(treatment, bugs_change) %>% -->
-<!--   ggplot(aes(x = oil, y = water)) + -->
-<!--   geom_point() -->
-<!-- ``` -->
+mealybugs %>%
+  spread(treatment, bugs_change) %>%
+  ggplot(aes(x = oil, y = water)) +
+  geom_point()
+```
 
 Tuplips
 ========================================================
