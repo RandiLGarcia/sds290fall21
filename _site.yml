@@ -114,8 +114,8 @@ navbar:
       href: homework.html
     - text: 'HW4: 5.36, 5.43, 5.46, 5.61'
       href: homework.html
-#    - text: 'HW5: RE CH 3: 3-4 (data in fig 3.21 on pg. 102), 12, 13, 17'
-#      href: homework.html
+    - text: 'HW5: 6.12, 6.13, 6.15, 6.16, 6.31 (a-b only)'
+      href: homework.html
 #    - text: 'HW6: Using software; Due 2/02 at 9:20a'
 #      href: labs/homework6_W21.html
 #    - text: 'HW7: RE CH 7: A1-A3, A6, B5-B6, C1-C3, C6-C9'
