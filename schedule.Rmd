@@ -183,14 +183,14 @@ Please read the specified sections *before* class that day.
 + Office hours: 10:50-12:05p
   </div>
   
-  <div class="col-md-3">
+  <div class="col-md-3 past">
 #### Thurs, Oct 7
 + Fitting the model for a block design
 + Homework due today:
     + Read Ch **Stat2** 6.3
   </div>
   
-  <div class="col-md-3">
+  <div class="col-md-3 past">
 #### Fri, Oct 8
 + Homework due today:
     + **MP1 Qualtrics survey due for pre-approval by 11:55p**
@@ -201,12 +201,12 @@ Please read the specified sections *before* class that day.
 ***
 
 <div class="row">
-  <div class="col-md-3">
+  <div class="col-md-3 past">
 #### Tue, Oct 12
 + **Fall break**
   </div>
   
-  <div class="col-md-3">
+  <div class="col-md-3 past">
 #### Wed, Oct 13
 + Office hours: 10:50-12:05p
   </div>

@@ -48,10 +48,10 @@ navbar:
       href: lectures/08_four-designs.html       
     - text: 09 - Intro to Blocking
       href: lectures/09_intro_to_blocking.html  
-    - text: 10 - Analysis of Complete Block Design
+    - text: 10 - Analysis of Complete Block
       href: lectures/10_complete_block.html       
-#    - text: 11 - BF[2] Design II  
-#      href: lectures/09_bf2_design.html
+    - text: 11 - Assessing the Complete Block  
+      href: lectures/11_assessing_cb.html
 #    - text: Review Questions
 #      href: Exam_1_Review_Questions.html
 #    - text: 11 - BF[2] Design (cont.)
