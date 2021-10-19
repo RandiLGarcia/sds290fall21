@@ -52,8 +52,8 @@ navbar:
       href: lectures/10_complete_block.html       
     - text: 11 - Assessing the Complete Block  
       href: lectures/11_assessing_cb.html
-#    - text: Review Questions
-#      href: Exam_1_Review_Questions.html
+    - text: Exam 1 Review
+      href: lectures/12_exam1_review.html
 #    - text: 11 - BF[2] Design (cont.)
 #      href: lectures/10_bf2_design_cont.html   
 #    - text: 12 - CB[1] Design I

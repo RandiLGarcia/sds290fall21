@@ -211,7 +211,7 @@ Please read the specified sections *before* class that day.
 + Office hours: 10:50-12:05p
   </div>
   
-  <div class="col-md-3">
+  <div class="col-md-3 past">
 #### Thurs, Oct 14
 + MP1 Data Collection Day
 + Assessing the block design
@@ -220,7 +220,7 @@ Please read the specified sections *before* class that day.
     + Read Ch **Stat2** 6.4-6.5
   </div>
   
-  <div class="col-md-3">
+  <div class="col-md-3 past">
 #### Fri, Oct 15
 + Homework due today:
     + **HW #5 due tonight at 11:55p**
