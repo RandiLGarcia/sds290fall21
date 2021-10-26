@@ -1,0 +1,260 @@
+---
+title: "ANOVA Conditions"
+author: "SDS 290"
+date: "September 16, 2021"
+output: 
+  ioslides_presentation:
+    widescreen: true
+    smaller: true
+---
+
+
+## Announcements
+
+- HW2 due Friday 9/17 11:55p    
+- In-person Office hours (Bass 412)
+    - Thurs 1:20-2:35p
+    - or by appointment!
+- Zoom Office hours
+    - Full for this week
+- Where to get HW help
+    - [Spinelli center](https://www.smith.edu/qlc/tutoring.html) tutoring Sun-Thurs 7-9p, Sabin-Reed 301.
+
+## Review of last class
+
+- Introduced the motivation behind the Analysis of Variance (ANOVA)
+- Data decomposition
+- Computing the SS, MS, df, and F-ratio
+- Inference for ANOVA (p-values)
+
+## ANOVA for One-Way ANOVA
+
+Model:
+
+$${y}_{ij}=\mu+{\alpha}_{i}+{e}_{ij}$$
+
+Null hypothesis:
+
+$${H}_{0}:{\alpha}_{1}={\alpha}_{2}=...={\alpha}_{a}=0$$
+
+ANOVA Source table:
+
+| Source | SS | df | MS | F | 
+|------:|:-----:|:-----:|:------:|:------:|
+| Treatment | $n\sum_{i=1}^{a}(\bar{y}_{i.}-\bar{y}_{..})^{2}$ | $a-1$ | $\frac{{SS}_{Treatments}}{{df}_{Treatments}}$ | $\frac{{MS}_{Treatments}}{{MS}_{E}}$ |
+| Error | $\sum_{i=1}^{a}\sum_{j=1}^{n}({y}_{ij}-\bar{y}_{i.})^{2}$ | $N-a$ | $\frac{{SS}_{E}}{{df}_{E}}$ | |
+
+
+## Running an ANOVA in R
+
+```{r, echo = FALSE, message=FALSE, warning=FALSE}
+library(tidyverse)
+leaf <- data.frame(diet = c("control","control","sucrose", "sucrose", "glucose", "glucose", "fructose","fructose"), days = c(2.3,1.7,3.6,4.0,2.9,2.7,2.1,2.3))
+```
+
+Three steps:
+
+1. Boxplots or some data visualization
+2. Descriptive statistics (n, means, standard deviations)
+3. ANOVA
+4. Check assumptions
+
+## Step 1. Boxplots
+
+```{r}
+#Note that boxplots are a bit silly in this example because n is only 2.
+qplot(x = diet, y = days, data = leaf, geom = "boxplot")
+```
+
+## Step 2. Descriptive Statistics
+
+```{r}
+leaf %>%
+  group_by(diet) %>%
+  summarize(n = n(),
+            m = mean(days),
+            sd = sd(days))
+```
+
+## Step 3. ANOVA
+
+```{r}
+mod <- lm(days ~ diet, data = leaf)
+anova(mod)
+```
+
+### Write a sentence interpreting the One-Way ANOVA results
+
+There are statistically significant differences in leafhopper survival rates across diets, $F(3, 4) = 17.42$, $p = .009$. 
+
+**OR**
+
+Diet has a statistically significant effect on leafhopper survival rates, $F(3, 4) = 17.42$, $p = .009$.
+
+## Try it!
+
+In groups of three run all three steps (visualize, descriptive stats, and ANOVA) for the two datasets below. Write a sentence about your conclusion from the ANOVA. 
+
+**Dataset 1**: `SandwichAnts`
+
+- Factor: `Bread`
+- Response: `Ants`
+
+**Dataset 2**: `Meniscus`
+
+- Factor: `Method`
+- Response: `Displacement`
+
+```{r, eval=FALSE}
+library(Stat2Data)
+data("SandwichAnts")
+?SandwichAnts
+```
+
+## ANOVA Conditions
+
+**STOP!!**...only under certain conditions can we rely on this inference. There were many assumptions built into:
+
+- how we decomposed the data, and 
+- our thoughts about residual errors. 
+
+### Simulation in R: Assembly Line Metaphor
+
+![](https://thumbs.gfycat.com/MelodicCalculatingBluejay.webp)
+
+- Recall the [Assembly Line Metaphor code](https://randilgarcia.github.io/sds290fall21/lectures/02_informal_anova.Rmd)
+
+## ANOVA Conditions
+
+![](04_exp_decisions-figure/CA-SINZ2.png)
+
+- **C**. Constant effects
+- **A**. Additive effects
+- **S**. Same standard deviations
+- **I**. Independent residuals
+- **N**. Normally distributed residuals
+- **Z**. Zero mean residuals
+
+## C. Constant effects
+
+We assume every observation in a similar condition is affected exactly the same. (Gets the same "true score").
+
+```{r, eval=FALSE}
+animals_sim <- animals %>%
+  mutate(benchmark = mean(calm)) %>%
+  group_by(animal) %>%
+  mutate(animal_mean = mean(calm),
+         aminal_effect = animal_mean - benchmark)
+```
+
+## A. Additive effects
+
+We add the effects as we go down the assembly line.
+
+The interaction effect captures the possibility that conditions have non-additive effects, but it is also added to everything else.
+
+```{r, eval=FALSE}
+calm_sim = benchmark
+         + aminal_effect
+         + cue_effect
+         + interaction_effect
+         + student_effect
+```
+
+## S. Same standard deviations
+
+The piece of code for adding error is not dependent on which condition the observations is in.
+
+```{r, eval=FALSE}
+ + rnorm(82, 0, 0.79)
+```
+
+## I. Independent residuals
+
+Takes 82 independent draws from a normal distribution.
+
+```{r, eval=FALSE}
+ + rnorm(82, 0, 0.79)
+```
+
+## N. Normally distributed residuals
+
+It's `rnorm()`, and not `rbinom()` or `rpois()`...
+
+```{r, eval=FALSE}
+ + rnorm(82, 0, 0.79)
+```
+
+## Z. Zero mean residuals
+
+The second argument is the mean.
+
+```{r, eval=FALSE}
+ + rnorm(82, 0, 0.79)
+```
+
+## How to check assumptions
+
+- C. **Constant effects** -- *think* about whether it is reasonable.
+
+- A. **Additive effects** -- *think* about whether it is reasonable.
+
+- S. **Same standard deviations** -- is the biggest SD less than two times as large as the smallest?
+
+- I. **Independent residuals** -- *think* about whether it is reasonable.
+
+- N. **Normally distributed residuals** -- construct a histogram or normal probability plot of residuals.
+
+- Z. **Zero mean residuals** -- construct a histogram or normal probability plot of residuals.
+
+## To check the Residual Assumptions: SINZ
+
+**S**: calculate descriptive statistics and divide largest SD by smallest.
+
+```{r}
+leaf %>%
+  group_by(diet) %>%
+  summarize(n = n(),
+            m = mean(days),
+            sd = sd(days))
+
+0.424/0.141
+```
+
+**I**: Judge for yourself -- what do we think about the leafhopper dishes?
+
+## To check the Residual Assumptions: SINZ
+
+**N**: Look at histogram and normal probability plots of residuals.
+
+```{r}
+#normal probability plot of residuals
+plot(mod, which = 2)
+```
+
+## To check the Residual Assumptions: SINZ
+
+**Z**: Look at histogram of residuals.
+
+```{r}
+#histogram of residuals
+qplot(x = mod$residuals, bins = 4)
+```
+
+## Try it!
+
+Back in your groups of three, check or discuss the last 4 ANOVA assumptions: The **SINZ**.
+
+**Dataset 1**: `SandwichAnts`
+
+- Factor: `Bread`
+- Response: `Ants`
+
+**Dataset 2**: `Meniscus`
+
+- Factor: `Method`
+- Response: `Displacement`
+
+## Mini Project 1
+
+See [Mini Project 1 instructions](https://randilgarcia.github.io/sds290fall21/mini-project-1.html)

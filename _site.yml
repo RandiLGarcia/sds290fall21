@@ -54,8 +54,8 @@ navbar:
       href: lectures/11_assessing_cb.html
     - text: Exam 1 Review
       href: lectures/12_exam1_review.html
-#    - text: 11 - BF[2] Design (cont.)
-#      href: lectures/10_bf2_design_cont.html   
+    - text: 13 - Two-Way Factorial
+      href: lectures/13_two-way_factorial.html   
 #    - text: 12 - CB[1] Design I
 #      href: lectures/11_cb1_design.html         
 #    - text: 13 - CB[1] Design II
@@ -92,8 +92,8 @@ navbar:
       href: lectures/05_formal_anova.Rmd
     - text: 04 - SandwichAnts Analysis
       href: lectures/SandwichAnts_analysis.rmd
-#    - text: 04 - BF[2] Design in R
-#      href: lectures/09_bf2_inR.Rmd    
+    - text: 04 - Two-Way Factorial Design
+      href: lectures/09_two-way_fac_inR.Rmd    
 #    - text: 05 - CB[1], Latin Square, SP/RM[1,1] Design in R
 #      href: lectures/13_spitplot_design_inR.Rmd       
 #    - text: 06 - Extensions in R
@@ -116,8 +116,8 @@ navbar:
       href: homework.html
     - text: 'HW5: 6.12, 6.13, 6.15, 6.16, 6.31 (a-b only)'
       href: homework.html
-#    - text: 'HW6: Using software; Due 2/02 at 9:20a'
-#      href: labs/homework6_W21.html
+    - text: 'HW6: TBD'
+      href: homework.html
 #    - text: 'HW7: RE CH 7: A1-A3, A6, B5-B6, C1-C3, C6-C9'
 #      href: homework.html  
 #    - text: 'HW8: Using software - BF[2], Compound factors'

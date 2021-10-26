@@ -1,0 +1,95 @@
+---
+title: "Exam 1 Review and MP1 analyses"
+author: "SDS 290"
+date: "October 14, 2021"
+output: 
+  ioslides_presentation:
+    widescreen: true
+    smaller: true
+---
+
+## Announcements
+
+- Exam 1 distributed on Thursday
+    - Time to work in class
+    - Due on Friday night (slip under my office door or put in envelope next to door)
+- Office hours
+    - In person office hours Wed 10:50-12:05
+    - Friday office hours 12:15p-3:00p (slots open on Thur)
+- SDS Presentation of the Major **Today at 12:15pm**. There are three ways to participate:
+    1. In-person in the Ford Hall Atrium: Only **undeclared majors/minors may attend in-person**. (Advance sign-up was required for food)
+    2. Zoom: Anyone may attend at https://smith.zoom.us/j/95165936231 
+    3. A recording of the presentation will be shared afterwards on this mailing list
+    
+## Agenda
+
+1. MP1 hypotheses and steps for analysis
+2. More MP1 data collection!
+3. MP1 data analysis and Exam 1 review
+
+## Exam 1
+
+- Open notes
+- Open book
+- Open slides
+- Open Google (but be careful, there's TOO MUCH information out there)
+- Content:
+  - conceptual questions and data analysis questions
+  - some multiple choice and true/false questions
+  - questions about interpreting output
+  - you will need to do analysis in R!
+    - Knit your R Markdown file, print it, and staple it to your Exam.
+
+## MP1 hypotheses
+
+Before we analyze our data, we should be very clear about our **research hypotheses**. Please write down your *research* hypotheses. These will be: 
+
+  - like the **alternative hypothesis** for inference testing, 
+  - written in the words of the context of the problem, and 
+  - at least one will be directional.
+  
+**For example...**
+
+  - I hypothesize that people will feel **different** depending on which greeting they got.
+  - I hypothesize that people who got the "What's up?" greeting will feel **better** than those who got the "Hello" greeting or the "Hi" greeting. 
+  - I hypothesize that poeple who got the "Hello" greeting will feel **worse** than those who got the "hi" greeting. 
+
+## MP1 data collection
+
+- 15 min to participate in as many studies as you can!
+    - Note: see content warnings
+    - Please only participate in audio studies if you have headphones
+    - **If you were approved to do so, feel free to collect data outside of class**. Data collection will officially stop at class time next Tuesday!
+
+## MP1 data analysis plan
+
+You are all running one-way ANOVA models to analyze your MP1 data. These models are also the focus of **Exam1**. Take some time now, looking through previous slides, and make an analysis plan. 
+
+To get you started...
+
+1. I will download the data and clean it.
+2. I will make a box plot to visualize the differences between groups.
+3. I will calculate descriptive statistics and check...
+4. If my N assumption appears violated from the boxplots and/or my S assumption is violated from the descriptive statistics I will...
+5. ...
+6. ...
+
+
+## MP1 data analysis plan
+
+Basic analysis plan...
+
+1. I will download the data and clean it.
+2. I will make a box plot to visualize the differences between groups.
+3. I will calculate descriptive statistics and check...
+4. If my **N** condition appears violated from the boxplots and/or my **S** condition is violated from the descriptive statistics I will try a log transformation if that seems like the obvious choice, or I will make a diagnostic plot by plotting log(sd) versus log(m).
+5. If I decided to do a data transformation I will re-plot and re-test my conditions. 
+6. I will then run the one-way ANOVA model and state my conclusions based on appropriate statistics. 
+7. I will test or think about the rest of my ANOVA conditions. 
+8. I will then test pairwise comparisons using the Fisher's LSD method. 
+9. I will also calculate effect sizes for these differences, confidence intervals, and the overall $R^2$.
+10. I will write up all of my analyses clearly in words and proofread before I submit my report!
+
+
+
+

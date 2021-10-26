@@ -231,23 +231,23 @@ Please read the specified sections *before* class that day.
 ***
 
 <div class="row">
-  <div class="col-md-3">
+  <div class="col-md-3 past">
 #### Tue, Oct 19
 + Review for Exam 1
 + Analysis of MP1 data
   </div>
   
-  <div class="col-md-3">
+  <div class="col-md-3 past">
 #### Wed, Oct 20
 + Office hours: 10:50-12:05p
   </div>
   
-  <div class="col-md-3">
+  <div class="col-md-3 past">
 #### Thurs, Oct 21
 + **Time to work on Exam 1**
   </div>
   
-  <div class="col-md-3">
+  <div class="col-md-3 past">
 #### Fri, Oct 22
 + Homework due today:
     + **Exam 1 due tonight at 11:55p**
