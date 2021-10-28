@@ -56,10 +56,8 @@ navbar:
       href: lectures/12_exam1_review.html
     - text: 13 - Two-Way Factorial
       href: lectures/13_two-way_factorial.html   
-#    - text: 12 - CB[1] Design I
-#      href: lectures/11_cb1_design.html         
-#    - text: 13 - CB[1] Design II
-#      href: lectures/12_cb1_design_cont.html       
+    - text: 14 - Two-Way Factorial (cont.)
+      href: lectures/14_two-way_factorial_II.html       
 #    - text: 14 - Latin Square Design
 #      href: lectures/12b_latinsquare_design.html  
 #    - text: 15 - SP/RM[1,1] Design I
