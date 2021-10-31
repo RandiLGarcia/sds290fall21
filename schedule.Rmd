@@ -258,7 +258,7 @@ Please read the specified sections *before* class that day.
 ***
 
 <div class="row">
-  <div class="col-md-3">
+  <div class="col-md-3 past">
 #### Tue, Oct 26
 + Interactions
 + Two-way factorial designs
@@ -266,12 +266,12 @@ Please read the specified sections *before* class that day.
     + Read Ch **Stat2** 7.1-7.3
   </div>
   
-  <div class="col-md-3">
+  <div class="col-md-3 past">
 #### Wed, Oct 27
 + Office hours: 10:50-12:05p
   </div>
   
-  <div class="col-md-3">
+  <div class="col-md-3 past">
 #### Thurs, Oct 28
 + Fitting two-way ANOVA
 + Practice designs
@@ -279,7 +279,7 @@ Please read the specified sections *before* class that day.
     + Read Ch **Stat2** 7.4
   </div>
   
-  <div class="col-md-3">
+  <div class="col-md-3 past">
 #### Fri, Oct 29
 + Homework due today:
     + **Mini Project 1 due 11:55p** (upload to Moodle by Midnight)
