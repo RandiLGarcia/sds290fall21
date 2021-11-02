@@ -263,7 +263,7 @@ Please read the specified sections *before* class that day.
 + Interactions
 + Two-way factorial designs
 + Homework due today:
-    + Read Ch **Stat2** 7.1-7.3
+    + Read Ch **Stat2** 7.1-7.2
   </div>
   
   <div class="col-md-3 past">
@@ -276,7 +276,7 @@ Please read the specified sections *before* class that day.
 + Fitting two-way ANOVA
 + Practice designs
 + Homework due today:
-    + Read Ch **Stat2** 7.4
+    + Read Ch **Stat2** 7.3
   </div>
   
   <div class="col-md-3 past">
@@ -292,10 +292,10 @@ Please read the specified sections *before* class that day.
 <div class="row">
   <div class="col-md-3">
 #### Tue, Nov 2
-+ Assessing two-way design
++ Fitting two-way design
 + Practice designs
 + Homework due today:
-    + Read Ch **Stat2** 7.5
+    + Read Ch **Stat2** 7.4
 
   </div>
   
@@ -322,10 +322,10 @@ Please read the specified sections *before* class that day.
 <div class="row">
   <div class="col-md-3">
 #### Tue, Nov 9
-+ Using two-way design
++ Assessing two-way design
 + Practice designs
 + Homework due today:
-    + Read Ch **Stat2** 7.6
+    + Read Ch **Stat2** 7.5
   </div>
   
   <div class="col-md-3">
@@ -335,11 +335,9 @@ Please read the specified sections *before* class that day.
   
   <div class="col-md-3">
 #### Thurs, Nov 11
-+ Test for homogeneity of variance
-+ Multiple tests
-+ Comparisons and contrasts
++ Chapter 7 catch-up
 + Homework due today:
-    + Read Ch **Stat2** 8.1-8.3
+    + No reading
   </div>
   
   <div class="col-md-3">
@@ -355,10 +353,11 @@ Please read the specified sections *before* class that day.
 <div class="row">
   <div class="col-md-3">
 #### Tue, Nov 16
-+ Ethics
-+ Nonparametric tests
++ Test for homogeneity of variance
++ Multiple tests
++ Comparisons and contrasts
 + Homework due today:
-    + Read Ch **Stat2** 8.4
+    + Read Ch **Stat2** 8.1 - 8.3
     + [Fisher's history of racism](https://en.wikipedia.org/wiki/Ronald_Fisher#Eugenics)
   </div>
   
@@ -369,9 +368,11 @@ Please read the specified sections *before* class that day.
   
   <div class="col-md-3">
 #### Thurs, Nov 18
++ Ethics
++ Nonparametric tests
 + Randomization F-tests
 + Homework due today:
-    + Read Ch **Stat2** 8.5
+    + Read Ch **Stat2** 8.4 - 8.5
   </div>
   
   <div class="col-md-3">

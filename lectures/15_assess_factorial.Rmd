@@ -1,0 +1,441 @@
+---
+title: "Fitting Two-Way Factorial Designs"
+author: "SDS 290"
+date: "November 2, 2021"
+output: 
+  ioslides_presentation:
+    widescreen: true
+    smaller: true
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+library(Stat2Data)
+```
+
+
+## Announcements
+
+- Exam 1 grades posted
+- HW 6 posted and due Friday Nov 5 11:55p
+- In-person Office hours (Bass 412)
+    - Wed (tomorrow) 10:50-12:05p 
+- Zoom Office hours
+    - Friday 12:15-3p
+    - Slots open on Thurs morning
+- Where to get HW help
+    - [Spinelli center](https://www.smith.edu/qlc/tutoring.html) tutoring Sun-Thurs 7-9p, Sabin-Reed 301.
+    - Post questions to #homework6-questions channel on Slack!
+    - Direct message me on Slack.
+- Applications open for DSC-WAV (more info [here](https://dsc-wav.github.io/www/students.html#Eligibility))
+    
+## Agenda
+
+2. Mid-Semester Assessment feedback
+3. Two-Way Factorial Design
+    - Interactions
+    - Fitting the ANOVA model
+
+## SDS 290: How's things?
+
+- "I really like it! Doing MP1 has super fun and it's a really nice way to see all of our work come together."
+- "Overall great, I think I can master the material so far."
+- "I really like it, one of my favorite classes this semester!"
+- "Great! The work is intense but I learnt a lot from it."
+- "It is okay"
+- "I think SDS290 is going well. I feel like I am learning a lot and I really like the way the class is structured"
+- "Okay! The content is understandable although not riveting but what can you do."
+- "The class is going pretty smoothly. However, the work is generally difficult and takes a long time. I appreciate all the help and extra support I get from the professor and my peers. "
+- "This class is a lot harder than I expected, especially coming from a non-SDS background. I feel as if things haven't fully sunk in and I just keep getting more and more lost"
+
+## SDS 290 things going so well...
+
+- "I really have been doing well on the weekly homework assignments. I think that the homework problems have been good and helpful. I also think that the lectures are super helpful. "
+- "Lectures are always useful, especially when we go through code for various experimental aspects in class adn work through example problems. "
+- "I really like the opportunity to discuss questions in pairs/small groups, and feel like the balance between that and lectures has been very good."
+- "I like mini-project one, where we got to design an experiment for something that interests us and explore other people's interests."
+- "I like how I can have guidance and assistance from Professor Garcia whenever I need. And the resources of the class is easily accessible, I can navigate to the course material I need from moodle and the website. Everything is well-organized. "
+- "I like the pace of the lecture. And I can feel this class really helps my other classes (especially when I look at the paper in psychology)"
+- "I like the fact that this class includes lots of assignments that need to be done in R studio. One of the main reasons for me to take SDS 290 is to learn more about R in general. I also like the slack channel we have which is very useful and efficient. I appreciate that you always answer our questions on slack."
+
+## SDS 290 things not going so well
+
+- "I think that the textbook is not super necessary, and sometimes confuses me. Your lectures are really the heart and soul of the class and are the reason that I feel like I am learning so much. "
+- "I found some phrases and paragraphs in the textbook difficult to understand. "
+- "Understanding why certain code does the task we want is a bit difficult at times."
+- "I would like for us to have answers to some of the questions from the textbook, so I have an idea of how to do them when I'm doing the homework. "
+- "I would also appreciate a consolidated place with notes/things we've learned throughout the semester to revise before exams instead of having to go through the class sides which aren't always filled with the details. "
+- "I would like to see more psychology-centered scenarios or examples of ANOVA/blocking being used in a real-life research paper"
+- "I wish the classroom content in lectures would be paced a little bit slower because the content is difficult and takes long to digest (and understand)."
+- "Keeping up with lectures is not going very well for me. Sometimes I have trouble understanding and organizing the lecture notes."
+- "I also keep struggling and forgetting to add the homework slack channels so am always lost in the beginning of the week."
+
+## SDS 290 what I can do
+
+- Time in class for everyone to the homework Slack channels on Tuesdays.
+- Give review sheet with topics we've covered for Exam 2. 
+    - More structured review session too.
+- More detail on lecture slides.
+- Make sure to always have answers for example problems in slides.
+- Examples from Psychology: finding peer-reviewed journal articles using ANOVA.  
+- Try to stick to one term for a concept:
+    - "I would greatly appreciate if the language you used would be more cohesive. Example: when you say assumptions and conditions they mean the same thing? But it is confusing when they are used interchangeably because it causes me to second guess myself. I would appreciate if we stuck to a general term and then possibly learned the others as a bonus. But exams and homework we stuck with the decided upon term. "
+
+## SDS 290 what you can do
+
+- "I can work on doing the readings more in depth, I often only read the big boxes that are important. I can also try and ask more questions in class to further my understanding."
+- "Working through example problems in the book and practicing with code more frequently"
+- "Start the homework earlier and read the textbook more thoroughly"
+- "I think maybe re-reading the textbook chapter after the class to further solidify what I learned in class."
+- "I could participate more and ask more questions"
+- "I need to keep up with the class content more and ask questions when I am feeling lost."
+
+## Design Name Disambiguation
+
+**One-Way Design**
+
+- If the factor is a true experimental factor
+    - One-Way **Randomized** Design 
+- We analyze data this design with
+    - **One-Way ANOVA**
+    
+**Block design**
+
+- If the factor of interest is experimental
+    - **Randomized** Block Design
+- If every block gets every treatment
+    - **Complete** Block Design   
+- If every block gets every treatment and the factor of interest is experimental
+    - **Randomized Complete** Block Design  
+- We analyze data from this design with
+    - **Two-Way additive ANOVA**
+
+## Design Name Disambiguation
+
+**Two-Way Factorial Design**
+
+- If the factor of interest is experimental
+    - **Randomized** Two-Way Factorial design
+- We analyze data from this design with
+    - **Two-Way ANOVA***
+    
+- There is no blocking in this design    
+
+## Piglets
+
+It seems natural to think that adding the right vitamins to a pig's diet might produce fatter pigs faster. You've decided to study the effects of B12 in two doses (0mg and 5mg).  But pigs have bacteria living in their intestines that might prevent the uptake of vitamins, so you decided to give antibiotics to the pigs in one of two doses (0mg or 40 mg). You design your experiment in such a way that 3 piglets are randomly assigned to each of the 4 treatment conditions. You measure their weight every day, and take each pig's average daily weight gain as your final number recorded. 
+    
+    
+## Two-Way Factorial Design Factor Diagram
+
+![](09_bf2_design-figure/piglets.png)
+
+- Draw the factor diagram
+
+## Research Questions in a Two-Way Factorial Design
+
+1. Does treatment A have an effect on the response variable?
+    - Is there a main effect of factor A?
+2. Does treatment B have an effect on the response variable?
+    - Is there a main effect of factor B?
+3. Does being in a specific combination of treatments have an effect over and above the additive effects of treatment A and B alone?
+    - Is there an interaction between factor A and factor B?
+
+## Interaction Graphs
+
+For each of the following interaction graphs, answer the following questions with **YES** or **NO**.
+
+1. Is there a main effect of B12?
+2. Is there a main effect of antibiotics?
+3. Is there an interaction between B12 and antibiotics?
+
+## Example
+
+```{r, echo = FALSE, warning=FALSE, message=FALSE}
+library(dplyr)
+library(ggplot2)
+piglets <- data.frame(gain = c(4, 4, 4, 
+                               7, 7, 7,
+                               7, 7, 7,
+                               7, 7, 7), 
+                      group = as.factor(c(rep(1, 3), rep(2, 3), rep(3, 3), rep(4, 3))), 
+                      antibiotic = c(rep("0mg", 3), rep("40mg", 3), rep("0mg", 3), rep("40mg", 3)),
+                      B12 = c(rep("0mg", 6), rep("5mg", 6)))
+
+ggplot(piglets, aes(x = B12, y = gain, 
+                    group = antibiotic, 
+                    linetype = antibiotic, 
+                    shape = antibiotic,
+                    color = antibiotic)) +
+  geom_point() +
+  geom_smooth(method = "lm", se = 0) +
+  ylim(2, 9)
+```
+
+## Example: Answers
+
+```{r, echo = FALSE, warning=FALSE, message=FALSE}
+library(dplyr)
+library(ggplot2)
+piglets <- data.frame(gain = c(4, 4, 4, 
+                               7, 7, 7,
+                               7, 7, 7,
+                               7, 7, 7), 
+                      group = as.factor(c(rep(1, 3), rep(2, 3), rep(3, 3), rep(4, 3))), 
+                      antibiotic = c(rep("0mg", 3), rep("40mg", 3), rep("0mg", 3), rep("40mg", 3)),
+                      B12 = c(rep("0mg", 6), rep("5mg", 6)))
+
+ggplot(piglets, aes(x = B12, y = gain, 
+                    group = antibiotic, 
+                    linetype = antibiotic, 
+                    shape = antibiotic,
+                    color = antibiotic)) +
+  geom_point() +
+  geom_smooth(method = "lm", se = 0) +
+  ylim(2, 9)
+```
+
+***
+
+1. YES
+2. YES
+3. YES
+
+## Practice 1
+
+```{r, echo = FALSE, warning=FALSE, message=FALSE}
+library(dplyr)
+library(ggplot2)
+piglets <- data.frame(gain = c(7, 7, 7, 
+                               4, 4, 4,
+                               4, 4, 4,
+                               7, 7, 7), 
+                      group = as.factor(c(rep(1, 3), rep(2, 3), rep(3, 3), rep(4, 3))), 
+                      antibiotic = c(rep("0mg", 3), rep("40mg", 3), rep("0mg", 3), rep("40mg", 3)),
+                      B12 = c(rep("0mg", 6), rep("5mg", 6)))
+
+ggplot(piglets, aes(x = B12, y = gain, 
+                    group = antibiotic, 
+                    linetype = antibiotic, 
+                    shape = antibiotic,
+                    color = antibiotic)) +
+  geom_point() +
+  geom_smooth(method = "lm", se = 0) +
+  ylim(2, 9)
+```
+
+## Practice 1
+
+```{r, echo = FALSE, warning=FALSE, message=FALSE}
+library(dplyr)
+library(ggplot2)
+piglets <- data.frame(gain = c(7, 7, 7, 
+                               4, 4, 4,
+                               4, 4, 4,
+                               7, 7, 7), 
+                      group = as.factor(c(rep(1, 3), rep(2, 3), rep(3, 3), rep(4, 3))), 
+                      antibiotic = c(rep("0mg", 3), rep("40mg", 3), rep("0mg", 3), rep("40mg", 3)),
+                      B12 = c(rep("0mg", 6), rep("5mg", 6)))
+
+ggplot(piglets, aes(x = B12, y = gain, 
+                    group = antibiotic, 
+                    linetype = antibiotic, 
+                    shape = antibiotic,
+                    color = antibiotic)) +
+  geom_point() +
+  geom_smooth(method = "lm", se = 0) +
+  ylim(2, 9)
+```
+
+***
+
+1. NO
+2. NO
+3. YES
+
+## Practice 2
+
+```{r, echo = FALSE, warning=FALSE, message=FALSE}
+library(dplyr)
+library(ggplot2)
+piglets <- data.frame(gain = c(4, 4, 4, 
+                               5, 5, 5,
+                               6, 6, 6,
+                               7, 7, 7), 
+                      group = as.factor(c(rep(1, 3), rep(2, 3), rep(3, 3), rep(4, 3))), 
+                      antibiotic = c(rep("0mg", 3), rep("40mg", 3), rep("0mg", 3), rep("40mg", 3)),
+                      B12 = c(rep("0mg", 6), rep("5mg", 6)))
+
+ggplot(piglets, aes(x = B12, y = gain, 
+                    group = antibiotic, 
+                    linetype = antibiotic, 
+                    shape = antibiotic,
+                    color = antibiotic)) +
+  geom_point() +
+  geom_smooth(method = "lm", se = 0) +
+  ylim(2, 9)
+```
+
+## Practice 2
+
+```{r, echo = FALSE, warning=FALSE, message=FALSE}
+library(dplyr)
+library(ggplot2)
+piglets <- data.frame(gain = c(4, 4, 4, 
+                               5, 5, 5,
+                               6, 6, 6,
+                               7, 7, 7), 
+                      group = as.factor(c(rep(1, 3), rep(2, 3), rep(3, 3), rep(4, 3))), 
+                      antibiotic = c(rep("0mg", 3), rep("40mg", 3), rep("0mg", 3), rep("40mg", 3)),
+                      B12 = c(rep("0mg", 6), rep("5mg", 6)))
+
+ggplot(piglets, aes(x = B12, y = gain, 
+                    group = antibiotic, 
+                    linetype = antibiotic, 
+                    shape = antibiotic,
+                    color = antibiotic)) +
+  geom_point() +
+  geom_smooth(method = "lm", se = 0) +
+  ylim(2, 9)
+```
+
+***
+
+1. YES
+2. YES
+3. NO
+
+## Practice 3
+
+```{r, echo = FALSE, warning=FALSE, message=FALSE}
+library(dplyr)
+library(ggplot2)
+piglets <- data.frame(gain = c(4, 4, 4, 
+                               7, 7, 7,
+                               4, 4, 4,
+                               7, 7, 7), 
+                      group = as.factor(c(rep(1, 3), rep(2, 3), rep(3, 3), rep(4, 3))), 
+                      antibiotic = c(rep("0mg", 3), rep("40mg", 3), rep("0mg", 3), rep("40mg", 3)),
+                      B12 = c(rep("0mg", 6), rep("5mg", 6)))
+
+ggplot(piglets, aes(x = B12, y = gain, 
+                    group = antibiotic, 
+                    linetype = antibiotic, 
+                    shape = antibiotic,
+                    color = antibiotic)) +
+  geom_point() +
+  geom_smooth(method = "lm", se = 0) +
+  ylim(2, 9)
+```
+
+Practice 3
+
+```{r, echo = FALSE, warning=FALSE, message=FALSE}
+library(dplyr)
+library(ggplot2)
+piglets <- data.frame(gain = c(4, 4, 4, 
+                               7, 7, 7,
+                               4, 4, 4,
+                               7, 7, 7), 
+                      group = as.factor(c(rep(1, 3), rep(2, 3), rep(3, 3), rep(4, 3))), 
+                      antibiotic = c(rep("0mg", 3), rep("40mg", 3), rep("0mg", 3), rep("40mg", 3)),
+                      B12 = c(rep("0mg", 6), rep("5mg", 6)))
+
+ggplot(piglets, aes(x = B12, y = gain, 
+                    group = antibiotic, 
+                    linetype = antibiotic, 
+                    shape = antibiotic,
+                    color = antibiotic)) +
+  geom_point() +
+  geom_smooth(method = "lm", se = 0) +
+  ylim(2, 9)
+```
+
+***
+
+1. NO
+2. YES
+3. NO
+
+## Two-Way Factorial Design Formulas
+
+$${y}_{ijk}={\mu}+{\alpha}_{i}+{\beta}_{j}+{\alpha\beta}_{ij}+{e}_{ijk}$$
+
+- Where $i$, from 1 to $a$, is the level of the first factor,
+- $j$, from 1 to $b$, is the level of the second factor, 
+- and $k$, from 1 to $n$, is the observation in each cell. 
+
+## Sum of Squares (SS)
+
+$${SS}_{A} = \sum_{i=1}^{a}bn(\bar{y}_{i..}-\bar{y}_{…})^{2}$$
+
+$${SS}_{B} = \sum_{j=1}^{b}an(\bar{y}_{.j.}-\bar{y}_{…})^{2}$$
+
+$${SS}_{AB} = n\sum_{i=1}^{a}\sum_{j=1}^{b}(\bar{y}_{ij.}-\bar{y}_{i..}-\bar{y}_{.j.}+\bar{y}_{…})^{2}$$
+
+$${SS}_{E} = \sum_{i=1}^{a}\sum_{j=1}^{b}\sum_{k=1}^{n}({y}_{ijk}-\bar{y}_{ij.})^{2}$$
+
+
+## Degrees of Freedom (df)
+
+$${df}_{A}=a-1$$
+
+$${df}_{B}=b-1$$
+
+$${df}_{AB}=(a-1)(b-1)$$
+
+$${df}_{E}=ab(n-1)$$
+
+## Mean Squares (MS) 
+
+$${MS}_{A}=\frac{{SS}_{A}}{{df}_{A}}$$
+
+$${MS}_{B}=\frac{{SS}_{B}}{{df}_{B}}$$
+
+$${MS}_{AB}=\frac{{SS}_{AB}}{{df}_{AB}}$$
+
+$${MS}_{E}=\frac{{SS}_{E}}{{df}_{E}}$$
+
+
+## Three Research Questions, Three F-ratios
+
+1. Is there a significant main effect of factor A?
+2. Is there a significant main effect of factor B?
+3. Is there an significant interaction between factor A and factor B?
+
+## F-ratios and the F-distribution
+
+The ultimate statistics we want to calculate is Variability in treatment effects/Variability in residuals. The F-ratio.
+
+$$F = \frac{{MS}_{A}}{{MS}_{E}}$$
+
+$$F = \frac{{MS}_{B}}{{MS}_{E}}$$
+
+$$F = \frac{{MS}_{AB}}{{MS}_{E}}$$
+
+
+## ANOVA Source Table for Two-Way Factorial
+
+$${y}_{ijk}={\mu}+{\alpha}_{i}+{\beta}_{j}+{\alpha\beta}_{ij}+{e}_{ijk}$$
+
+| Source | SS | df | MS | F |
+|------:|:-----:|:-----:|:------:|:------:|
+| Treatment A | $\sum_{i=1}^{a}bn(\bar{y}_{i..}-\bar{y}_{…})^{2}$ | $a-1$ | $\frac{{SS}_{A}}{{df}_{A}}$ | $\frac{{MS}_{A}}{{MS}_{E}}$ |
+| Treatment B | $\sum_{j=1}^{b}an(\bar{y}_{.j.}-\bar{y}_{…})^{2}$ | $b-1$ | $\frac{{SS}_{B}}{{df}_{B}}$ | $\frac{{MS}_{B}}{{MS}_{E}}$ |
+| Interaction AB | $n\sum_{i=1}^{a}\sum_{j=1}^{b}(\bar{y}_{ij.}-\bar{y}_{i..}-\bar{y}_{.j.}+\bar{y}_{…})^{2}$ | $(a-1)(b-1)$ | $\frac{{SS}_{AB}}{{df}_{AB}}$ | $\frac{{MS}_{AB}}{{MS}_{E}}$ |
+| Error | $\sum_{i=1}^{a}\sum_{j=1}^{b}\sum_{k=1}^{n}({y}_{ijk}-\bar{y}_{ij.})^{2}$ | $ab(n-1)$ | $\frac{{SS}_{E}}{{df}_{E}}$ | |
+
+## Two-Way Factorial in R
+
+[See Two-Way Factorial code](https://randilgarcia.github.io/sds290fall21/lectures/09_two-way_fac_inR.Rmd)
+
+<!-- ## Teaching Methods -->
+
+<!-- A professor wanted to compare three different teaching methods to determine how students  -->
+<!-- would perceive the course: 1) instructionist, 2) inquiry-based, and 3) team-based. She randomly assigned the same class (same topic different students) from 6 different semesters to treatments. At the end of the semester students were asked to rate the course on a 5-point scale, and the average class rating was calculated.  -->
+
+<!-- ## Anxiety and Memory -->
+
+<!-- A psychologist wants to study the effect of anxiety on 4 different types of memory. Twelve participants are assigned to one of two anxiety conditions: 1) low anxiety group is told that they will be awarded \$5 for participation and \$10 if they remember sufficiently accurately, and 2) high anxiety group is told they will be awarded \$5 for participation and \$100 if they remember sufficiently accurately. All subjects perform four memory trials in random order, testing 4 different types of memory. The number of errors on each trial is recorded.      -->
+
