@@ -19,7 +19,10 @@ title: 'Homework'
     + HW #5: 6.12, 6.13, 6.15, 6.16, 6.31 (a-b only)
 
 #. Due Friday, November 5th:
-    + HW #6: HW6: 6.1, 6.5, 6.26, 6.36, 6.37
+    + HW #6: 6.1, 6.5, 6.26, 6.36, 6.37
+    
+#. Due Friday, November 12th:
+    + HW #7: 7.5, 7.7, 7.8, 7.11, 7.12, find a peer-reviewed journal article that uses ANOVA and upload with your HW.
 
 ![](https://c.tenor.com/xATuBt2dRhwAAAAM/kitten-cat.gif)
 

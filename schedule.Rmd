@@ -290,7 +290,7 @@ Please read the specified sections *before* class that day.
 ***
 
 <div class="row">
-  <div class="col-md-3">
+  <div class="col-md-3 past">
 #### Tue, Nov 2
 + Fitting two-way design
 + Practice designs
@@ -299,17 +299,17 @@ Please read the specified sections *before* class that day.
 
   </div>
   
-  <div class="col-md-3">
+  <div class="col-md-3 past">
 #### Wed, Nov 3
 + Office hours: 10:50-12:05p
   </div>
   
-  <div class="col-md-3">
+  <div class="col-md-3 past">
 #### Thurs, Nov 4
 + **Cromwell Day - Class cancelled**
   </div>
   
-  <div class="col-md-3">
+  <div class="col-md-3 past">
 #### Fri, Nov 5
 + Homework due today:
     + [**HW #6 due today at 11:55p**](homework.html) 
