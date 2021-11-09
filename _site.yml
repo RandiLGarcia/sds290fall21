@@ -58,8 +58,10 @@ navbar:
       href: lectures/13_two-way_factorial.html   
     - text: 14 - Two-Way Factorial (cont.)
       href: lectures/14_two-way_factorial_II.html 
-    - text: 15 - Fitting Two-Way Factorial Designs
-      href: lectures/15_assess_factorial.html      
+    - text: 15 - Assessing Two-Way Factorial Designs
+      href: lectures/15_assess_factorial.html 
+    - text: 16 - Fitting Two-Way Factorial Designs
+      href: lectures/16_fit_factorial.html         
 #    - text: 14 - Latin Square Design
 #      href: lectures/12b_latinsquare_design.html  
 #    - text: 15 - SP/RM[1,1] Design I
@@ -130,7 +132,7 @@ navbar:
     - text: 'Mini project 1'
       href: mini-project-1.html
     - text: 'Mini Project 2'
-#      href: mini-project-2.html
+      href: mini-project-2.html
 #    - text: Advice
   - text: Book Zoom OHs
     href: https://randigarcia.youcanbook.me/

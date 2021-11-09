@@ -1,0 +1,298 @@
+---
+title: "Fitting Two-Way Factorial Designs"
+author: "SDS 290"
+date: "November 9, 2021"
+output: 
+  ioslides_presentation:
+    widescreen: true
+    smaller: true
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+library(Stat2Data)
+```
+
+
+## Announcements
+
+- HW 6 grades posted; MP1 grades are (mostly) posted
+- HW 7 posted and due Friday Nov 12 11:55p
+    - Find a research article that uses ANOVA
+- In-person Office hours (Bass 412)
+    - Wed (tomorrow) 10:50-12:05p 
+- Zoom Office hours
+    - Friday 12:15-3p
+    - Slots open on Thurs morning
+- Where to get HW help
+    - [Spinelli center](https://www.smith.edu/qlc/tutoring.html) tutoring Sun-Thurs 7-9p, Sabin-Reed 301.
+    - Post questions to #homework7-questions channel on Slack!
+    - Direct message me on Slack.
+- Applications open for DSC-WAV (more info [here](https://dsc-wav.github.io/www/students.html#Eligibility))
+    - Due tomorrow
+    
+## SDS Biostatistics Job Candidates
+
+1. Tea with candidates 3:30-4:30 p.m. ([sign-up here!](https://docs.google.com/spreadsheets/d/1uuFRI2TPpYdSWXImIFO9JaXkXgHTihuBtqXOr3NmbjQ/edit#gid=0))
+2. Research talks with grab-and-go lunches (12:25-1:20 p.m., Ford 240 or McConnell 103)
+3. Teaching demonstrations (5:00-6:00 p.m., Sabin-Reed 301)
+
+**Friday November 12, 2021**: Kaitlyn Cook "Statistical Methods for Cluster-Randomized Infectious Disease Prevention Trial". Research talk: **Ford 240**. 
+
+**Monday November 15, 2021**: Anny-Claude Joseph "The Timing of Geographic Power". Research talk: **Ford 240**. 
+
+**Wednesday November 17, 2021**: Jacob Fiksel "Generalized Bayes Quantification Learning with Applications to Mortality Surveillance". Research talk: **McConnell 103**. 
+    
+## Agenda
+
+1. MP2 Assignment 
+2. Two-Way Factorial Design (continued)
+    - More interactions!
+    - Fitting the ANOVA model
+   
+## MP2 Assignment 
+
+- MP2 instructions
+- MP2 [group selection survey](https://docs.google.com/forms/d/e/1FAIpQLSdAnm-YO99CPLIkkpaciS9_e0V04bCRFCVsVg0mdHAIOvSJtQ/viewform?usp=sf_link)
+
+## Interaction Graphs
+
+For each of the following interaction graphs, answer the following questions with **YES** or **NO**.
+
+1. Is there a main effect of B12?
+2. Is there a main effect of antibiotics?
+3. Is there an interaction between B12 and antibiotics?
+
+## Practice 1
+
+```{r, echo = FALSE, warning=FALSE, message=FALSE}
+library(dplyr)
+library(ggplot2)
+piglets <- data.frame(gain = c(7, 7, 7, 
+                               4, 4, 4,
+                               4, 4, 4,
+                               7, 7, 7), 
+                      group = as.factor(c(rep(1, 3), rep(2, 3), rep(3, 3), rep(4, 3))), 
+                      antibiotic = c(rep("0mg", 3), rep("40mg", 3), rep("0mg", 3), rep("40mg", 3)),
+                      B12 = c(rep("0mg", 6), rep("5mg", 6)))
+
+ggplot(piglets, aes(x = B12, y = gain, 
+                    group = antibiotic, 
+                    linetype = antibiotic, 
+                    shape = antibiotic,
+                    color = antibiotic)) +
+  geom_point() +
+  geom_smooth(method = "lm", se = 0) +
+  ylim(2, 9)
+```
+
+## Practice 1
+
+```{r, echo = FALSE, warning=FALSE, message=FALSE}
+library(dplyr)
+library(ggplot2)
+piglets <- data.frame(gain = c(7, 7, 7, 
+                               4, 4, 4,
+                               4, 4, 4,
+                               7, 7, 7), 
+                      group = as.factor(c(rep(1, 3), rep(2, 3), rep(3, 3), rep(4, 3))), 
+                      antibiotic = c(rep("0mg", 3), rep("40mg", 3), rep("0mg", 3), rep("40mg", 3)),
+                      B12 = c(rep("0mg", 6), rep("5mg", 6)))
+
+ggplot(piglets, aes(x = B12, y = gain, 
+                    group = antibiotic, 
+                    linetype = antibiotic, 
+                    shape = antibiotic,
+                    color = antibiotic)) +
+  geom_point() +
+  geom_smooth(method = "lm", se = 0) +
+  ylim(2, 9)
+```
+
+1. NO
+2. NO
+3. YES
+
+## Practice 2
+
+```{r, echo = FALSE, warning=FALSE, message=FALSE}
+library(dplyr)
+library(ggplot2)
+piglets <- data.frame(gain = c(4, 4, 4, 
+                               5, 5, 5,
+                               6, 6, 6,
+                               7, 7, 7), 
+                      group = as.factor(c(rep(1, 3), rep(2, 3), rep(3, 3), rep(4, 3))), 
+                      antibiotic = c(rep("0mg", 3), rep("40mg", 3), rep("0mg", 3), rep("40mg", 3)),
+                      B12 = c(rep("0mg", 6), rep("5mg", 6)))
+
+ggplot(piglets, aes(x = B12, y = gain, 
+                    group = antibiotic, 
+                    linetype = antibiotic, 
+                    shape = antibiotic,
+                    color = antibiotic)) +
+  geom_point() +
+  geom_smooth(method = "lm", se = 0) +
+  ylim(2, 9)
+```
+
+## Practice 2
+
+```{r, echo = FALSE, warning=FALSE, message=FALSE}
+library(dplyr)
+library(ggplot2)
+piglets <- data.frame(gain = c(4, 4, 4, 
+                               5, 5, 5,
+                               6, 6, 6,
+                               7, 7, 7), 
+                      group = as.factor(c(rep(1, 3), rep(2, 3), rep(3, 3), rep(4, 3))), 
+                      antibiotic = c(rep("0mg", 3), rep("40mg", 3), rep("0mg", 3), rep("40mg", 3)),
+                      B12 = c(rep("0mg", 6), rep("5mg", 6)))
+
+ggplot(piglets, aes(x = B12, y = gain, 
+                    group = antibiotic, 
+                    linetype = antibiotic, 
+                    shape = antibiotic,
+                    color = antibiotic)) +
+  geom_point() +
+  geom_smooth(method = "lm", se = 0) +
+  ylim(2, 9)
+```
+
+1. YES
+2. YES
+3. NO
+
+## Practice 3
+
+```{r, echo = FALSE, warning=FALSE, message=FALSE}
+library(dplyr)
+library(ggplot2)
+piglets <- data.frame(gain = c(4, 4, 4, 
+                               7, 7, 7,
+                               4, 4, 4,
+                               7, 7, 7), 
+                      group = as.factor(c(rep(1, 3), rep(2, 3), rep(3, 3), rep(4, 3))), 
+                      antibiotic = c(rep("0mg", 3), rep("40mg", 3), rep("0mg", 3), rep("40mg", 3)),
+                      B12 = c(rep("0mg", 6), rep("5mg", 6)))
+
+ggplot(piglets, aes(x = B12, y = gain, 
+                    group = antibiotic, 
+                    linetype = antibiotic, 
+                    shape = antibiotic,
+                    color = antibiotic)) +
+  geom_point() +
+  geom_smooth(method = "lm", se = 0) +
+  ylim(2, 9)
+```
+
+## Practice 3
+
+```{r, echo = FALSE, warning=FALSE, message=FALSE}
+library(dplyr)
+library(ggplot2)
+piglets <- data.frame(gain = c(4, 4, 4, 
+                               7, 7, 7,
+                               4, 4, 4,
+                               7, 7, 7), 
+                      group = as.factor(c(rep(1, 3), rep(2, 3), rep(3, 3), rep(4, 3))), 
+                      antibiotic = c(rep("0mg", 3), rep("40mg", 3), rep("0mg", 3), rep("40mg", 3)),
+                      B12 = c(rep("0mg", 6), rep("5mg", 6)))
+
+ggplot(piglets, aes(x = B12, y = gain, 
+                    group = antibiotic, 
+                    linetype = antibiotic, 
+                    shape = antibiotic,
+                    color = antibiotic)) +
+  geom_point() +
+  geom_smooth(method = "lm", se = 0) +
+  ylim(2, 9)
+```
+
+
+1. NO
+2. YES
+3. NO
+
+## Two-Way Factorial Design Formulas
+
+$${y}_{ijk}={\mu}+{\alpha}_{i}+{\beta}_{j}+{\alpha\beta}_{ij}+{e}_{ijk}$$
+
+- Where $i$, from 1 to $a$, is the level of the first factor,
+- $j$, from 1 to $b$, is the level of the second factor, 
+- and $k$, from 1 to $n$, is the observation in each cell. 
+
+## Sum of Squares (SS)
+
+$${SS}_{A} = \sum_{i=1}^{a}bn(\bar{y}_{i..}-\bar{y}_{…})^{2}$$
+
+$${SS}_{B} = \sum_{j=1}^{b}an(\bar{y}_{.j.}-\bar{y}_{…})^{2}$$
+
+$${SS}_{AB} = n\sum_{i=1}^{a}\sum_{j=1}^{b}(\bar{y}_{ij.}-\bar{y}_{i..}-\bar{y}_{.j.}+\bar{y}_{…})^{2}$$
+
+$${SS}_{E} = \sum_{i=1}^{a}\sum_{j=1}^{b}\sum_{k=1}^{n}({y}_{ijk}-\bar{y}_{ij.})^{2}$$
+
+
+## Degrees of Freedom (df)
+
+$${df}_{A}=a-1$$
+
+$${df}_{B}=b-1$$
+
+$${df}_{AB}=(a-1)(b-1)$$
+
+$${df}_{E}=ab(n-1)$$
+
+## Mean Squares (MS) 
+
+$${MS}_{A}=\frac{{SS}_{A}}{{df}_{A}}$$
+
+$${MS}_{B}=\frac{{SS}_{B}}{{df}_{B}}$$
+
+$${MS}_{AB}=\frac{{SS}_{AB}}{{df}_{AB}}$$
+
+$${MS}_{E}=\frac{{SS}_{E}}{{df}_{E}}$$
+
+
+## Three Research Questions, Three F-ratios
+
+1. Is there a significant main effect of factor A?
+2. Is there a significant main effect of factor B?
+3. Is there an significant interaction between factor A and factor B?
+
+## F-ratios and the F-distribution
+
+The ultimate statistics we want to calculate is Variability in treatment effects/Variability in residuals. The F-ratio.
+
+$$F = \frac{{MS}_{A}}{{MS}_{E}}$$
+
+$$F = \frac{{MS}_{B}}{{MS}_{E}}$$
+
+$$F = \frac{{MS}_{AB}}{{MS}_{E}}$$
+
+
+## ANOVA Source Table for Two-Way Factorial
+
+$${y}_{ijk}={\mu}+{\alpha}_{i}+{\beta}_{j}+{\alpha\beta}_{ij}+{e}_{ijk}$$
+
+| Source | SS | df | MS | F |
+|------:|:-----:|:-----:|:------:|:------:|
+| Treatment A | $\sum_{i=1}^{a}bn(\bar{y}_{i..}-\bar{y}_{…})^{2}$ | $a-1$ | $\frac{{SS}_{A}}{{df}_{A}}$ | $\frac{{MS}_{A}}{{MS}_{E}}$ |
+| Treatment B | $\sum_{j=1}^{b}an(\bar{y}_{.j.}-\bar{y}_{…})^{2}$ | $b-1$ | $\frac{{SS}_{B}}{{df}_{B}}$ | $\frac{{MS}_{B}}{{MS}_{E}}$ |
+| Interaction AB | $n\sum_{i=1}^{a}\sum_{j=1}^{b}(\bar{y}_{ij.}-\bar{y}_{i..}-\bar{y}_{.j.}+\bar{y}_{…})^{2}$ | $(a-1)(b-1)$ | $\frac{{SS}_{AB}}{{df}_{AB}}$ | $\frac{{MS}_{AB}}{{MS}_{E}}$ |
+| Error | $\sum_{i=1}^{a}\sum_{j=1}^{b}\sum_{k=1}^{n}({y}_{ijk}-\bar{y}_{ij.})^{2}$ | $ab(n-1)$ | $\frac{{SS}_{E}}{{df}_{E}}$ | |
+
+## Two-Way Factorial in R
+
+[See Two-Way Factorial code](https://randilgarcia.github.io/sds290fall21/lectures/09_two-way_fac_inR.Rmd)
+
+<!-- ## Teaching Methods -->
+
+<!-- A professor wanted to compare three different teaching methods to determine how students  -->
+<!-- would perceive the course: 1) instructionist, 2) inquiry-based, and 3) team-based. She randomly assigned the same class (same topic different students) from 6 different semesters to treatments. At the end of the semester students were asked to rate the course on a 5-point scale, and the average class rating was calculated.  -->
+
+<!-- ## Anxiety and Memory -->
+
+<!-- A psychologist wants to study the effect of anxiety on 4 different types of memory. Twelve participants are assigned to one of two anxiety conditions: 1) low anxiety group is told that they will be awarded \$5 for participation and \$10 if they remember sufficiently accurately, and 2) high anxiety group is told they will be awarded \$5 for participation and \$100 if they remember sufficiently accurately. All subjects perform four memory trials in random order, testing 4 different types of memory. The number of errors on each trial is recorded.      -->
+
