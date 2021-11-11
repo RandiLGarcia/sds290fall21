@@ -82,7 +82,7 @@ PigFeed %>%
   summarise(max(sd)/min(sd))
 ```
 
-#Formal Analysis
+# Formal Analysis
 
 Run two-way ANOVA without the interaction term using the original data.
 
@@ -92,7 +92,7 @@ mod1 <- lm(WgtGain ~ Antibiotic + B12, data = PigFeed)
 anova(mod1)
 ```
 
-##Interactions
+## Interactions
 
 Check for interactions: Create an interaction plot.
 
@@ -112,7 +112,7 @@ mod2 <- lm(WgtGain ~ Antibiotic * B12, data = PigFeed)
 anova(mod2)
 ```
 
-#Residual Analysis 
+# Residual Analysis 
 
 Check conditions on the residuals
 
@@ -120,5 +120,34 @@ Check conditions on the residuals
 qplot(x = mod2$residuals, bins = 6)
 plot(mod2, which = 2)
 plot(mod2, which = 1)
+```
+
+# Confidence intervals and effect sizes
+
+```{r}
+SD = sqrt(36.25) 
+t = qt(.975, 8)
+
+#Conditional averages
+mean_B12_antiNO <- 22 - 19
+
+mean_B12_antiYES <- 54 - 3
+
+LL_B12_antiNO = mean_B12_antiNO - SD*t*sqrt(1/3+1/3)
+UL_B12_antiNO = mean_B12_antiNO + SD*t*sqrt(1/3+1/3)
+
+LL_B12_antiYES = mean_B12_antiYES - SD*t*sqrt(1/3+1/3)
+UL_B12_antiYES = mean_B12_antiYES + SD*t*sqrt(1/3+1/3)
+
+LL_B12_antiNO
+UL_B12_antiNO
+
+LL_B12_antiYES
+UL_B12_antiYES
+```
+
+```{r}
+mean_B12_antiNO/SD
+mean_B12_antiYES/SD
 ```
 

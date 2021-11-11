@@ -1,7 +1,7 @@
 ---
-title: "Fitting Two-Way Factorial Designs"
+title: "Chapter 7 Catch-up"
 author: "SDS 290"
-date: "November 9, 2021"
+date: "November 11, 2021"
 output: 
   ioslides_presentation:
     widescreen: true
@@ -27,6 +27,8 @@ library(Stat2Data)
     - [Spinelli center](https://www.smith.edu/qlc/tutoring.html) tutoring Sun-Thurs 7-9p, Sabin-Reed 301.
     - Post questions to #homework7-questions channel on Slack!
     - Direct message me on Slack.
+- SDS Graduate School Panel**Nov 22 7-8p via Zoom** 
+    - See Moodle for more details. 
     
 ## SDS Biostatistics Job Candidate - Friday
 
@@ -126,6 +128,34 @@ $${y}_{ijk}={\mu}+{\alpha}_{i}+{\beta}_{j}+{\alpha\beta}_{ij}+{e}_{ijk}$$
 | Treatment B | $\sum_{j=1}^{b}an(\bar{y}_{.j.}-\bar{y}_{…})^{2}$ | $b-1$ | $\frac{{SS}_{B}}{{df}_{B}}$ | $\frac{{MS}_{B}}{{MS}_{E}}$ |
 | Interaction AB | $n\sum_{i=1}^{a}\sum_{j=1}^{b}(\bar{y}_{ij.}-\bar{y}_{i..}-\bar{y}_{.j.}+\bar{y}_{…})^{2}$ | $(a-1)(b-1)$ | $\frac{{SS}_{AB}}{{df}_{AB}}$ | $\frac{{MS}_{AB}}{{MS}_{E}}$ |
 | Error | $\sum_{i=1}^{a}\sum_{j=1}^{b}\sum_{k=1}^{n}({y}_{ijk}-\bar{y}_{ij.})^{2}$ | $ab(n-1)$ | $\frac{{SS}_{E}}{{df}_{E}}$ | |
+
+## Confidence intervals and effect sizes
+
+- If the **interaction is significant** 
+    - Calculate CIs and effect sizes for sets of *conditional averages* (also called "simple effects")
+    - For example, for the 0mg antibiotics condition, what's the effect size for B12
+- If the **interaction is NOT significant**
+    - Calculate CIs and effect sizes for sets of *marginal averages* (also called "main effects")
+    - For example, what is the effect size for B12 overall? 
+
+## Conditional Averages and Marginal Averages
+
+![](09_bf2_design-figure/marginalmeans.png)
+
+- The numbers in blue are *Marginal Averages*
+- The numbers in green are *Conditional Averages*
+
+## Confidence Intervals and Effect Sizes
+
+### Confidence Intervals 
+
+$$(\bar{y_i}-\bar{y_j}) \pm t^*\cdot SD \sqrt{1/n_i+1/n_j}$$
+
+### Effect size
+
+$$D_{ij} = \frac{(\bar{y_i}-\bar{y_j})}{SD}$$
+
+- Where $SD = \sqrt{MSE}$
 
 ## Two-Way Factorial in R
 
