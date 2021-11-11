@@ -61,7 +61,9 @@ navbar:
     - text: 15 - Assessing Two-Way Factorial Designs
       href: lectures/15_assess_factorial.html 
     - text: 16 - Fitting Two-Way Factorial Designs
-      href: lectures/16_fit_factorial.html         
+      href: lectures/16_fit_factorial.html  
+    - text: 17 - Chapter 7 Catch-up
+      href: lectures/17_catch-up_factorial.html         
 #    - text: 14 - Latin Square Design
 #      href: lectures/12b_latinsquare_design.html  
 #    - text: 15 - SP/RM[1,1] Design I

@@ -320,7 +320,7 @@ Please read the specified sections *before* class that day.
 ***
 
 <div class="row">
-  <div class="col-md-3">
+  <div class="col-md-3 past">
 #### Tue, Nov 9
 + Assessing two-way design
 + Practice designs
@@ -328,7 +328,7 @@ Please read the specified sections *before* class that day.
     + Read Ch **Stat2** 7.5
   </div>
   
-  <div class="col-md-3">
+  <div class="col-md-3 past">
 #### Wed, Nov 10
 + Office hours: 10:50-12:05p
   </div>
@@ -336,6 +336,7 @@ Please read the specified sections *before* class that day.
   <div class="col-md-3">
 #### Thurs, Nov 11
 + Chapter 7 catch-up
++ MP2 group assignments
 + Homework due today:
     + No reading
   </div>
@@ -353,11 +354,11 @@ Please read the specified sections *before* class that day.
 <div class="row">
   <div class="col-md-3">
 #### Tue, Nov 16
-+ Test for homogeneity of variance
++ MP2 project work time
 + Multiple tests
-+ Comparisons and contrasts
++ Inference Test for S Condition
 + Homework due today:
-    + Read Ch **Stat2** 8.1 - 8.3
+    + Read Ch **Stat2** 8.1 - 8.2
     + [Fisher's history of racism](https://en.wikipedia.org/wiki/Ronald_Fisher#Eugenics)
   </div>
   
@@ -368,11 +369,9 @@ Please read the specified sections *before* class that day.
   
   <div class="col-md-3">
 #### Thurs, Nov 18
-+ Ethics
-+ Nonparametric tests
-+ Randomization F-tests
++ Repeated measures designs
 + Homework due today:
-    + Read Ch **Stat2** 8.4 - 8.5
+    + Read Ch **Stat2** 8.6
   </div>
   
   <div class="col-md-3">
@@ -388,9 +387,10 @@ Please read the specified sections *before* class that day.
 <div class="row">
   <div class="col-md-3">
 #### Tue, Nov 23
-+ Repeated measures designs
++ MP2 project work time
++ Nonparametric tests
 + Homework due today:
-    + Read Ch **Stat2** 8.6
+    + Read Ch **Stat2** 8.4
   </div>
   
   <div class="col-md-3">
@@ -414,6 +414,7 @@ Please read the specified sections *before* class that day.
 <div class="row">
   <div class="col-md-3">
 #### Tue, Nov 30
++ MP2 Data Collection
 + Repeated measures designs
 + Homework due today:
     + Read Ch **Stat2** 8.6
@@ -426,8 +427,8 @@ Please read the specified sections *before* class that day.
   
   <div class="col-md-3">
 #### Thurs, Dec 2
-+ ANOVA with indicator variables
-+ ANCOVA
++ MP2 Data Analysis
++ Design Practice
 + Homework due today:
     + Read Ch **Stat2** 8.7-6.8
   </div>

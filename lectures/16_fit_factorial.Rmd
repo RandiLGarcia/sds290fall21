@@ -34,7 +34,7 @@ library(Stat2Data)
     
 ## SDS Biostatistics Job Candidates
 
-1. Tea with candidates 3:30-4:30 p.m. ([sign-up here!](https://docs.google.com/spreadsheets/d/1uuFRI2TPpYdSWXImIFO9JaXkXgHTihuBtqXOr3NmbjQ/edit#gid=0))
+1. Tea with candidates 3:30-4:30 p.m. Fri and 4:00-4:45 p.m. Mon Wed ([sign-up here!](https://docs.google.com/spreadsheets/d/1uuFRI2TPpYdSWXImIFO9JaXkXgHTihuBtqXOr3NmbjQ/edit#gid=0))
 2. Research talks with grab-and-go lunches (12:25-1:20 p.m., Ford 240 or McConnell 103)
 3. Teaching demonstrations (5:00-6:00 p.m., Sabin-Reed 301)
 
