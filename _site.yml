@@ -124,8 +124,8 @@ navbar:
       href: homework.html
     - text: 'HW7: 7.5, 7.7, 7.8, 7.11, 7.12, journal article'
       href: homework.html  
-#    - text: 'HW8: Using software - BF[2], Compound factors'
-#      href: labs/homework8.html        
+    - text: 'HW8: 7.20, 7.21, 7.22, 7.34, 7.38'
+      href: homework.html      
 #    - text: 'HW9: Using software-last homework'      
 #      href:           
   - text: Projects

@@ -333,7 +333,7 @@ Please read the specified sections *before* class that day.
 + Office hours: 10:50-12:05p
   </div>
   
-  <div class="col-md-3">
+  <div class="col-md-3 past">
 #### Thurs, Nov 11
 + Chapter 7 catch-up
 + MP2 group assignments
@@ -341,7 +341,7 @@ Please read the specified sections *before* class that day.
     + No reading
   </div>
   
-  <div class="col-md-3">
+  <div class="col-md-3 past">
 #### Fri, Nov 12
 + Homework due today:
     + [**HW #7 due thurs at 11:55p**](homework.html)
