@@ -355,11 +355,9 @@ Please read the specified sections *before* class that day.
   <div class="col-md-3">
 #### Tue, Nov 16
 + MP2 project work time
-+ Multiple tests
-+ Inference Test for S Condition
 + Homework due today:
     + Read Ch **Stat2** 8.1 - 8.2
-    + [Fisher's history of racism](https://en.wikipedia.org/wiki/Ronald_Fisher#Eugenics)
+
   </div>
   
   <div class="col-md-3">
@@ -369,9 +367,12 @@ Please read the specified sections *before* class that day.
   
   <div class="col-md-3">
 #### Thurs, Nov 18
++ Multiple tests
++ Inference Test for S Condition
 + Repeated measures designs
 + Homework due today:
     + Read Ch **Stat2** 8.6
+    + [Fisher's history of racism](https://en.wikipedia.org/wiki/Ronald_Fisher#Eugenics)    
   </div>
   
   <div class="col-md-3">
@@ -391,6 +392,7 @@ Please read the specified sections *before* class that day.
 + Nonparametric tests
 + Homework due today:
     + Read Ch **Stat2** 8.4
+    + **MP2 Pre-approval due tonight 11:55p**
   </div>
   
   <div class="col-md-3">

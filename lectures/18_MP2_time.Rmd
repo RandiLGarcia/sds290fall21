@@ -1,0 +1,104 @@
+---
+title: "MP2 Work Time"
+author: "SDS 290"
+date: "November 16, 2021"
+output: 
+  ioslides_presentation:
+    widescreen: true
+    smaller: true
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+library(Stat2Data)
+```
+
+
+## Announcements
+
+- MP1 grades are ALL posted
+- HW 8 posted and due Friday Nov 19 11:55p
+- **MP2 Pre-approval due TUESDAY Nov 23 at 11:55p**
+- In-person Office hours (Bass 412)
+    - Wed (tomorrow) 10:50-12:05p 
+- Zoom Office hours
+    - Friday 1:30-3:30p
+    - Slots open on Thurs morning
+- Where to get HW help
+    - [Spinelli center](https://www.smith.edu/qlc/tutoring.html) tutoring Sun-Thurs 7-9p, Sabin-Reed 301.
+    - Post questions to #homework8-questions channel on Slack!
+    - Direct message me on Slack.
+- SDS Graduate School Panel**Nov 22 7-8p via Zoom** 
+    - See Moodle for more details. 
+    
+## SDS Biostatistics Job Candidate - Wednesday
+
+**Jacob Fiksel tomorrow!!!!**
+
+1. Tea with candidates 4:00-4:45 p.m. (all set for students, thank you!)
+2. Research talk with grab-and-go lunch (**12:25-1:15 p.m., Ford 240**)
+    - "Generalized Bayes Quantification Learning with Applications to Mortality Surveillance”
+3. Teaching demonstration (**5:00-6:00 p.m., Sabin-Reed 301**)
+    - "Introduction to logistic regression"
+4. Give feedback at bit.ly/SDSbiostats    
+    
+## Agenda
+
+1. Fitting the Two-Way Factorial ANOVA model
+    - Confidence intervals and effect sizes 
+2. MP2 work time
+  
+## ANOVA Source Table for Two-Way Factorial
+
+$${y}_{ijk}={\mu}+{\alpha}_{i}+{\beta}_{j}+{\alpha\beta}_{ij}+{e}_{ijk}$$
+
+| Source | SS | df | MS | F |
+|------:|:-----:|:-----:|:------:|:------:|
+| Treatment A | $\sum_{i=1}^{a}bn(\bar{y}_{i..}-\bar{y}_{…})^{2}$ | $a-1$ | $\frac{{SS}_{A}}{{df}_{A}}$ | $\frac{{MS}_{A}}{{MS}_{E}}$ |
+| Treatment B | $\sum_{j=1}^{b}an(\bar{y}_{.j.}-\bar{y}_{…})^{2}$ | $b-1$ | $\frac{{SS}_{B}}{{df}_{B}}$ | $\frac{{MS}_{B}}{{MS}_{E}}$ |
+| Interaction AB | $n\sum_{i=1}^{a}\sum_{j=1}^{b}(\bar{y}_{ij.}-\bar{y}_{i..}-\bar{y}_{.j.}+\bar{y}_{…})^{2}$ | $(a-1)(b-1)$ | $\frac{{SS}_{AB}}{{df}_{AB}}$ | $\frac{{MS}_{AB}}{{MS}_{E}}$ |
+| Error | $\sum_{i=1}^{a}\sum_{j=1}^{b}\sum_{k=1}^{n}({y}_{ijk}-\bar{y}_{ij.})^{2}$ | $ab(n-1)$ | $\frac{{SS}_{E}}{{df}_{E}}$ | |  
+   
+
+## Confidence intervals and effect sizes
+
+- If the **interaction is significant** 
+    - Calculate CIs and effect sizes for sets of *conditional averages* (also called "simple effects")
+    - For example, for the 0mg antibiotics condition, what's the effect size for B12
+- If the **interaction is NOT significant**
+    - Calculate CIs and effect sizes for sets of *marginal averages* (also called "main effects")
+    - For example, what is the effect size for B12 overall? 
+
+## Conditional Averages and Marginal Averages
+
+![](09_bf2_design-figure/marginalmeans.png)
+
+- The numbers in blue are *Marginal Averages*
+- The numbers in green are *Conditional Averages*
+
+## Confidence Intervals and Effect Sizes
+
+### Confidence Intervals 
+
+$$(\bar{y_i}-\bar{y_j}) \pm t^*\cdot SD \sqrt{1/n_i+1/n_j}$$
+
+### Effect size
+
+$$D_{ij} = \frac{(\bar{y_i}-\bar{y_j})}{SD}$$
+
+- Where $SD = \sqrt{MSE}$
+
+## Two-Way Factorial in R
+
+[See Two-Way Factorial code](https://randilgarcia.github.io/sds290fall21/lectures/09_two-way_fac_inR.Rmd)
+
+## MP2 Work Time!!
+
+- [MP2 groups](https://docs.google.com/spreadsheets/d/1m5vEHBL0QUkYxiDhbLxQQd0RzIHBFlq9Sg16akAquXk/edit?usp=sharing)
+- Time to discuss your MP2 projects. Goals for today
+    - Decide on a topic
+    - Discuss your design and run it by me
+    - Discuss your stimuli
+    - Divide up your work (finding/creating stimuli, creating Qualtrics survey, writing consent form, preparing R code, ect.)
+

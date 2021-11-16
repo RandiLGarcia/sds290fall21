@@ -63,29 +63,9 @@ navbar:
     - text: 16 - Fitting Two-Way Factorial Designs
       href: lectures/16_fit_factorial.html  
     - text: 17 - Chapter 7 Catch-up
-      href: lectures/17_catch-up_factorial.html         
-#    - text: 14 - Latin Square Design
-#      href: lectures/12b_latinsquare_design.html  
-#    - text: 15 - SP/RM[1,1] Design I
-#      href: lectures/13_spitplot_design.html 
-#    - text: 16 - SP/RM[1,1] Design II      
-#      href: lectures/14_spitplot_design_cont.html  
-#    - text: 17 - Scatterplots for Within-Block Factors I
-#      href: lectures/14b_spitplot_design_cont.html      
-#    - text: 18 - Scatterplots for Within-Block Factors II
-#      href: lectures/14c_spitplot_design_cont.html   
-#    - text: 19 - Design Practice
-#      href: lectures/14d_design_practice.html        
-#    - text: 20 - Extending the Basic Designs I
-#      href: lectures/15_extensions.html   
-#    - text: 21 - Extending the Basic Designs II
-#      href: lectures/16_extensions_cont.html    
-#    - text: 22 - Multiple Comparisons
-#      href: lectures/17_multiple_comparisons.html         
-#    - text: 18 - Fisher Assumptions
-#      href: lectures/18_fisher_assumptions.html 
-#    - text: 19 - Exam 2 Review   
-#      href: lectures/18_exam2_review.html      
+      href: lectures/17_catch-up_factorial.html
+    - text: 18 - Mini Project 2 Work Time
+      href: lectures/18_MP2_time.html          
   - text: Code
     menu:
     - text: 01 - Animal Data
