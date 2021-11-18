@@ -65,7 +65,9 @@ navbar:
     - text: 17 - Chapter 7 Catch-up
       href: lectures/17_catch-up_factorial.html
     - text: 18 - Mini Project 2 Work Time
-      href: lectures/18_MP2_time.html          
+      href: lectures/18_MP2_time.html  
+    - text: 19 - Repeated Measures
+      href: lectures/19_repeated_measures.html           
   - text: Code
     menu:
     - text: 01 - Animal Data
@@ -78,8 +80,8 @@ navbar:
       href: lectures/SandwichAnts_analysis.rmd
     - text: 04 - Two-Way Factorial Design
       href: lectures/09_two-way_fac_inR.Rmd    
-#    - text: 05 - CB[1], Latin Square, SP/RM[1,1] Design in R
-#      href: lectures/13_spitplot_design_inR.Rmd       
+    - text: 05 - Complete Block, Spilt-Plot Design in R
+      href: lectures/13_spitplot_design_inR.Rmd       
 #    - text: 06 - Extensions in R
 #      href: lectures/15_extensions_inR.Rmd    
 #    - text: 07 - Multiple Comparisons

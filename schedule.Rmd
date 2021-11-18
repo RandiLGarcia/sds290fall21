@@ -352,7 +352,7 @@ Please read the specified sections *before* class that day.
 ***
 
 <div class="row">
-  <div class="col-md-3">
+  <div class="col-md-3 past">
 #### Tue, Nov 16
 + MP2 project work time
 + Homework due today:
@@ -360,7 +360,7 @@ Please read the specified sections *before* class that day.
 
   </div>
   
-  <div class="col-md-3">
+  <div class="col-md-3 past">
 #### Wed, Nov 17
 + Office hours: 10:50-12:05p
   </div>
