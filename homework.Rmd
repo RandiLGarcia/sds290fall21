@@ -26,6 +26,9 @@ title: 'Homework'
     
 #. Due Friday, November 19th:
     + HW #8: 7.20, 7.21, 7.22, 7.34, 7.38
+    
+#. Due Friday, December 3rd:
+    + HW #9: 8.1, 8.3, 8.6, 8.12, 8.14
 
 ![](https://c.tenor.com/xATuBt2dRhwAAAAM/kitten-cat.gif)
 

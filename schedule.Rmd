@@ -365,7 +365,7 @@ Please read the specified sections *before* class that day.
 + Office hours: 10:50-12:05p
   </div>
   
-  <div class="col-md-3">
+  <div class="col-md-3 past">
 #### Thurs, Nov 18
 + Multiple tests
 + Inference Test for S Condition
@@ -375,7 +375,7 @@ Please read the specified sections *before* class that day.
     + [Fisher's history of racism](https://en.wikipedia.org/wiki/Ronald_Fisher#Eugenics)    
   </div>
   
-  <div class="col-md-3">
+  <div class="col-md-3 past">
 #### Fri, Nov 19
 + Homework due today:
     + [**HW #8 due today at 9:20a**](homework.html)
@@ -386,10 +386,10 @@ Please read the specified sections *before* class that day.
 ***
 
 <div class="row">
-  <div class="col-md-3">
+  <div class="col-md-3 past">
 #### Tue, Nov 23
 + MP2 project work time
-+ Nonparametric tests
++ Repeated measures designs
 + Homework due today:
     + Read Ch **Stat2** 8.4
     + **MP2 Pre-approval due tonight 11:55p**
@@ -417,7 +417,7 @@ Please read the specified sections *before* class that day.
   <div class="col-md-3">
 #### Tue, Nov 30
 + MP2 Data Collection
-+ Repeated measures designs
++ Repeated measures designs (cont.)
 + Homework due today:
     + Read Ch **Stat2** 8.6
   </div>

@@ -67,7 +67,9 @@ navbar:
     - text: 18 - Mini Project 2 Work Time
       href: lectures/18_MP2_time.html  
     - text: 19 - Repeated Measures
-      href: lectures/19_repeated_measures.html           
+      href: lectures/19_repeated_measures.html  
+    - text: 20 - Repeated Measures (cont.)
+#      href: lectures/20_repeated_measures_II.html          
   - text: Code
     menu:
     - text: 01 - Animal Data
@@ -108,8 +110,8 @@ navbar:
       href: homework.html  
     - text: 'HW8: 7.20, 7.21, 7.22, 7.34, 7.38'
       href: homework.html      
-#    - text: 'HW9: Using software-last homework'      
-#      href:           
+    - text: 'HW9: 8.1, 8.3, 8.6, 8.12, 8.14'      
+      href: homework.html          
   - text: Projects
     menu:
 #    - text: Project
