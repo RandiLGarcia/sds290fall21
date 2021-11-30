@@ -69,7 +69,7 @@ navbar:
     - text: 19 - Repeated Measures
       href: lectures/19_repeated_measures.html  
     - text: 20 - Repeated Measures (cont.)
-#      href: lectures/20_repeated_measures_II.html          
+      href: lectures/20_repeated_measures_II.html          
   - text: Code
     menu:
     - text: 01 - Animal Data
