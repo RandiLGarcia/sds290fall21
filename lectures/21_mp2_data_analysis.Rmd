@@ -1,0 +1,64 @@
+---
+title: "Repeated Measures (cont.)"
+author: "SDS 290"
+date: "November 30, 2021"
+output: 
+  ioslides_presentation:
+    widescreen: true
+    smaller: true
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, message = FALSE, warning = FALSE)
+library(tidyverse)
+library(Stat2Data)
+```
+
+
+## Announcements
+
+- HW 9 due tomorrow Dec 3 11:55p
+- Zoom Office hours
+    - One spot left!
+- Where to get HW help
+    - [Spinelli center](https://www.smith.edu/qlc/tutoring.html) tutoring Sun-Thurs 7-9p, Sabin-Reed 301.
+    - Post questions to #homework9-questions channel on Slack!
+    - Direct message me on Slack.
+- Job candidates!!
+
+## SDS Job Candidates for Mass Mutual position
+
+Sign-up for tea [here](https://docs.google.com/spreadsheets/d/1QWUtWID0t69ErMTWLlTdFB0X7i9bIlcHGxqQNt_0rzA/edit#gid=0)
+
+Thu 12/2: **Karin Knudson** (she/her/hers), Tufts University
+
+- Research talk: “Assessing neurodegenerative diseases and estimating racially polarized voting with models and tools that are flexible, interpretable, and usable”, 12:25-1:20pm in McConnell Hall 103
+- Tea with students: sign-up here, 3:00pm - 3:55pm, McConnell 209
+- Teaching demo: Joining two data tables, 5:00-6:00pm, Sabin-Reed 301
+
+## SDS Job Candidates for Mass Mutual position
+
+Sign-up for tea [here](https://docs.google.com/spreadsheets/d/1QWUtWID0t69ErMTWLlTdFB0X7i9bIlcHGxqQNt_0rzA/edit#gid=0)
+
+Tue 12/7: **Sarah Shugars** (they/them), NYU Center for Data Science and GWU School of Media & Public Affairs
+
+- Research talk: “Why Keep Arguing? Engagement Dynamics in Online Political Conversations”, 12:25-1:20pm in Ford Hall 240
+- Tea with students: sign-up here, 3:00pm - 3:55pm, McConnell 209
+- Teaching demo: Computing summary statistics on a single data table, 5:00-6:00p in Sabin-Reed 301
+    
+## Agenda
+
+1. MP2 data analysis and work time
+  
+## MP2 data analysis and work time
+
+- Data Analysis
+    - [Two-Way Factorial Analysis in R](https://randilgarcia.github.io/sds290fall21/lectures/09_two-way_fac_inR.Rmd)
+    - [Split-Plot Analysis in R](https://randilgarcia.github.io/sds290fall21/lectures/13_spitplot_design_inR.Rmd)
+- Recorded Oral Presentations
+    - **No written report is required for MP2**, only the recorded oral presentation
+    - Start working on your slides now!
+    - Record your group presenting your project (Zoom is best)
+    - Find more details [here](https://randilgarcia.github.io/sds290fall21/mini-project-2.html)
+
+

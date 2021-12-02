@@ -395,17 +395,17 @@ Please read the specified sections *before* class that day.
     + **MP2 Pre-approval due tonight 11:55p**
   </div>
   
-  <div class="col-md-3">
+  <div class="col-md-3 past">
 #### Wed, Nov 24
 + **Thanksgiving break**
   </div>
   
-  <div class="col-md-3">
+  <div class="col-md-3 past">
 #### Thurs, Nov 25
 + **Thanksgiving break**
   </div>
   
-  <div class="col-md-3">
+  <div class="col-md-3 past">
 #### Fri, Nov 26
 + **Thanksgiving break**
   </div>
@@ -414,7 +414,7 @@ Please read the specified sections *before* class that day.
 ***
 
 <div class="row">
-  <div class="col-md-3">
+  <div class="col-md-3 past">
 #### Tue, Nov 30
 + MP2 Data Collection
 + Repeated measures designs (cont.)
@@ -422,7 +422,7 @@ Please read the specified sections *before* class that day.
     + Read Ch **Stat2** 8.6
   </div>
   
-  <div class="col-md-3">
+  <div class="col-md-3 past">
 #### Wed, Dec 1
 + Office hours: 10:50-12:05p
   </div>
