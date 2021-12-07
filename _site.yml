@@ -71,7 +71,9 @@ navbar:
     - text: 20 - Repeated Measures (cont.)
       href: lectures/20_repeated_measures_II.html  
     - text: 21 - MP2 Data Analysis
-      href: lectures/21_mp2_data_analysis.html       
+      href: lectures/21_mp2_data_analysis.html
+    - text: 22 - Exam 2 Review
+      href: lectures/22_exam2_review.html       
   - text: Code
     menu:
     - text: 01 - Animal Data
@@ -82,9 +84,9 @@ navbar:
       href: lectures/05_formal_anova.Rmd
     - text: 04 - SandwichAnts Analysis
       href: lectures/SandwichAnts_analysis.rmd
-    - text: 04 - Two-Way Factorial Design
+    - text: 05 - Two-Way Factorial Design
       href: lectures/09_two-way_fac_inR.Rmd    
-    - text: 05 - Complete Block, Spilt-Plot Design in R
+    - text: 06 - Complete Block, Spilt-Plot Design in R
       href: lectures/13_spitplot_design_inR.Rmd       
 #    - text: 06 - Extensions in R
 #      href: lectures/15_extensions_inR.Rmd    

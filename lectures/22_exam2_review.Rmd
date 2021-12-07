@@ -1,0 +1,438 @@
+---
+title: "Exam 2 Review"
+author: "SDS 290"
+date: "December 7, 2021"
+output: 
+  ioslides_presentation:
+    widescreen: true
+    smaller: true
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, message = FALSE, warning = FALSE)
+library(tidyverse)
+library(Stat2Data)
+```
+
+
+## Announcements
+
+- Exam 2 released on Thursday (ON MOODLE)
+    - Due Friday night 11:55p (ON MOODLE)
+    - I'll be available in the class zoom link during class time on Thurs
+- In-person Office hours (Bass 412)
+    - Wed (tomorrow) 10:50-12:05p 
+- Zoom Office hours 1:30p - 3:00p
+    - Slots open on Thurs morning
+
+## Agenda
+
+1. Course Feedback Questionnaire time
+2. Exam 2 review
+
+## Course feedback questionnaire
+
+- About 10 to 15 minutes to complete
+    
+## Exam 2
+
+- Open-book, open-notes, open-slides, open-internet
+    - Careful with use of the internet!
+- No talking with each other about the exam
+- I can answer only clarifying questions
+- There are 4 (multi-part) short answer questions and 1 (multi-part) data analysis question
+- Exam will be **given electronically via Moodle**
+    - Check Moodle at 10:50a on Thursday under Exams
+    - I'll be available on the [class Zoom link](https://moodle.smith.edu/mod/url/view.php?id=792904) during class time
+- **Submit your exam electronically on Moodle** by 11:55pm on Friday Dec 11.
+    - Needs to be in PDF format.
+    - You can submit two PDF's, but I'd prefer one. 
+    
+### No in-person class on Thursday    
+  
+## Exam 2 Review
+
+## Design Names
+
+**One-Way Design**
+
+- If the factor is a true experimental factor
+    - One-Way **Randomized** Design or 
+
+## Design Names
+
+**Block design** or **Two-Way Additive Model**
+
+- There is one factor of interest and one nuisance factor (the blocking factor).
+- If the factor of interest is experimental
+    - **Randomized** Block Design
+- If every block gets every treatment
+    - **Complete** Block Design    
+
+## Design Names
+
+**Two-Way Factorial Design**
+
+- If the factors of interest are experimental
+    - **Randomized** Two-Way Factorial
+- There is no blocking in this design    
+
+## Design Names
+
+**Split-Plot Design**
+
+- There is blocking in this design.
+  - There is (at least) one between-blocks factor
+  - There is (at least) one within-blocks factor
+
+## Design Principal: Blocking
+
+- Blocking is using a factor that is not of research interest
+    - But there may be differences across blocks on the response variable
+- A "block" is a level of a blocking factor
+- We use blocking to improve precision/statistical power of our factor of interest
+
+## Three Ways to Block
+
+1. Sort units into similar groups
+2. Subdivide larger chunks of material into sets of smaller pieces
+3. Reuse subjects or material in each of several times slots
+
+## Complete Block Design
+
+- Experimental material are separated into groups (or reused) to create similar units 
+- Then each unit within a block is then is assigned one level of the factor of interest
+- "Complete Block" means that every block x treatment combination is tested
+
+## More Design Terminology
+
+- The two factors *Trees* and *Treatment* are **crossed**. This means that we collect data on all combinations of *Trees* and *Treatment*. A **cell** is a particular combination.
+- **Main effect** refers to the effect for a single factor. For a block design there are two sets of main effects, for blocks and for treatments (e.g., *Trees* and *Treatment*). 
+- The two sets of main effects are called **additive** if each treatment adds or subtracts the same amount to the response variable for all blocks. 
+- A **factor of interest** is *Treatment*, which is directly related to the goal of the study. A **nuisance factor** is *Trees* which is included as a factor only because it is a source of variation and its inclusion will reduce the sum of squares for error (residuals).
+
+## Inappropriate Insects
+
+```{r, echo=FALSE}
+library(tidyr)
+library(dplyr)
+library(knitr)
+
+tree <- c(rep("tree1",3), rep("tree2",3), rep("tree3", 3),rep("tree4", 3), rep("tree5", 3))
+treatment <- rep(c("water", "spores", "oil"), 5)
+bugs_change <- c(-9, -4, 4, 18, 29, 29, 10, 4, 14, 9, -2, 14, -6, 11, 7)
+
+mealybugs <- data.frame(tree, treatment, bugs_change)
+
+mealybugs %>%
+  spread(tree, bugs_change) %>%
+  kable()
+```
+
+Draw the factor diagram.
+
+## Formal ANOVA for Complete Block Design
+
+$${y}_{ijk}={\mu}+{\tau}_{i}+{\beta}_{j}+{e}_{ijk}$$
+
+| Source | SS | df | MS | F |
+|------:|:-----:|:-----:|:------:|:------:|
+| Treatment | $\sum_{i=1}^{a}b(\bar{y}_{i.}-\bar{y}_{..})^{2}$ | $a-1$ | $\frac{{SS}_{T}}{{df}_{T}}$ | $\frac{{MS}_{T}}{{MS}_{E}}$ |
+| Blocks | $\sum_{j=1}^{b}a(\bar{y}_{.j}-\bar{y}_{..})^{2}$ | $b-1$ | $\frac{{SS}_{B}}{{df}_{B}}$ | $\frac{{MS}_{B}}{{MS}_{E}}$ |
+| Error | $\sum_{i=1}^{a}\sum_{j=1}^{b}({y}_{ij}-\bar{y}_{i.}-\bar{y}_{.j}+\bar{y}_{..})^{2}$ | $(a-1)(b-1)$ | $\frac{{SS}_{E}}{{df}_{E}}$ | |
+
+## Formal ANOVA
+
+```{r}
+mod <- lm(bugs_change ~ treatment + tree, data = mealybugs)
+
+anova(mod)
+```
+
+There are no statistically significant differences in the reduction in mealy bugs between the three treatment conditions, $F(2, 8) = 3.00$, $p = .107$. There are significant differences in the reduction in mealy bugs across trees, however, $F(4, 8) = 9.04$, $p = .005$. That is, some trees improved more than other trees. 
+
+## How to check assumptions
+
+- C. **Constant effects** -- *think* about whether it is reasonable.
+
+- A. **Additive effects** -- check Anscombe block plots.
+
+- S. **Same standard deviations** -- is the biggest SD less than two times as large as the smallest? check residual versus fitted plot: *does the plot thicken*?
+
+- I. **Independent residuals** -- *think* about whether it is reasonable.
+
+- N. **Normally distributed residuals** -- construct a histogram or normal probability plot of residuals.
+
+- Z. **Zero mean residuals** -- construct a histogram or normal probability plot of residuals.
+
+## Anscombe Block Plots
+
+- Scatterplots of two levels of the factor of interest.
+- Used for 
+    - exploring the data, and 
+    - assessing the **additivity (A)** condition. 
+
+## Informal Analysis Structure
+
+```{r}
+mealybugs_wide <- mealybugs %>%
+  pivot_wider(names_from = treatment, values_from = bugs_change)
+
+mealybugs_wide
+```
+
+## Scatterplots
+
+```{r}
+qplot(x = spores, y = oil, data = mealybugs_wide) +
+  geom_abline(intercept = 13.6-7.6, slope = 1, color = "blue", linetype = 2) + 
+  geom_smooth(method = "lm", se = 0, color = "orange")
+```
+
+## Scatterplots
+
+```{r}
+qplot(x = spores, y = water, data = mealybugs_wide) +
+  geom_abline(intercept = 4.4 - 13.6, slope = 1, color = "blue", linetype = 2) + 
+  geom_smooth(method = "lm", se = 0, color = "orange")
+```
+
+## Scatterplots
+
+```{r}
+qplot(x = oil, y = water, data = mealybugs_wide) +
+  geom_abline(intercept = 4.4 - 13.6, slope = 1, color = "blue", linetype = 2) + 
+  geom_smooth(method = "lm", se = 0, color = "orange")
+```
+
+
+## Two-Way Factorial Design Factor Diagram
+
+![](09_bf2_design-figure/piglets.png)
+
+- Draw the factor diagram
+
+## Research Questions in a Two-Way Factorial Design
+
+1. Does treatment A have an effect on the response variable?
+    - Is there a main effect of factor A?
+2. Does treatment B have an effect on the response variable?
+    - Is there a main effect of factor B?
+3. Does being in a specific combination of treatments have an effect over and above the additive effects of treatment A and B alone?
+    - Is there an interaction between factor A and factor B?
+
+## ANOVA Source Table for Two-Way Factorial
+
+$${y}_{ijk}={\mu}+{\alpha}_{i}+{\beta}_{j}+{\alpha\beta}_{ij}+{e}_{ijk}$$
+
+| Source | SS | df | MS | F |
+|------:|:-----:|:-----:|:------:|:------:|
+| Treatment A | $\sum_{i=1}^{a}bn(\bar{y}_{i..}-\bar{y}_{…})^{2}$ | $a-1$ | $\frac{{SS}_{A}}{{df}_{A}}$ | $\frac{{MS}_{A}}{{MS}_{E}}$ |
+| Treatment B | $\sum_{j=1}^{b}an(\bar{y}_{.j.}-\bar{y}_{…})^{2}$ | $b-1$ | $\frac{{SS}_{B}}{{df}_{B}}$ | $\frac{{MS}_{B}}{{MS}_{E}}$ |
+| Interaction AB | $n\sum_{i=1}^{a}\sum_{j=1}^{b}(\bar{y}_{ij.}-\bar{y}_{i..}-\bar{y}_{.j.}+\bar{y}_{…})^{2}$ | $(a-1)(b-1)$ | $\frac{{SS}_{AB}}{{df}_{AB}}$ | $\frac{{MS}_{AB}}{{MS}_{E}}$ |
+| Error | $\sum_{i=1}^{a}\sum_{j=1}^{b}\sum_{k=1}^{n}({y}_{ijk}-\bar{y}_{ij.})^{2}$ | $ab(n-1)$ | $\frac{{SS}_{E}}{{df}_{E}}$ | |
+
+## Interaction Graphs
+
+For each of the following interaction graphs, answer the following questions with **YES** or **NO**.
+
+1. Is there a main effect of B12?
+2. Is there a main effect of antibiotics?
+3. Is there an interaction between B12 and antibiotics?
+
+## Practice 1
+
+```{r, echo = FALSE, warning=FALSE, message=FALSE}
+library(dplyr)
+library(ggplot2)
+piglets <- data.frame(gain = c(4, 4, 4, 
+                               5, 5, 5,
+                               6, 6, 6,
+                               7, 7, 7), 
+                      group = as.factor(c(rep(1, 3), rep(2, 3), rep(3, 3), rep(4, 3))), 
+                      antibiotic = c(rep("0mg", 3), rep("40mg", 3), rep("0mg", 3), rep("40mg", 3)),
+                      B12 = c(rep("0mg", 6), rep("5mg", 6)))
+
+ggplot(piglets, aes(x = B12, y = gain, 
+                    group = antibiotic, 
+                    linetype = antibiotic, 
+                    shape = antibiotic,
+                    color = antibiotic)) +
+  geom_point() +
+  geom_smooth(method = "lm", se = 0) +
+  ylim(2, 9)
+```
+
+
+## Confidence intervals and effect sizes
+
+- If the **interaction is significant** 
+    - Calculate CIs and effect sizes for sets of *conditional averages* (also called "simple effects")
+    - For example, for the 0mg antibiotics condition, what's the effect size for B12
+- If the **interaction is NOT significant**
+    - Calculate CIs and effect sizes for sets of *marginal averages* (also called "main effects")
+    - For example, what is the effect size for B12 overall? 
+
+## Conditional Averages and Marginal Averages
+
+![](09_bf2_design-figure/marginalmeans.png)
+
+- The numbers in blue are *Marginal Averages*
+- The numbers in green are *Conditional Averages*
+
+## Confidence Intervals and Effect Sizes
+
+### Confidence Intervals 
+
+$$(\bar{y_i}-\bar{y_j}) \pm t^*\cdot SD \sqrt{1/n_i+1/n_j}$$
+
+### Effect size
+
+$$D_{ij} = \frac{(\bar{y_i}-\bar{y_j})}{SD}$$
+
+- Where $SD = \sqrt{MSE}$
+
+## Example: Walking Babies
+
+```{r}
+data("WalkingBabies")
+```
+
+```{r}
+ds <- WalkingBabies %>%
+  group_by(Group) %>%
+  summarize(n = n(),
+            mean = mean(Age),
+            sd = sd(Age))
+
+ds
+```
+
+## Example: Walking Babies
+
+```{r}
+ds %>%
+  summarize(max(sd)/min(sd))
+```
+
+So we fail to meet the condition of equal variances? (The S condition)
+
+## Levene's Test
+
+The **biggest SD not more than 2 times as large as the smallest SD** is only a rule of thumb. 
+
+Levene's test is an ANOVA to test the null hypothesis:
+
+$$H_0 = \sigma^2_1=\sigma^2_2=\sigma^2_3=\sigma^2_4$$
+$$H_A= not\:all\:variances\:are\:equal$$
+
+## Levene's Test in R
+
+```{r}
+library(car)
+
+leveneTest(Age ~ Group, data = WalkingBabies)
+```
+
+Using Levene's Test for homogeneity of variance, we fail to reject the null hypothesis, that is we fail to find evidence that the S condition is not met, $F(3, 20)=0.31$, $p = .819$. We can proceed as if this condition is met.  
+
+## Levene's Test for Factorial Data
+
+Let's try it for the `PigFeed` data.
+
+```{r}
+data("PigFeed")
+leveneTest(WgtGain ~ Antibiotic*B12, data = PigFeed)
+```
+
+Using Levene's Test for homogeneity of variance, we fail to reject the null hypothesis, that is we fail to find evidence that the S condition is not met, $F(3, 8)=1.81$, $p = .224$. We can proceed as if this condition is met. 
+
+## Multiple Tests
+
+```{r}
+data("Leafhoppers")
+mod <- lm(Days ~ Diet, data = Leafhoppers)
+anova(mod)
+```
+
+## Fisher's LSD 
+
+```{r}
+library(agricolae)
+LSD.test(mod, "Diet", p.adj = "none")$groups
+```
+
+## Bonferroni Correction
+
+```{r}
+library(agricolae)
+LSD.test(mod, "Diet", p.adj = "bonferroni")$groups
+```
+
+## Tukey's HSD
+
+```{r}
+mod <- aov(Days ~ Diet, data = Leafhoppers)
+TukeyHSD(mod, "Diet")
+```
+
+## Split-Plot Design
+
+If you suspect a design in a split-plot design, you should be able to answer the following questions:
+
+1. What are the whole plots, that is, what is the nuisance factor?
+2. What is the between-blocks factor? Is it observational or experimental?
+3. What is the within-blocks factor? Is it observational or experimental? 
+
+## Formal ANOVA for the Split-Plot Design
+
+$${y}_{ijk}={\mu}+{\alpha}_{i}+{\beta}_{j(i)}+{\gamma}_{k}+({\alpha\gamma})_{ik}+{e}_{ijk}$$
+
+- ${\mu}$ is the benchmark
+- ${\alpha}_{i}$ effect of level i of the between-blocks factor, $i$ from $1$ to $a$
+- ${\beta}_{j(i)}$ effect of block $j$ (for level $i$ of the between block factor), $j$ from $1$ to $n$
+- ${\gamma}_{k}$ effect of level $k$ of the within-block factor, $k$ from $1$ to $t$
+- $({\alpha\gamma})_{ik}$ interaction effect for level $i$ of the between-blocks factor with level $k$ of the within-blocks factor
+
+## ANOVA Source Table for the Split-Plot Design
+
+| Source | SS | df | MS | F |
+|------:|:-----:|:-----:|:------:|:------:|
+| Between | $t\frac{N}{a}\sum_{i=1}^{a}(\bar{y}_{i..}-\bar{y}_{...})^{2}$ | $a-1$ | $\frac{{SS}_{A}}{{df}_{A}}$ | $\frac{{MS}_{A}}{{MS}_{B}}$ |
+| Blocks | $t\sum_{i=1}^{a}\sum_{j=1}^{n}(\bar{y}_{ij.}-\bar{y}_{i..})^{2}$ | $N-a$ | $\frac{{SS}_{B}}{{df}_{B}}$ | $\frac{{MS}_{B}}{{MS}_{E}}$ |
+| Within | $Na\sum_{k=1}^{K}(\bar{y}_{..k}-\bar{y}_{...})^{2}$ | $t-1$ | $\frac{{SS}_{T}}{{df}_{T}}$ | $\frac{{MS}_{T}}{{MS}_{E}}$ |
+| Interaction | $\sum_{i=1}^{a}\sum_{k=1}^{t}\frac{N}{a}(\bar{y}_{i.k}-\bar{y}_{i..}-\bar{y}_{..k}+\bar{y}_{...})^{2}$ | $(a-1)(t-1)$ | $\frac{{SS}_{AT}}{{df}_{AT}}$ | $\frac{{MS}_{AT}}{{MS}_{E}}$ |
+| Error | $\sum_{i=1}^{a}\sum_{j=1}^{N}\sum_{k=1}^{t}({y}_{ijk}-\bar{y}_{i.k}-\bar{y}_{.j.}-\bar{y}_{..k}+\bar{y}_{i..})^{2}$ | $(N-a)(t-1)$ | $\frac{{SS}_{E}}{{df}_{E}}$ | |
+
+## Piglets
+
+It seems natural to think that adding the right vitamins to a pig's diet might produce fatter pigs faster. You've decided to study the effects of B12 in two doses (0mg and 5mg).  But pigs have bacteria living in their intestines that might prevent the uptake of vitamins, so you decided to give antibiotics to the pigs in one of two doses (0mg or 40 mg). You design your experiment in such a way that 3 piglets are randomly assigned to each of the 4 treatment conditions. You measure their weight every day, and take each pig's average daily weight gain as your final number recorded. 
+
+## Albino laboratory rats
+
+Male albino laboratory rats are used routinely in many kinds of experiments. This experiment was designed to determine the requirements for protein in their food. Specifically, the experiment is interested in testing five levels of protein (8.68, 12, 15, 18, and 21% of diet). Baby rats were separated into ten groups of 5 to form groups of approximately the same weight. The 5 rats in each group were randomly assigned to each of the 5 conditions. Body weight and food consumption were measured twice weekly, and the average daily weight gain over 21 days was recorded.
+
+## Blood concentration
+
+This experiment is interested in the blood concentration of a drug after it has been administered. The concentration will start at zero, then go up, and back down as it is metabolized. This curve may differ depending on the form of the drug (a solution, a tablet, or a capsule). We will use three subjects, and each subject will be given the drug three times, once for each method. The area under the time-concentration curve is recorded for each subject after each method of drug delivery.   
+
+## Paper Helicopters
+
+[Paper helicopters](https://williamghunter.net/images/teaching-engineers-experimental-design-with-a-paper-helicopter/teaching-engineers-experimental-design-with-a-paper-helicopter-image1.png) can be cut from one half of an 8.5 by 11 sheet of paper. We can conduct an experiment by dropping helicopters from a fixed height and clocking the time it takes to drop. We can vary wing length: 4.25 in, 4.0 in, 3.75 in, and 3.5 in, as well as body width: 3.25 in, 3.75 in, 4.0 in, and 4.25 in. We'll make 32 planes and randomly assign them to the 16 combinations. 
+
+## Parks and Recreation
+
+Deputy director of the Pawnee Parks and Rec department, Leslie Knope, needs to know how resistant different vegetative types are to trampling so that the number of visitors can be controlled in sensitive areas. Twenty lanes of a park are established, each .5 m wide and 1.5 m long. These twenty lanes are randomly assigned to five treatments: 0, 25, 75, 200, or 500 walking passes. Each pass consists of a 70-kg individual wearing boots, walking in a natural gait. One year after trampling, the average height of the vegetation along the lanes are measured. 
+
+## Crabgrass
+
+The purpose of this experiment was to study the way one species of crabgrass competed with itself and with another species for nitrogen (N), phosphorus (P), and potassium (K). Bunches of crabgrass were planted in vermiculite, in 16 Styrofoam cups; after the seeds head sprouted, the plants were thinned to 20 plants per cup. Each of the 16 cups were randomly assigned to get one of 8 nutrient combinations added to its vermiculite. For example, yes-nitrogen/no-phosphorus/yes-potassium. The response is mean dry weight per plant, in milligrams.
+
+## Osomoregulation
+
+Worms that live at the mouth of a river must deal with varying concentrations of salt. Osomoregulating worms are able to maintain relatively constant concentration of salt in the body. An experiment wanted to test the effects of mixtures of salt water on two species of worms: Nereis virens (N) and Goldfingia gouldii (G). Eighteen worms of each species were weighted, then randomly assigned in equal numbers to one of three conditions. Six worms of each kind were placed in 100% sea water, 67% sea water, or 33% sea water. The worms were then weighted after 30, 60, and 90 minutes, then placed in 100% sea water and weighted one last time 30 minutes later.  The response was body weight as percentage of initial body weight. 
+
+## Creepy Animals
+
+The effects of exposure to images of different domestic animal species in either aggressive or submissive postures on mood was tested with a split-plot/repeated measures design. Using a computer to randomize, participants were randomly assigned to either view images of dogs or images of cats. All participants saw both an aggressive animal and a submissive animal, and their moods were assessed via self-report after each image. The order of presentation (aggressive then submission, or submissive then aggressive) was randomized to control for order effects.
+

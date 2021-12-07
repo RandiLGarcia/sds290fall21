@@ -427,7 +427,7 @@ Please read the specified sections *before* class that day.
 + Office hours: 10:50-12:05p
   </div>
   
-  <div class="col-md-3">
+  <div class="col-md-3 past">
 #### Thurs, Dec 2
 + MP2 Data Analysis
 + Design Practice
@@ -435,7 +435,7 @@ Please read the specified sections *before* class that day.
     + Read Ch **Stat2** 8.7-6.8
   </div>
   
-  <div class="col-md-3">
+  <div class="col-md-3 past">
 #### Fri, Dec 3
 + Homework due today:
     + [**HW #9 due today at 9:20a**](homework.html)
